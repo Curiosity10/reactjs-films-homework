@@ -6,7 +6,10 @@
     },
     "sourceType": "module"
   },
- "extends": ["airbnb", "plugin:jest/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended"
+  ],
   "env": {
     "es6": true,
     "node": true,
@@ -18,6 +21,14 @@
     "react"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
   }
 }
