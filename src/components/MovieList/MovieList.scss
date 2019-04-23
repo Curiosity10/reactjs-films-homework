@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.gridMovieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  background-size: cover;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 50px;
+}
+
+.tableMovieList {
+  margin: 0 5%;
+}
+
+@media all and (max-width: $desktop-screen-size) {
+  .gridMovieList {
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+}

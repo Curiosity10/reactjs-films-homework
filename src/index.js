@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
+import App from './App';
 
-import Signature from './components/Signature/index';
-
-ReactDOM.render(<Signature name="Dzmitry Aleksandrouski" />, document.getElementById('app'));
-export default hot(module)(Signature);
+ReactDOM.render(<App />, document.getElementById('app'));
+export default hot(App);

@@ -1,0 +1,88 @@
+@import "../../../../../../styles/variables";
+
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  margin-bottom: 35px;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.3);
+
+  & img {
+    height: 320px;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+
+  &_info {
+    text-align: left;
+  }
+
+  &_title {
+    color: #242b2d;
+    font-size: 1.4rem;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 20px;
+
+    & ~ span {
+      font-size: 1rem;
+    }
+  }
+
+  &_overview {
+    margin: 15px 0;
+  }
+
+  &_rating {
+    margin-bottom: 15px;
+
+    & span {
+      margin-left: 15px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media all and (max-width: $tablet-screen-size) {
+  .card {
+    flex-wrap: wrap;
+
+    &_image {
+      margin: 0 auto;
+
+      & img {
+        height: 300px;
+        width: 100%;
+      }
+    }
+
+    &_info {
+      text-align: center;
+    }
+
+    &_title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+
+      & ~ span {
+        font-size: 0.9rem;
+      }
+    }
+
+    &_overview {
+      font-size: 0.9rem;
+    }
+
+    &_rating {
+      display: flex;
+      justify-content: center;
+
+      & span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

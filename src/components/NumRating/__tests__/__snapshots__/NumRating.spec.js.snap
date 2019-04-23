@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumRating component renders correctly NumRating renders correctly 1`] = `
+<span
+  className="numRating"
+  style={
+    Object {
+      "color": "#fff",
+    }
+  }
+>
+  5
+</span>
+`;

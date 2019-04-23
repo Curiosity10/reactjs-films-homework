@@ -1,0 +1,23 @@
+@import "../../../../styles/variables";
+
+.btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  background-color: transparent;
+
+  &__active svg {
+    fill: $blue-color;
+  }
+
+  &:hover svg {
+    fill: $blue-color;
+  }
+}
+
+@media all and (max-width: $tablet-screen-size) {
+  .btn {
+    margin-bottom: 20px;
+  }
+}

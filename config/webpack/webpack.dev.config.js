@@ -9,6 +9,11 @@ const devConfiguration = {
       'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true',
     ],
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
   module: {
     rules: [
       {

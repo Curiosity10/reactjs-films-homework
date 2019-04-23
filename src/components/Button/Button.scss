@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+
+.btn {
+  cursor: pointer;
+  color: white;
+  border-radius: 3px;
+  width: 100px;
+  max-height: 30px;
+  padding: 5px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  outline: none;
+}
+
+.transparentBtn {
+  border: 1px solid white;
+  background-color: transparent;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.blueBtn {
+  border: none;
+  background-color: $blue-color;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

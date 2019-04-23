@@ -4,7 +4,9 @@
 
 > A React project
 
-> Demo https://build-ppw00khvn.now.sh 
+> Part 1 demo: https://build-ppw00khvn.now.sh 
+
+> Part 2 demo: https://build-ghhwraynx.now.sh 
 
 ## Build Setup
 

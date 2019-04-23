@@ -1,0 +1,184 @@
+@import "../../styles/variables.scss";
+
+.hero {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  height: 80vh;
+  position: relative;
+  background: no-repeat center;
+  background-size: cover;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, black, transparent 40%);
+  }
+
+  &_title {
+    font-size: 2rem;
+    font-family: "Helvetica Neue Bold", Arial, Helvetica, sans-serif;
+    margin-bottom: 2%;
+  }
+
+  &_duration {
+    border-left: 2px solid white;
+    padding-left: 3%;
+    font-size: 0.8rem;
+    font-family: "Helvetica Neue Medium", Arial, Helvetica, sans-serif;
+  }
+
+  &_wrapper {
+    margin-bottom: 20px;
+  }
+
+  &_movieInfo {
+    width: 300px;
+    color: white;
+    margin-left: 5%;
+    margin-bottom: 5px;
+    z-index: 1;
+  }
+
+  &_rating {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: flex-end;
+
+    span {
+      margin-left: 3%;
+    }
+  }
+
+  &_movieDescription {
+    position: relative;
+    z-index: 1;
+    margin-right: 1%;
+  }
+
+  &_description {
+    opacity: 1;
+    position: relative;
+    width: 250px;
+    height: 95px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    margin-bottom: 35px;
+    font-size: 0.9rem;
+
+    &::after {
+      content: '';
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 20px solid black;
+      opacity: 0.6;
+      position: absolute;
+      right: 35%;
+      bottom: -20px;
+    }
+  }
+
+  &_hiddenDesc {
+    opacity: 0;
+    width: 250px;
+    height: 95px;
+    padding: 20px;
+    margin-bottom: 35px;
+  }
+
+  &_buttons {
+    display: flex;
+    z-index: 1;
+
+    & :first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media all and (max-width: $tablet-screen-size) {
+  .hero {
+    flex-wrap: wrap;
+
+    &_movieInfo {
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & span:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+
+    &_duration {
+      border: none;
+    }
+
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_description {
+      &::after {
+        display: none;
+      }
+    }
+
+    &_buttons {
+      justify-content: center;
+    }
+  }
+}
+
+@media all and (max-width: $mobile-screen-size) {
+  .hero {
+    justify-content: center;
+    align-items: center;
+
+    &_movieInfo {
+      margin-left: 0;
+      margin-top: 17vh;
+      width: 90vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 3px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 5px 0;
+
+      & span:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+
+    &_description {
+      box-sizing: border-box;
+      width: 90vw;
+      height: auto;
+    }
+
+    &_hiddenDesc {
+      box-sizing: border-box;
+      width: 90vw;
+      height: auto;
+    }
+
+    &_wrapper {
+      display: block;
+      width: 70vw;
+      margin-bottom: 10px;
+    }
+  }
+}

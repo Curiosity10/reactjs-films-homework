@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Genres component renders correctly Genres renders correctly 1`] = `
+Array [
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Action
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Adventure
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Animation
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Comedy
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Crime
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Documentary
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Drama
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Family
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Fantasy
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    History
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Horror
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Music
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Mystery
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Romance
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Science Fiction
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    TV Movie
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Thriller
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    War
+  </span>,
+  <span
+    className="genre"
+    style={
+      Object {
+        "color": undefined,
+        "fontSize": undefined,
+      }
+    }
+  >
+    Western
+  </span>,
+]
+`;

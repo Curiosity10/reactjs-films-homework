@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Star component renders correctly Not selected Star renders correctly 1`] = `
+<div
+  className="star"
+/>
+`;
+
+exports[`Star component renders correctly Selected Star renders correctly 1`] = `
+<div
+  className="star starSelected"
+/>
+`;

@@ -1,0 +1,47 @@
+@import "../../../../styles/variables";
+
+.navItem {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
+
+  & .navItem_btn__active {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 3px solid $blue-color;
+  }
+
+  &_btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: $blue-color;
+    cursor: pointer;
+    padding-bottom: 10px;
+    font-family: "Helvetica Neue Medium", Arial, Helvetica, sans-serif;
+
+    &:hover {
+      color: darken($blue-color, 10%);
+    }
+  }
+
+  &_selectGenre {
+    width: 140px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: $blue-color;
+    padding-bottom: 10px;
+    font-family: "Helvetica Neue Medium", Arial, Helvetica, sans-serif;
+    background: #f5f6f6 url("../../../../assets/images/down-arrow.svg") 125px 3px no-repeat;
+
+    &:hover {
+      color: darken($blue-color, 10%);
+    }
+  }
+}
