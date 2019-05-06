@@ -3,13 +3,13 @@ import styles from './Spinner.scss';
 
 const Spinner = () => (
   <div className={styles.spinner}>
-    <div className={styles.spinner_ellipsis}>
+    <div className={styles.ellipsis}>
       <div />
       <div />
       <div />
       <div />
     </div>
-    <h3 className={styles.spinner_title}>Loading</h3>
+    <p className={styles.title}>Loading</p>
   </div>
 );
 

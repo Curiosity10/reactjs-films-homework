@@ -10,110 +10,81 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
   }
 >
   <div
-    className="hero_movieInfo"
+    className="movieInfo"
   >
     <h2
-      className="hero_title"
+      className="title"
     >
       Т-34
     </h2>
     <div
-      className="hero_wrapper"
+      className="wrapper"
     >
       <span
         className="genre"
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
       >
         War
       </span>
       <span
         className="genre"
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
       >
         Drama
       </span>
       <span
         className="genre"
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
       >
         Adventure
       </span>
       <span
         className="genre"
-        style={
-          Object {
-            "color": undefined,
-            "fontSize": undefined,
-          }
-        }
       >
         Action
       </span>
       <span
-        className="hero_duration"
+        className="duration"
       >
         2h 19m
       </span>
     </div>
     <div
-      className="hero_rating"
+      className="rating"
     >
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <span
         className="numRating"
-        style={
-          Object {
-            "color": "#fff",
-          }
-        }
       >
         4.7
       </span>
     </div>
   </div>
   <div
-    className="hero_movieDescription"
+    className="movieDescription"
   >
     <p
-      className="hero_description"
+      className="description"
     >
-      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen germa ...
+      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen german ...
     </p>
     <div
-      className="hero_buttons"
+      className="buttons"
     >
       <button
         aria-label="Watch Now"
-        className="btn blueBtn"
+        className="btn primary"
         onClick={[Function]}
         type="button"
       >
@@ -121,7 +92,7 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
       </button>
       <button
         aria-label="View Info"
-        className="btn transparentBtn"
+        className="btn ghost"
         onClick={[Function]}
         type="button"
       >

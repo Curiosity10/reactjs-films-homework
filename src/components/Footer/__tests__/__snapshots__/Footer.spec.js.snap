@@ -5,12 +5,12 @@ exports[`Footer component renders correctly Footer renders correctly 1`] = `
   className="footer"
 >
   <h2
-    className="footer_logo"
+    className="logo"
   >
     Films
   </h2>
   <p
-    className="footer_copyright"
+    className="copyright"
   >
     Copyright © 2019 FILMS. DZMITRY
   </p>

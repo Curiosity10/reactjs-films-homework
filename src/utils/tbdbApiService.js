@@ -1,6 +1,6 @@
-import Movie from '../assets/json/movie.json';
-import Genres from '../assets/json/genres.json';
-import Popular from '../assets/json/popular.json';
+import movie from '../assets/json/movie.json';
+import genres from '../assets/json/genres.json';
+import popular from '../assets/json/popular.json';
 
 const urlBase = 'https://image.tmdb.org/t/p/original';
 const urlMinImg = 'https://image.tmdb.org/t/p/w300';
@@ -13,7 +13,7 @@ function getNormalRuntime(time) {
 
 function getMovieGenres(genresIds) {
   const genresArr = [];
-  genresIds.map(genre => Genres.genres.map((item) => {
+  genresIds.map(genre => genres.genres.map((item) => {
     if (item.id === genre) {
       return genresArr.push({ id: item.id, name: item.name });
     }
@@ -24,26 +24,26 @@ function getMovieGenres(genresIds) {
 
 export function getMovieInfo() {
   return {
-    title: Movie.original_title,
-    genres: Movie.genres,
-    rating: Movie.vote_average,
-    runtime: getNormalRuntime(Movie.runtime),
-    overview: Movie.overview,
-    image: `${urlBase}${Movie.backdrop_path}`,
+    title: movie.original_title,
+    genres: movie.genres,
+    rating: movie.vote_average,
+    runtime: getNormalRuntime(movie.runtime),
+    overview: movie.overview,
+    image: `${urlBase}${movie.backdrop_path}`,
   };
 }
 
 export function getGenres() {
-  return Genres.genres;
+  return genres.genres;
 }
 
 export function getPopularMovies() {
-  return Popular.results.map(movie => ({
-    id: movie.id,
-    rating: movie.vote_average,
-    title: movie.title,
-    genres: getMovieGenres(movie.genre_ids),
-    overview: movie.overview,
-    image: `${urlMinImg}${movie.poster_path}`,
+  return popular.results.map(item => ({
+    id: item.id,
+    rating: item.vote_average,
+    title: item.title,
+    genres: getMovieGenres(item.genre_ids),
+    overview: item.overview,
+    image: `${urlMinImg}${item.poster_path}`,
   }));
 }

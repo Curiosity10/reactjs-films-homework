@@ -4,19 +4,37 @@
   cursor: pointer;
   border: none;
   outline: none;
-  margin-right: 10px;
   background-color: transparent;
+  transition: background-color 0.3s;
 
-  &__active svg {
-    fill: $blue-color;
+  &:first-child {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    -webkit-mask: url(("../../../../assets/images/sprites.png")) no-repeat -170px -30px;
+    mask: url(("../../../../assets/images/sprites.png")) no-repeat -170px -30px;
+    background-color: $gray-color;
   }
 
-  &:hover svg {
-    fill: $blue-color;
+  &:last-child {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    -webkit-mask: url(("../../../../assets/images/sprites.png")) no-repeat -30px -170px;
+    mask: url(("../../../../assets/images/sprites.png")) no-repeat -30px -170px;
+    background-color: $gray-color;
+  }
+
+  &:hover {
+    background-color: $blue-color;
   }
 }
 
-@media all and (max-width: $tablet-screen-size) {
+.btn.btn__active {
+  background-color: $blue-color;
+}
+
+@media (max-width: $tablet-screen-size) {
   .btn {
     margin-bottom: 20px;
   }

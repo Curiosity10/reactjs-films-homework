@@ -3,19 +3,19 @@
 exports[`StarRating component renders correctly StarRating renders correctly 1`] = `
 Array [
   <div
-    className="star starSelected"
+    className="star"
   />,
   <div
-    className="star starSelected"
+    className="star"
   />,
   <div
-    className="star starSelected"
+    className="star"
   />,
   <div
-    className="star starSelected"
+    className="star"
   />,
   <div
-    className="star starSelected"
+    className="star"
   />,
 ]
 `;

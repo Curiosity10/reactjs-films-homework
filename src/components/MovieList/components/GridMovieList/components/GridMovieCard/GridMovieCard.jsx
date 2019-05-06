@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './GridMovieCard.scss';
 import NumRating from '../../../../../NumRating';
 import Genres from '../../../../../Genres';
-import Icon from '../../../../../Icon';
 import Button from '../../../../../Button';
 
 const GridMovieCard = ({ movie, activeCard, changeActiveCard }) => {
@@ -15,11 +14,8 @@ const GridMovieCard = ({ movie, activeCard, changeActiveCard }) => {
     image,
     id,
   } = movie;
-  const checkTitleLength = name => (
-    name.length > 20 ? `${name.toUpperCase().slice(0, 20)}...` : name
-  );
   const checkDescriptionLength = description => (
-    description.length > 320 ? `${description.slice(0, 320)}...` : description
+    description.length > 215 ? `${description.slice(0, 215)}...` : description
   );
   const OverlayCard = () => (
     <div className={styles.overlay}>
@@ -27,45 +23,42 @@ const GridMovieCard = ({ movie, activeCard, changeActiveCard }) => {
         aria-label="Close"
         onClick={() => changeActiveCard(0)}
         type="button"
-        className={styles.overlay_close}
-      >
-        <Icon name="close" color="#ffffff" />
-      </button>
-      <div className={styles.overlay_wrapper}>
+        className={styles.close}
+      />
+      <div className={styles.wrapper}>
         <div>
-          <h3 className={styles.overlay_title}>{checkTitleLength(title)}</h3>
-          <Genres fontColor="#0aaee4" fontSize="0.8rem" genres={genres} />
+          <h3 className={styles.title}>{title}</h3>
+          <Genres genres={genres} />
         </div>
-        <NumRating fontColor="#0aaee4" rating={rating} />
+        <NumRating rating={rating} />
       </div>
-      <p className={styles.overlay_description}>
+      <p className={styles.description}>
         {checkDescriptionLength(overview)}
       </p>
-      <Button className="blueBtn">Watch Now</Button>
+      <Button type="primary">Watch Now</Button>
     </div>
   );
   const DefaultCard = () => (
     <>
       <div className={styles.onHover}>
         <button aria-label="Watch" className={styles.btnWatch} type="button">
-          <Icon name="play" color="#0aaee4" />
           <span> Watch Now </span>
         </button>
         <Button
           handleClick={() => changeActiveCard(id)}
-          className="transparentBtn"
+          type="ghost"
         >
           View Info
         </Button>
       </div>
       <div className={styles.info}>
         <div>
-          <h3 className={styles.info_title}>{checkTitleLength(title)}</h3>
+          <h3 className={styles.title}>{title}</h3>
           <p>
-            <Genres fontColor="#0aaee4" fontSize="0.8rem" genres={genres} />
+            <Genres genres={genres} />
           </p>
         </div>
-        <NumRating fontColor="#0aaee4" rating={rating} />
+        <NumRating rating={rating} />
       </div>
     </>
   );

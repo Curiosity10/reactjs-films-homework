@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './NumRating.scss';
 
 const NumRating = (props) => {
-  const { rating, fontColor } = props;
-  const fontStyle = {
-    color: fontColor,
-  };
+  const { rating } = props;
   return (
-    <span style={fontStyle} className={styles.numRating}>
+    <span className={styles.numRating}>
       {rating}
     </span>
   );
@@ -17,11 +14,6 @@ const NumRating = (props) => {
 
 NumRating.propTypes = {
   rating: PropTypes.number.isRequired,
-  fontColor: PropTypes.string,
-};
-
-NumRating.defaultProps = {
-  fontColor: '#fff',
 };
 
 export default NumRating;

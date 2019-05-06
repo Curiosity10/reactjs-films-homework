@@ -8,11 +8,10 @@ const StarRating = (props) => {
   } = props;
   return (
     <>
-      {[...Array(5)].map((n, i) => (
+      {[...Array(Math.round(starsSelected))].map((n, i) => (
         <Star
           // eslint-disable-next-line react/no-array-index-key
           key={i}
-          isSelected={i < starsSelected}
         />
       ))}
     </>

@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 import cn from 'classnames';
 import styles from './ChangeLayoutBtns.scss';
-import Icon from '../../../Icon';
 import { MovieContext } from '../../../MovieContext';
 
 const ChangeLayoutBtns = () => {
@@ -12,20 +11,16 @@ const ChangeLayoutBtns = () => {
     <div>
       <button
         aria-label="Grid"
-        onClick={() => { setActive('grid'); changeLayout('grid'); }}
+        onClick={useCallback(() => { setActive('grid'); changeLayout('grid'); }, [changeLayout])}
         className={cn(styles.btn, checkActiveItem('grid'))}
         type="button"
-      >
-        <Icon name="grid" color="#b7b7b7" />
-      </button>
+      />
       <button
         aria-label="Table"
-        onClick={() => { setActive('table'); changeLayout('table'); }}
+        onClick={useCallback(() => { setActive('table'); changeLayout('table'); }, [changeLayout])}
         className={cn(styles.btn, checkActiveItem('table'))}
         type="button"
-      >
-        <Icon name="table" color="#b7b7b7" />
-      </button>
+      />
     </div>
   );
 };

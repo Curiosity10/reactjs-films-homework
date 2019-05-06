@@ -4,103 +4,70 @@ exports[`TableMovieCard component renders correctly TableMovieCard renders corre
 <article
   className="card"
 >
+  <img
+    alt="Poster"
+    src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
+  />
   <div
-    className="card_image"
-  >
-    <img
-      alt="Poster"
-      src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
-    />
-  </div>
-  <div
-    className="card_info"
+    className="info"
   >
     <h2
-      className="card_title"
+      className="title"
     >
       Т-34
     </h2>
     <span
       className="genre"
-      style={
-        Object {
-          "color": "#0aaee4",
-          "fontSize": undefined,
-        }
-      }
     >
       War
     </span>
     <span
       className="genre"
-      style={
-        Object {
-          "color": "#0aaee4",
-          "fontSize": undefined,
-        }
-      }
     >
       Drama
     </span>
     <span
       className="genre"
-      style={
-        Object {
-          "color": "#0aaee4",
-          "fontSize": undefined,
-        }
-      }
     >
       Adventure
     </span>
     <span
       className="genre"
-      style={
-        Object {
-          "color": "#0aaee4",
-          "fontSize": undefined,
-        }
-      }
     >
       Action
     </span>
     <p
-      className="card_overview"
+      className="overview"
     >
       1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen german tanks, all by himself. that said, luck does favour the bold. He wins the battle, barely survives, but loses his tank and lands himself in captivity for three long years... there was little to no chance for ivushkin and Jager to meet again, but the war knows how to throw a curve...
     </p>
     <div
-      className="card_rating"
+      className="rating"
     >
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <div
-        className="star starSelected"
+        className="star"
       />
       <span
         className="numRating"
-        style={
-          Object {
-            "color": "#0aaee4",
-          }
-        }
       >
         4.7
       </span>
     </div>
     <button
       aria-label="Watch Now"
-      className="btn blueBtn"
+      className="btn primary"
       onClick={[Function]}
       type="button"
     >

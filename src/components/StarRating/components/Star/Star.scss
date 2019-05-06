@@ -5,7 +5,7 @@
   width: 20px;
   margin: 2px;
   float: left;
-  background-color: grey;
+  background-color: $blue-color;
   clip-path:
     polygon(
       50% 0%,
@@ -19,8 +19,4 @@
       0% 38%,
       37% 38%
     );
-}
-
-.starSelected {
-  background-color: $blue-color;
 }

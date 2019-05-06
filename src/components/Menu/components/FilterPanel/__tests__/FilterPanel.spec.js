@@ -9,7 +9,7 @@ describe('FilterPanel component', () => {
     act(() => {
       button.props.onClick();
     });
-    expect(button.props.className).toEqual('navItem_btn navItem_btn__active');
+    expect(button.props.className).toEqual('btn btn__active');
   });
 
   it('Top Rated button set active', () => {
@@ -18,7 +18,7 @@ describe('FilterPanel component', () => {
     act(() => {
       button.props.onClick();
     });
-    expect(button.props.className).toEqual('navItem_btn navItem_btn__active');
+    expect(button.props.className).toEqual('btn btn__active');
   });
 
   it('Coming Soon button set active', () => {
@@ -27,7 +27,7 @@ describe('FilterPanel component', () => {
     act(() => {
       button.props.onClick();
     });
-    expect(button.props.className).toEqual('navItem_btn navItem_btn__active');
+    expect(button.props.className).toEqual('btn btn__active');
   });
 
   it('Genres select set active', () => {
@@ -36,6 +36,6 @@ describe('FilterPanel component', () => {
     act(() => {
       select.props.onClick();
     });
-    expect(select.props.className).toEqual('navItem_selectGenre navItem_btn__active');
+    expect(select.props.className).toEqual('selectGenre btn__active');
   });
 });

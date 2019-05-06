@@ -3,14 +3,14 @@ import Button from '..';
 import { create, act } from 'react-test-renderer';
 
 describe('Button component renders correctly', () => {
-  it('Blue button renders correctly', () => {
-    const tree = create(<Button className="blueBtn">Watch Now</Button>)
+  it('Primary button renders correctly', () => {
+    const tree = create(<Button type="primary">Watch Now</Button>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('Transparent button renders correctly', () => {
-    const tree = create(<Button className="transparentBtn">View Info</Button>)
+  it('Ghost button renders correctly', () => {
+    const tree = create(<Button type="ghost">View Info</Button>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -20,7 +20,7 @@ describe('Button component renders correctly', () => {
     const tree = create(
       <Button
         handleClick={mockFunction}
-        className="transparentBtn"
+        type="ghost"
       >
         View Info
       </Button>,
@@ -35,7 +35,7 @@ describe('Button component renders correctly', () => {
   it('Click button without handler works correctly', () => {
     const tree = create(
       <Button
-        className="transparentBtn"
+        type="ghost"
       >
         View Info
       </Button>,

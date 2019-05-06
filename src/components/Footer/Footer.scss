@@ -3,16 +3,16 @@
 .footer {
   text-align: center;
   padding: 40px 0;
+}
 
-  &_logo {
-    color: $blue-color;
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-  }
+.logo {
+  color: $blue-color;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+}
 
-  &_copyright {
-    color: rgb(183, 183, 183);
-  }
+.copyright {
+  color: $gray-color;
 }

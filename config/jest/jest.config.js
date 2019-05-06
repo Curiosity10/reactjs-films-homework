@@ -8,6 +8,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     'coverage',
     '<rootDir>/App.jsx',
+    '<rootDir>/index.jsx',
   ],
   moduleFileExtensions: ['js', 'jsx'],
   rootDir: '../../src',

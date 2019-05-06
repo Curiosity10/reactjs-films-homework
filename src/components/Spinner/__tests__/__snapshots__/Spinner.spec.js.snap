@@ -5,17 +5,17 @@ exports[`Spinner component renders correctly Spinner renders correctly 1`] = `
   className="spinner"
 >
   <div
-    className="spinner_ellipsis"
+    className="ellipsis"
   >
     <div />
     <div />
     <div />
     <div />
   </div>
-  <h3
-    className="spinner_title"
+  <p
+    className="title"
   >
     Loading
-  </h3>
+  </p>
 </div>
 `;

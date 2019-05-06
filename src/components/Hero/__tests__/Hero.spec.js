@@ -18,6 +18,6 @@ describe('Hero component renders correctly', () => {
       button.props.onClick();
     });
     const description = tree.toJSON().children[1].children[0];
-    expect(description.props.className).toEqual('hero_hiddenDesc');
+    expect(description.props.className).toEqual('hiddenDesc');
   });
 });

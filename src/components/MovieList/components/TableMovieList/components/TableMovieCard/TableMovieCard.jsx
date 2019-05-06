@@ -19,18 +19,16 @@ const TableMovieCard = ({ movie }) => {
   );
   return (
     <article className={styles.card}>
-      <div className={styles.card_image}>
-        <img src={image} alt="Poster" />
-      </div>
-      <div className={styles.card_info}>
-        <h2 className={styles.card_title}>{title}</h2>
-        <Genres fontColor="#0aaee4" genres={genres} />
-        <p className={styles.card_overview}>{checkDescriptionLength(overview)}</p>
-        <div className={styles.card_rating}>
+      <img src={image} alt="Poster" />
+      <div className={styles.info}>
+        <h2 className={styles.title}>{title}</h2>
+        <Genres genres={genres} />
+        <p className={styles.overview}>{checkDescriptionLength(overview)}</p>
+        <div className={styles.rating}>
           <StarRating starsSelected={rating} />
-          <NumRating fontColor="#0aaee4" rating={rating} />
+          <NumRating rating={rating} />
         </div>
-        <Button className="blueBtn">Watch Now</Button>
+        <Button type="primary">Watch Now</Button>
       </div>
     </article>
   );

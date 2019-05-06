@@ -6,39 +6,26 @@ Array [
     className="header"
   >
     <div
-      className="header_container"
+      className="container"
     >
       <h1
-        className="header_logo"
+        className="logo"
       >
         Films
       </h1>
       <form
-        className="header_searchForm"
+        className="searchForm"
       >
         <input
-          className="header_input"
+          className="input"
           placeholder="Search..."
           type="search"
         />
         <button
           aria-label="Search"
-          className="header_searchBtn"
+          className="searchBtn"
           type="button"
-        >
-          <svg
-            fill="white"
-            height="20"
-            viewBox="0 0 56.966 56.966"
-            width="15"
-            x="0px"
-            y="0px"
-          >
-            <path
-              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23 s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92 c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17 s-17-7.626-17-17S14.61,6,23.984,6z"
-            />
-          </svg>
-        </button>
+        />
       </form>
     </div>
   </header>,
@@ -51,110 +38,81 @@ Array [
     }
   >
     <div
-      className="hero_movieInfo"
+      className="movieInfo"
     >
       <h2
-        className="hero_title"
+        className="title"
       >
         Т-34
       </h2>
       <div
-        className="hero_wrapper"
+        className="wrapper"
       >
         <span
           className="genre"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
         >
           War
         </span>
         <span
           className="genre"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
         >
           Drama
         </span>
         <span
           className="genre"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
         >
           Adventure
         </span>
         <span
           className="genre"
-          style={
-            Object {
-              "color": undefined,
-              "fontSize": undefined,
-            }
-          }
         >
           Action
         </span>
         <span
-          className="hero_duration"
+          className="duration"
         >
           2h 19m
         </span>
       </div>
       <div
-        className="hero_rating"
+        className="rating"
       >
         <div
-          className="star starSelected"
+          className="star"
         />
         <div
-          className="star starSelected"
+          className="star"
         />
         <div
-          className="star starSelected"
+          className="star"
         />
         <div
-          className="star starSelected"
+          className="star"
         />
         <div
-          className="star starSelected"
+          className="star"
         />
         <span
           className="numRating"
-          style={
-            Object {
-              "color": "#fff",
-            }
-          }
         >
           4.7
         </span>
       </div>
     </div>
     <div
-      className="hero_movieDescription"
+      className="movieDescription"
     >
       <p
-        className="hero_description"
+        className="description"
       >
-        1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen germa ...
+        1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen german ...
       </p>
       <div
-        className="hero_buttons"
+        className="buttons"
       >
         <button
           aria-label="Watch Now"
-          className="btn blueBtn"
+          className="btn primary"
           onClick={[Function]}
           type="button"
         >
@@ -162,7 +120,7 @@ Array [
         </button>
         <button
           aria-label="View Info"
-          className="btn transparentBtn"
+          className="btn ghost"
           onClick={[Function]}
           type="button"
         >
@@ -184,7 +142,7 @@ Array [
           >
             <button
               aria-label="Trending"
-              className="navItem_btn"
+              className="btn"
               onClick={[Function]}
               type="button"
             >
@@ -196,7 +154,7 @@ Array [
           >
             <button
               aria-label="Top Rated"
-              className="navItem_btn"
+              className="btn"
               onClick={[Function]}
               type="button"
             >
@@ -208,7 +166,7 @@ Array [
           >
             <button
               aria-label="Coming Soon"
-              className="navItem_btn"
+              className="btn"
               onClick={[Function]}
               type="button"
             >
@@ -220,7 +178,7 @@ Array [
           >
             <select
               aria-label="Genres"
-              className="navItem_selectGenre"
+              className="selectGenre"
               name="selectGenre"
               onClick={[Function]}
             >
@@ -336,66 +294,13 @@ Array [
           className="btn"
           onClick={[Function]}
           type="button"
-        >
-          <svg
-            fill="#b7b7b7"
-            height="20"
-            viewBox="0 0 271.673 271.673"
-            width="20"
-            x="0px"
-            y="0px"
-          >
-            <g>
-              <g>
-                <g>
-                  <path
-                    d="M114.939,0H10.449C4.678,0,0,4.678,0,10.449v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49 c5.771,0,10.449-4.678,10.449-10.449V10.449C125.388,4.678,120.71,0,114.939,0z"
-                  />
-                  <path
-                    d="M261.224,0h-104.49c-5.771,0-10.449,4.678-10.449,10.449v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49 c5.771,0,10.449-4.678,10.449-10.449V10.449C271.673,4.678,266.995,0,261.224,0z"
-                  />
-                  <path
-                    d="M114.939,146.286H10.449C4.678,146.286,0,150.964,0,156.735v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49 c5.771,0,10.449-4.678,10.449-10.449v-104.49C125.388,150.964,120.71,146.286,114.939,146.286z"
-                  />
-                  <path
-                    d="M261.224,146.286h-104.49c-5.771,0-10.449,4.678-10.449,10.449v104.49c0,5.771,4.678,10.449,10.449,10.449h104.49 c5.771,0,10.449-4.678,10.449-10.449v-104.49C271.673,150.964,266.995,146.286,261.224,146.286z"
-                  />
-                </g>
-              </g>
-            </g>
-          </svg>
-        </button>
+        />
         <button
           aria-label="Table"
           className="btn"
           onClick={[Function]}
           type="button"
-        >
-          <svg
-            fill="#b7b7b7"
-            height="20"
-            viewBox="0 0 512 512"
-            width="20"
-            x="0px"
-            y="0px"
-          >
-            <g>
-              <g>
-                <g>
-                  <rect
-                    height="235"
-                    width="100%"
-                  />
-                  <rect
-                    height="235"
-                    width="100%"
-                    y="277.333"
-                  />
-                </g>
-              </g>
-            </g>
-          </svg>
-        </button>
+        />
       </div>
     </section>
     <main
@@ -417,49 +322,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -471,52 +340,28 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               T-34
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 War
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
@@ -524,11 +369,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             4.5
           </span>
@@ -550,49 +390,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -604,41 +408,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Glass
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Mystery
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
@@ -646,11 +432,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.8
           </span>
@@ -672,49 +453,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -726,41 +471,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Robin Hood
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
@@ -768,11 +495,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             5.8
           </span>
@@ -794,49 +516,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -848,30 +534,18 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Bohemian Rhapsody
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Music
               </span>
@@ -879,11 +553,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             8.2
           </span>
@@ -905,49 +574,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -959,52 +592,28 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Overlord
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Horror
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 War
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Science Fiction
               </span>
@@ -1012,11 +621,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.9
           </span>
@@ -1038,49 +642,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1092,41 +660,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Escape Room
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Horror
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
@@ -1134,11 +684,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.3
           </span>
@@ -1160,49 +705,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1214,52 +723,28 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Aquaman
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Fantasy
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Science Fiction
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
@@ -1267,11 +752,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.8
           </span>
@@ -1293,49 +773,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1347,63 +791,33 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Mortal Engines
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Science Fiction
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Fantasy
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
@@ -1411,11 +825,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6
           </span>
@@ -1437,49 +846,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1491,30 +864,18 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Creed II
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
@@ -1522,11 +883,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.7
           </span>
@@ -1548,49 +904,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1602,41 +922,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
-              HOW TO TRAIN YOUR DR...
+              How to Train Your Dragon: The Hidden World
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Animation
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Family
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
@@ -1644,11 +946,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             8.1
           </span>
@@ -1670,49 +967,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1724,41 +985,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               A Star Is Born
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Music
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Romance
               </span>
@@ -1766,11 +1009,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             7.4
           </span>
@@ -1792,49 +1030,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1846,41 +1048,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               The Mule
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Crime
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
@@ -1888,11 +1072,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.3
           </span>
@@ -1914,49 +1093,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -1968,41 +1111,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
-              AVENGERS: INFINITY W...
+              Avengers: Infinity War
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Fantasy
               </span>
@@ -2010,11 +1135,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             8.3
           </span>
@@ -2036,49 +1156,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2090,41 +1174,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Bumblebee
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Science Fiction
               </span>
@@ -2132,11 +1198,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.5
           </span>
@@ -2158,49 +1219,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2212,41 +1237,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Widows
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Crime
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
@@ -2254,11 +1261,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.7
           </span>
@@ -2280,49 +1282,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2334,30 +1300,18 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Serenity
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Thriller
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
@@ -2365,11 +1319,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             5.1
           </span>
@@ -2391,49 +1340,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2445,30 +1358,18 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               Venom
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Science Fiction
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
@@ -2476,11 +1377,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             6.6
           </span>
@@ -2502,49 +1398,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2556,41 +1416,23 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
-              CAN YOU EVER FORGIVE...
+              Can You Ever Forgive Me?
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Drama
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Comedy
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Crime
               </span>
@@ -2598,11 +1440,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             7.1
           </span>
@@ -2624,49 +1461,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2678,52 +1479,28 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
-              FATE/STAY NIGHT: HEA...
+              Fate/stay night: Heaven’s Feel II. lost butterfly
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Animation
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Action
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Fantasy
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Adventure
               </span>
@@ -2731,11 +1508,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             3.9
           </span>
@@ -2757,49 +1529,13 @@ Array [
             className="btnWatch"
             type="button"
           >
-            <svg
-              height="80px"
-              viewBox="0 0 58 58"
-              width="80px"
-              x="0px"
-              y="0px"
-            >
-              <circle
-                cx="29"
-                cy="29"
-                r="29"
-                style={
-                  Object {
-                    "fill": "#0aaee4",
-                  }
-                }
-              />
-              <g>
-                <polygon
-                  points="44,29 22,44 22,29.273 22,14"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-                <path
-                  d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14 c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826 l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"
-                  style={
-                    Object {
-                      "fill": "#fff",
-                    }
-                  }
-                />
-              </g>
-            </svg>
             <span>
                Watch Now 
             </span>
           </button>
           <button
             aria-label="View Info"
-            className="btn transparentBtn"
+            className="btn ghost"
             onClick={[Function]}
             type="button"
           >
@@ -2811,30 +1547,18 @@ Array [
         >
           <div>
             <h3
-              className="info_title"
+              className="title"
             >
               LelleBelle
             </h3>
             <p>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Music
               </span>
               <span
                 className="genre"
-                style={
-                  Object {
-                    "color": "#0aaee4",
-                    "fontSize": "0.8rem",
-                  }
-                }
               >
                 Romance
               </span>
@@ -2842,11 +1566,6 @@ Array [
           </div>
           <span
             className="numRating"
-            style={
-              Object {
-                "color": "#0aaee4",
-              }
-            }
           >
             4.4
           </span>
@@ -2857,30 +1576,30 @@ Array [
       className="spinner"
     >
       <div
-        className="spinner_ellipsis"
+        className="ellipsis"
       >
         <div />
         <div />
         <div />
         <div />
       </div>
-      <h3
-        className="spinner_title"
+      <p
+        className="title"
       >
         Loading
-      </h3>
+      </p>
     </div>
   </div>,
   <footer
     className="footer"
   >
     <h2
-      className="footer_logo"
+      className="logo"
     >
       Films
     </h2>
     <p
-      className="footer_copyright"
+      className="copyright"
     >
       Copyright © 2019 FILMS. DZMITRY
     </p>

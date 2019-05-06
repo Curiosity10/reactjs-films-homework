@@ -7,9 +7,4 @@ describe('Star component renders correctly', () => {
     const tree = create(<Star isSelected />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  it('Not selected Star renders correctly', () => {
-    const tree = create(<Star isSelected={false} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
 });

@@ -1,16 +1,13 @@
 import React from 'react';
 import styles from './Header.scss';
-import Icon from '../Icon';
 
 const Header = () => (
   <header className={styles.header}>
-    <div className={styles.header_container}>
-      <h1 className={styles.header_logo}>Films</h1>
-      <form className={styles.header_searchForm}>
-        <input placeholder="Search..." className={styles.header_input} type="search" />
-        <button aria-label="Search" type="button" className={styles.header_searchBtn}>
-          <Icon name="search" color="white" />
-        </button>
+    <div className={styles.container}>
+      <h1 className={styles.logo}>Films</h1>
+      <form className={styles.searchForm}>
+        <input placeholder="Search..." className={styles.input} type="search" />
+        <button aria-label="Search" type="button" className={styles.searchBtn} />
       </form>
     </div>
   </header>
