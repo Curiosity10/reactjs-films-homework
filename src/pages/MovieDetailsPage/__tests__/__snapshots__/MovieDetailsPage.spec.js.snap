@@ -24,7 +24,7 @@ Array [
         <button
           aria-label="Search"
           className="searchBtn"
-          type="button"
+          type="submit"
         />
       </form>
     </div>
@@ -142,7 +142,7 @@ Array [
           >
             <button
               aria-label="Trending"
-              className="btn"
+              className="btn btn__active"
               onClick={[Function]}
               type="button"
             >
@@ -179,13 +179,14 @@ Array [
             <select
               aria-label="Genres"
               className="selectGenre"
+              defaultValue=""
               name="selectGenre"
               onClick={[Function]}
             >
               <option
                 disabled={true}
                 hidden={true}
-                selected={true}
+                value=""
               >
                 Genre
               </option>
@@ -291,7 +292,7 @@ Array [
       <div>
         <button
           aria-label="Grid"
-          className="btn"
+          className="btn btn__active"
           onClick={[Function]}
           type="button"
         />

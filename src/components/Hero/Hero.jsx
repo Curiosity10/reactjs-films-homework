@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import cn from 'classnames/bind';
 import styles from './Hero.scss';
 import StarRating from '../StarRating';
@@ -41,7 +41,7 @@ const Hero = () => {
         <div className={styles.buttons}>
           <Button type="primary">Watch Now</Button>
           <Button
-            handleClick={() => setShowInfo(!showInfo)}
+            handleClick={useCallback(() => setShowInfo(!showInfo), [showInfo])}
             type="ghost"
           >
             View Info

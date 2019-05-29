@@ -23,7 +23,7 @@ exports[`Header component renders correctly Header renders correctly 1`] = `
       <button
         aria-label="Search"
         className="searchBtn"
-        type="button"
+        type="submit"
       />
     </form>
   </div>

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridCard component renders correctly GridCard renders correctly 1`] = `
+<article
+  className="card"
+>
+  <img
+    alt="Poster"
+    height="100%"
+    src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
+  />
+  <div
+    className="overlay"
+  >
+    <button
+      aria-label="Close"
+      className="close"
+      onClick={[Function]}
+      type="button"
+    />
+    <div
+      className="wrapper"
+    >
+      <div>
+        <h3
+          className="title"
+        >
+          Т-34
+        </h3>
+        <span
+          className="genre"
+        >
+          War
+        </span>
+        <span
+          className="genre"
+        >
+          Drama
+        </span>
+        <span
+          className="genre"
+        >
+          Adventure
+        </span>
+        <span
+          className="genre"
+        >
+          Action
+        </span>
+      </div>
+      <span
+        className="numRating"
+      >
+        4.7
+      </span>
+    </div>
+    <p
+      className="description"
+    >
+      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen ...
+    </p>
+    <button
+      aria-label="Watch Now"
+      className="btn primary"
+      onClick={[Function]}
+      type="button"
+    >
+      Watch Now
+    </button>
+  </div>
+</article>
+`;

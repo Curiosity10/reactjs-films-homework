@@ -11,7 +11,7 @@ exports[`Menu component renders correctly Menu renders correctly 1`] = `
       >
         <button
           aria-label="Trending"
-          className="btn"
+          className="btn btn__active"
           onClick={[Function]}
           type="button"
         >
@@ -48,13 +48,14 @@ exports[`Menu component renders correctly Menu renders correctly 1`] = `
         <select
           aria-label="Genres"
           className="selectGenre"
+          defaultValue=""
           name="selectGenre"
           onClick={[Function]}
         >
           <option
             disabled={true}
             hidden={true}
-            selected={true}
+            value=""
           >
             Genre
           </option>
@@ -160,7 +161,7 @@ exports[`Menu component renders correctly Menu renders correctly 1`] = `
   <div>
     <button
       aria-label="Grid"
-      className="btn"
+      className="btn btn__active"
       onClick={[Function]}
       type="button"
     />

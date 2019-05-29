@@ -1,0 +1,96 @@
+@import "../../../../../../styles/variables";
+
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  margin-bottom: 35px;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.3);
+
+  & img {
+    height: 320px;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+}
+
+.info {
+  text-align: left;
+
+  & > span {
+    font-family: "Helvetica Neue Bold", Arial, Helvetica, sans-serif;
+    color: $blue-color;
+    line-height: 1.4rem;
+  }
+}
+
+.title {
+  color: #242b2d;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 20px;
+
+  & ~ span {
+    display: inline-block;
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+}
+
+.overview {
+  margin: 15px 0;
+  line-height: 1.5rem;
+}
+
+.rating {
+  margin-bottom: 25px;
+  display: flex;
+
+  & span {
+    margin-left: 15px;
+    font-size: 0.9rem;
+    color: $blue-color;
+  }
+}
+
+@media (max-width: $tablet-screen-size) {
+  .card {
+    flex-wrap: wrap;
+
+    & img {
+      margin: 0 auto;
+      height: 300px;
+      width: 100%;
+    }
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+
+    & ~ span {
+      font-size: 0.9rem;
+    }
+  }
+
+  .overview {
+    font-size: 0.9rem;
+  }
+
+  .rating {
+    display: flex;
+    justify-content: center;
+
+    & span {
+      font-size: 0.8rem;
+    }
+  }
+}

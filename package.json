@@ -7,7 +7,7 @@
     "build": "webpack --config=config/webpack/webpack.prod.config.js",
     "start": "set NODE_ENV=development&& node ./index.js",
     "test": "jest --config=config/jest/jest.config.js --coverage --colors",
-    "lint": "eslint src index.js --fix --ext jsx && stylelint **/*.scss --formatter verbose",
+    "lint": "eslint src index.js --fix --ext .js --ext .jsx && stylelint **/*.scss --formatter verbose",
     "prod": "set NODE_ENV=production&& node ./index.js"
   },
   "husky": {
@@ -51,6 +51,7 @@
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "react-test-renderer": "^16.8.6",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "stylelint": "^9.9.0",
@@ -68,7 +69,6 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.4",
-    "react-test-renderer": "^16.8.6",
     "webpack": "^4.26.1",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.3"

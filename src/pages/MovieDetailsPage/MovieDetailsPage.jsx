@@ -2,11 +2,11 @@ import React from 'react';
 import Hero from '../../components/Hero';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-import MovieList from '../../components/MovieList';
+import Movies from '../../components/Movies';
 import styles from './MovieDetailsPage.scss';
 import Spinner from '../../components/Spinner';
 import Footer from '../../components/Footer';
-import { MovieContextProvider, MovieContext } from '../../components/MovieContext';
+import { MovieContextProvider } from '../../components/MovieContext';
 
 const MovieDetailsPage = () => (
   <>
@@ -15,7 +15,7 @@ const MovieDetailsPage = () => (
     <div className={styles.backdrop}>
       <MovieContextProvider>
         <Menu />
-        <MovieList context={MovieContext} />
+        <Movies />
       </MovieContextProvider>
       <Spinner />
     </div>
