@@ -6,7 +6,6 @@ import { MovieContext } from '../../../MovieContext';
 const ChangeLayoutBtns = () => {
   const [active, setActive] = useState('grid');
   const { changeLayout } = useContext(MovieContext);
-  const setActiveItem = itemName => (itemName === active ? styles.btn__active : null);
   return (
     <div>
       <button
@@ -15,7 +14,7 @@ const ChangeLayoutBtns = () => {
           setActive('grid');
           changeLayout('grid');
         }, [changeLayout])}
-        className={cn(styles.btn, setActiveItem('grid'))}
+        className={cn(styles.btn, { [`${styles.btn__active}`]: active === 'grid' })}
         type="button"
       />
       <button
@@ -24,7 +23,7 @@ const ChangeLayoutBtns = () => {
           setActive('table');
           changeLayout('table');
         }, [changeLayout])}
-        className={cn(styles.btn, setActiveItem('table'))}
+        className={cn(styles.btn, { [`${styles.btn__active}`]: active === 'table' })}
         type="button"
       />
     </div>

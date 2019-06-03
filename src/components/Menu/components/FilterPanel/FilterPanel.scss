@@ -15,7 +15,8 @@
   color: $blue-color;
   cursor: pointer;
   padding-bottom: 10px;
-  font-family: "Helvetica Neue Bold", Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
 
   &:hover {
     color: darken($blue-color, 10%);
@@ -39,7 +40,8 @@
   color: $blue-color;
   padding-bottom: 10px;
   font-size: 1rem;
-  font-family: "Helvetica Neue Bold", Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
   background: url("../../../../assets/images/sprites.png") -130px -102px no-repeat;
 
   &:hover {
