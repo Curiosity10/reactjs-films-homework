@@ -1,11 +1,11 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import Movies from '..';
 import { MovieContextProvider } from '../../MovieContext';
 
 describe('Default Movies component renders correctly', () => {
   it('Grid renders correctly', () => {
-    const tree = create(
+    const tree = renderer.create(
       <MovieContextProvider>
         <Movies />
       </MovieContextProvider>,

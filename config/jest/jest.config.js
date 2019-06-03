@@ -4,20 +4,11 @@ module.exports = {
     '<rootDir>/**/*.{js,jsx}',
     '!<rootDir>/**/index.js',
   ],
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
-    },
-  },
   coverageDirectory: '../coverage',
   coveragePathIgnorePatterns: [
     'coverage',
     '<rootDir>/App.jsx',
     '<rootDir>/index.jsx',
-    '<rootDir>/components/Movies/Movies.jsx',
   ],
   moduleFileExtensions: ['js', 'jsx'],
   rootDir: '../../src',

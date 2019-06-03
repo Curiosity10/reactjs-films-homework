@@ -1,19 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import GridCard from './components/GridCard';
 
 const Grid = ({ movies }) => {
   const [activeCard, setActiveCard] = useState(0);
-  const changeActiveCard = useCallback(
-    (id) => {
-      setActiveCard(id);
-    },
-    [],
-  );
-
   return movies.map(movie => (
     <GridCard
       activeCard={activeCard}
-      changeActiveCard={changeActiveCard}
+      changeActiveCard={id => setActiveCard(id)}
       key={movie.id}
       movie={movie}
       isActive={movie.id !== activeCard}
