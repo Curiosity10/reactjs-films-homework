@@ -12,10 +12,6 @@ const GridCard = ({ movie, isActive, changeActiveCard }) => {
     image,
     id,
   } = movie;
-  const maxLength = 215;
-  const truncate = description => (
-    description.length > maxLength ? `${description.slice(0, maxLength)}...` : description
-  );
   return (
     <article className={styles.card}>
       <img height={isActive ? '75%' : '100%'} src={image} alt="Poster" />
@@ -32,7 +28,6 @@ const GridCard = ({ movie, isActive, changeActiveCard }) => {
         : (
           <OverlayCard
             overview={overview}
-            truncate={truncate}
             title={title}
             rating={rating}
             changeActiveCard={changeActiveCard}

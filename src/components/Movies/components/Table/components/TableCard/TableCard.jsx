@@ -5,6 +5,7 @@ import NumRating from '../../../../../NumRating';
 import Genres from '../../../../../Genres';
 import Button from '../../../../../Button';
 import StarRating from '../../../../../StarRating';
+import truncate from '../../../../../../utils/truncate';
 
 const TableCard = ({ movie }) => {
   const {
@@ -15,16 +16,13 @@ const TableCard = ({ movie }) => {
     image,
   } = movie;
   const maxLength = 500;
-  const truncate = description => (
-    description.length > maxLength ? `${description.slice(0, maxLength)}...` : description
-  );
   return (
     <article className={styles.card}>
       <img src={image} alt="Poster" />
       <div className={styles.info}>
         <h2 className={styles.title}>{title}</h2>
         <Genres genres={genres} />
-        <p className={styles.overview}>{truncate(overview)}</p>
+        <p className={styles.overview}>{truncate(overview, maxLength)}</p>
         <div className={styles.rating}>
           <StarRating starsSelected={rating} />
           <NumRating rating={rating} />
