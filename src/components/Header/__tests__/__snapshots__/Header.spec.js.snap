@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders correctly Header renders correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="logo"
+    >
+      Films
+    </h1>
+    <form
+      className="searchForm"
+    >
+      <input
+        className="input"
+        placeholder="Search..."
+        type="search"
+      />
+      <button
+        aria-label="Search"
+        className="searchBtn"
+        type="submit"
+      />
+    </form>
+  </div>
+</header>
+`;

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid component renders correctly Grid renders correctly 1`] = `
+<article
+  className="card"
+>
+  <img
+    alt="Poster"
+    height="75%"
+    src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
+  />
+  <div
+    className="onHover"
+  >
+    <button
+      aria-label="Watch"
+      className="btnWatch"
+      type="button"
+    >
+      <span>
+         Watch Now 
+      </span>
+    </button>
+    <button
+      aria-label="View Info"
+      className="btn ghost"
+      onClick={[Function]}
+      type="button"
+    >
+      View Info
+    </button>
+  </div>
+  <div
+    className="info"
+  >
+    <div>
+      <h3
+        className="title"
+      >
+        Т-34
+      </h3>
+      <p>
+        <span
+          className="genre"
+        >
+          War
+        </span>
+        <span
+          className="genre"
+        >
+          Drama
+        </span>
+        <span
+          className="genre"
+        >
+          Adventure
+        </span>
+        <span
+          className="genre"
+        >
+          Action
+        </span>
+      </p>
+    </div>
+    <span
+      className="numRating"
+    >
+      4.7
+    </span>
+  </div>
+</article>
+`;

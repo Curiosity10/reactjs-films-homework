@@ -6,29 +6,23 @@
     },
     "sourceType": "module"
   },
-  "extends": [
-    "airbnb",
-    "plugin:jest/recommended"
-  ],
+ "extends": ["airbnb", "plugin:jest/recommended"],
   "env": {
     "es6": true,
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "parser": "babel-eslint",
   "plugins": [
     "import",
-    "react"
+    "react",
+    "react-hooks"
   ],
   "rules": {
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "linebreak-style": ["error", "unix"],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks" : "error"
   }
 }

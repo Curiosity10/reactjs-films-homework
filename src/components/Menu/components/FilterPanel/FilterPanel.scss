@@ -1,0 +1,55 @@
+@import "../../../../styles/variables";
+
+.navItem {
+  display: inline-block;
+  margin-right: 15px;
+  position: relative;
+}
+
+.btn {
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: $blue-color;
+  cursor: pointer;
+  padding-bottom: 10px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+  &:hover {
+    color: darken($blue-color, 10%);
+  }
+
+  &__active {
+    border-bottom: 3px solid $blue-color;
+    padding-bottom: 7px;
+  }
+}
+
+.selectGenre {
+  box-sizing: border-box;
+  width: 135px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: $blue-color;
+  padding-bottom: 10px;
+  font-size: 1rem;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: url("../../../../assets/images/sprites.png") -130px -102px no-repeat;
+
+  &:hover {
+    color: darken($blue-color, 10%);
+  }
+
+  &.btn__active {
+    border-bottom: 3px solid $blue-color;
+    padding-bottom: 7px;
+  }
+}

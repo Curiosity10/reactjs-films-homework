@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.logo {
+  color: $blue-color;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.copyright {
+  color: $gray-color;
+}

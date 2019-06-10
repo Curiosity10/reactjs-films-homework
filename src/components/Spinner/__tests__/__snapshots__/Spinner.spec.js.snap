@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner component renders correctly Spinner renders correctly 1`] = `
+<div
+  className="spinner"
+>
+  <div
+    className="ellipsis"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+  <p
+    className="title"
+  >
+    Loading
+  </p>
+</div>
+`;

@@ -1,0 +1,22 @@
+@import "../../../../styles/variables.scss";
+
+.star {
+  height: 20px;
+  width: 20px;
+  margin: 2px;
+  float: left;
+  background-color: $blue-color;
+  clip-path:
+    polygon(
+      50% 0%,
+      63% 38%,
+      100% 38%,
+      69% 59%,
+      82% 100%,
+      50% 75%,
+      18% 100%,
+      31% 59%,
+      0% 38%,
+      37% 38%
+    );
+}

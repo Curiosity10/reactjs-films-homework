@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero component renders correctly Hero renders correctly 1`] = `
+<section
+  className="hero"
+  style={
+    Object {
+      "backgroundImage": "url(https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg)",
+    }
+  }
+>
+  <div
+    className="movieInfo"
+  >
+    <h2
+      className="title"
+    >
+      Т-34
+    </h2>
+    <div
+      className="wrapper"
+    >
+      <span
+        className="genre"
+      >
+        War
+      </span>
+      <span
+        className="genre"
+      >
+        Drama
+      </span>
+      <span
+        className="genre"
+      >
+        Adventure
+      </span>
+      <span
+        className="genre"
+      >
+        Action
+      </span>
+      <span
+        className="duration"
+      >
+        2h 19m
+      </span>
+    </div>
+    <div
+      className="rating"
+    >
+      <div
+        className="star"
+      />
+      <div
+        className="star"
+      />
+      <div
+        className="star"
+      />
+      <div
+        className="star"
+      />
+      <div
+        className="star"
+      />
+      <span
+        className="numRating"
+      >
+        4.7
+      </span>
+    </div>
+  </div>
+  <div
+    className="movieDescription"
+  >
+    <p
+      className="description"
+    >
+      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen german ...
+    </p>
+    <div
+      className="buttons"
+    >
+      <button
+        aria-label="Watch Now"
+        className="btn primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Watch Now
+      </button>
+      <button
+        aria-label="View Info"
+        className="btn ghost"
+        onClick={[Function]}
+        type="button"
+      >
+        View Info
+      </button>
+    </div>
+  </div>
+</section>
+`;

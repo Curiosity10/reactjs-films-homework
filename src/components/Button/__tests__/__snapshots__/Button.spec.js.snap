@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component renders correctly Ghost button renders correctly 1`] = `
+<button
+  aria-label="View Info"
+  className="btn ghost"
+  onClick={[Function]}
+  type="button"
+>
+  View Info
+</button>
+`;
+
+exports[`Button component renders correctly Primary button renders correctly 1`] = `
+<button
+  aria-label="Watch Now"
+  className="btn primary"
+  onClick={[Function]}
+  type="button"
+>
+  Watch Now
+</button>
+`;
