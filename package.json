@@ -7,7 +7,7 @@
     "build": "webpack --config=config/webpack/webpack.prod.config.js",
     "start": "set NODE_ENV=development&& node ./index.js",
     "test": "jest --config=config/jest/jest.config.js --coverage --colors",
-    "lint": "eslint src index.js --ext .js --ext .jsx && stylelint **/*.scss --formatter verbose",
+    "lint": "eslint --fix src index.js --ext .js --ext .jsx && stylelint **/*.scss --formatter verbose",
     "prod": "set NODE_ENV=production&& node ./index.js"
   },
   "husky": {
