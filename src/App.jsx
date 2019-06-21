@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieDetailsPage from './pages/MovieDetailsPage';
+import { SearchResultsPageContainer } from './pages/SearchResultsPage';
 import './styles/App.scss';
 
-const App = () => <MovieDetailsPage />;
+const App = () => <SearchResultsPageContainer />;
 export default App;

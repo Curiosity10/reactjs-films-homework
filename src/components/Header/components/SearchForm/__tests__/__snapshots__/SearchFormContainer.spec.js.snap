@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchFormContainer component renders correctly SearchFormContainer renders correctly 1`] = `
+<form
+  className="searchForm"
+  onSubmit={[Function]}
+>
+  <input
+    aria-label="Search Input"
+    className="input"
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder="Search..."
+    type="search"
+    value=""
+  />
+  <button
+    aria-label="Search Button"
+    className="searchBtn"
+    type="submit"
+  />
+</form>
+`;

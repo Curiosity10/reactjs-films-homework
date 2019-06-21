@@ -11,7 +11,9 @@
   box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.3);
 
   & img {
+    flex-grow: 1;
     height: 320px;
+    max-width: 240px;
     object-fit: cover;
     margin-right: 30px;
   }
@@ -19,6 +21,7 @@
 
 .info {
   text-align: left;
+  flex-grow: 10;
 
   & > span {
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -29,6 +32,7 @@
 }
 
 .title {
+  width: 100%;
   color: #242b2d;
   font-size: 1.4rem;
   text-align: center;

@@ -18,12 +18,7 @@ describe('Button component renders correctly', () => {
   it('Click button with handler works correctly', () => {
     const mockFunction = jest.fn();
     const tree = create(
-      <Button
-        handleClick={mockFunction}
-        type="ghost"
-      >
-        View Info
-      </Button>,
+      <Button handleClick={mockFunction} type="ghost"> View Info </Button>,
     );
     const button = tree.root.children[0];
     act(() => {
@@ -34,11 +29,7 @@ describe('Button component renders correctly', () => {
 
   it('Click button without handler works correctly', () => {
     const tree = create(
-      <Button
-        type="ghost"
-      >
-        View Info
-      </Button>,
+      <Button type="ghost">View Info</Button>,
     );
     const button = tree.root.children[0];
     const mockFunction = jest.fn(button.props.onClick);

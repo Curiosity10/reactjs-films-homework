@@ -5,15 +5,27 @@ import styles from './NumRating.scss';
 const NumRating = (props) => {
   const { rating } = props;
   return (
-    <span className={styles.numRating}>
-      {rating}
-    </span>
+    <>
+      {
+        rating
+          ? (
+            <span className={styles.numRating}>
+              {rating}
+            </span>
+          )
+          : null
+      }
+    </>
   );
 };
 
 
 NumRating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
+};
+
+NumRating.defaultProps = {
+  rating: null,
 };
 
 export default NumRating;

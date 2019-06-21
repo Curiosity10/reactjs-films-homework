@@ -6,11 +6,12 @@ import { getMovieInfo } from '../../utils/tbdbApiService';
 import NumRating from '../NumRating';
 import Genres from '../Genres';
 import Button from '../Button';
+import movieInfo from '../../assets/json/movie.json';
 
 const cx = cn.bind(styles);
 const Hero = () => {
   const [showInfo, setShowInfo] = useState(true);
-  const movie = getMovieInfo();
+  const movie = getMovieInfo(movieInfo);
   const {
     title,
     genres,
@@ -40,12 +41,7 @@ const Hero = () => {
         </p>
         <div className={styles.buttons}>
           <Button type="primary">Watch Now</Button>
-          <Button
-            handleClick={useCallback(() => setShowInfo(!showInfo), [showInfo])}
-            type="ghost"
-          >
-            View Info
-          </Button>
+          <Button type="ghost" handleClick={useCallback(() => setShowInfo(!showInfo), [showInfo])}>View Info</Button>
         </div>
       </div>
     </section>

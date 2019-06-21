@@ -1,15 +1,11 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import Menu from '..';
-import { MovieContextProvider } from '../../MovieContext';
 
 describe('Menu component renders correctly', () => {
   it('Menu renders correctly', () => {
-    const tree = create(
-      <MovieContextProvider>
-        <Menu />
-      </MovieContextProvider>,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(<Menu />);
+    expect(result).toMatchSnapshot();
   });
 });

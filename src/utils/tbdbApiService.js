@@ -1,6 +1,4 @@
-import movie from '../assets/json/movie.json';
-import genres from '../assets/json/genres.json';
-import popular from '../assets/json/popular.json';
+import noAvailableImage from '../assets/images/noAvailableImage.png';
 
 const urlBase = 'https://image.tmdb.org/t/p/original';
 const urlMinImg = 'https://image.tmdb.org/t/p/w300';
@@ -11,39 +9,35 @@ function getNormalRuntime(time) {
   return `${hours}h ${minutes}m`;
 }
 
-function getMovieGenres(genresIds) {
+export function getMovieGenres(genresIds = [], genres = []) {
   const genresArr = [];
-  genresIds.map(genre => genres.genres.map((item) => {
-    if (item.id === genre) {
-      return genresArr.push({ id: item.id, name: item.name });
+  genresIds.map(genre => genres.map((movie) => {
+    if (movie.id === genre) {
+      return genresArr.push({ id: movie.id, name: movie.name });
     }
     return 0;
   }));
   return genresArr;
 }
 
-export function getMovieInfo() {
+export function getMovieInfo(movie) {
   return {
-    title: movie.original_title,
+    title: movie.title,
     genres: movie.genres,
     rating: movie.vote_average,
     runtime: getNormalRuntime(movie.runtime),
     overview: movie.overview,
-    image: `${urlBase}${movie.backdrop_path}`,
+    image: movie.backdrop_path ? `${urlBase}${movie.backdrop_path}` : noAvailableImage,
   };
 }
 
-export function getGenres() {
-  return genres.genres;
-}
-
-export function getPopularMovies() {
-  return popular.results.map(item => ({
-    id: item.id,
-    rating: item.vote_average,
-    title: item.title,
-    genres: getMovieGenres(item.genre_ids),
-    overview: item.overview,
-    image: `${urlMinImg}${item.poster_path}`,
+export function getMovies(movies = [], allGenres = []) {
+  return movies.map(movie => ({
+    id: movie.id,
+    rating: movie.vote_average,
+    title: movie.title,
+    genres: getMovieGenres(movie.genre_ids, allGenres),
+    overview: movie.overview,
+    image: movie.poster_path ? `${urlMinImg}${movie.poster_path}` : noAvailableImage,
   }));
 }

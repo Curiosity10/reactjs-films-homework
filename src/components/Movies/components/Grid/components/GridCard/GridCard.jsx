@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './GridCard.scss';
 import { OverlayCard, DefaultCard } from './components';
 
-const GridCard = ({ movie, isActive, changeActiveCard }) => {
+const GridCard = ({
+  movie, isActive, changeActiveCard,
+  toggleModal, fetchVideoSrc,
+}) => {
   const {
     rating,
     title,
@@ -14,7 +17,7 @@ const GridCard = ({ movie, isActive, changeActiveCard }) => {
   } = movie;
   return (
     <article className={styles.card}>
-      <img height={isActive ? '75%' : '100%'} src={image} alt="Poster" />
+      <img height={isActive ? '70%' : '100%'} src={image} alt="Poster" />
       { isActive
         ? (
           <DefaultCard
@@ -23,15 +26,20 @@ const GridCard = ({ movie, isActive, changeActiveCard }) => {
             rating={rating}
             changeActiveCard={changeActiveCard}
             genres={genres}
+            toggleModal={toggleModal}
+            fetchVideoSrc={fetchVideoSrc}
           />
         )
         : (
           <OverlayCard
+            id={id}
             overview={overview}
             title={title}
             rating={rating}
             changeActiveCard={changeActiveCard}
             genres={genres}
+            fetchVideoSrc={fetchVideoSrc}
+            toggleModal={toggleModal}
           />
         )}
     </article>
@@ -40,14 +48,21 @@ const GridCard = ({ movie, isActive, changeActiveCard }) => {
 
 GridCard.propTypes = {
   movie: PropTypes.shape({
-    rating: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    genres: PropTypes.array.isRequired,
-    overview: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    rating: PropTypes.number,
+    title: PropTypes.string,
+    genres: PropTypes.array,
+    overview: PropTypes.string,
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   }).isRequired,
   isActive: PropTypes.bool.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func,
+  fetchVideoSrc: PropTypes.func,
+};
+
+GridCard.defaultProps = {
+  toggleModal: () => {},
+  fetchVideoSrc: () => {},
 };
 
 export default GridCard;

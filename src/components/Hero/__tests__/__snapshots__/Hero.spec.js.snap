@@ -15,7 +15,7 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
     <h2
       className="title"
     >
-      Т-34
+      T-34
     </h2>
     <div
       className="wrapper"

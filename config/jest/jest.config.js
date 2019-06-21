@@ -17,7 +17,6 @@ module.exports = {
     'coverage',
     '<rootDir>/App.jsx',
     '<rootDir>/index.jsx',
-    '<rootDir>/components/Movies/Movies.jsx',
   ],
   moduleFileExtensions: ['js', 'jsx'],
   rootDir: '../../src',

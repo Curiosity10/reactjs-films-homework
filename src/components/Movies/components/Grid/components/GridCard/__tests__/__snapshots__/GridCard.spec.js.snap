@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GridCard component renders correctly GridCard renders correctly 1`] = `
+exports[`GridCard component renders correctly GridCard renders and works correctly 1`] = `
 <article
   className="card"
 >
   <img
     alt="Poster"
     height="100%"
-    src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
+    src="https://image.tmdb.org/t/p/w300/AnLCqcH66Ecu8VFmXu3RofK4SMK.jpg"
   />
   <div
     className="overlay"
@@ -25,7 +25,7 @@ exports[`GridCard component renders correctly GridCard renders correctly 1`] = `
         <h3
           className="title"
         >
-          Т-34
+          T-34
         </h3>
         <span
           className="genre"
@@ -51,13 +51,13 @@ exports[`GridCard component renders correctly GridCard renders correctly 1`] = `
       <span
         className="numRating"
       >
-        4.7
+        4.5
       </span>
     </div>
     <p
       className="description"
     >
-      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen ...
+      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more...
     </p>
     <button
       aria-label="Watch Now"

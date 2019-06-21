@@ -7,3 +7,5 @@ exports[`NumRating component renders correctly NumRating renders correctly 1`] =
   5
 </span>
 `;
+
+exports[`NumRating component renders correctly NumRating without rating renders correctly 1`] = `null`;

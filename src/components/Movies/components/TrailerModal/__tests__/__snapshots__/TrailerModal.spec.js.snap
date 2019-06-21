@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrailerModal component renders correctly Click outside modal works correctly 1`] = `
+<div>
+  <button
+    className="button"
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    type="button"
+  >
+    123
+  </button>
+  <div
+    className="videoContainer"
+  >
+    <iframe
+      className="video"
+      frameBorder="0"
+      src="https://www.youtube.com/embed/12345"
+      title="trailer"
+    />
+  </div>
+</div>
+`;
+
+exports[`TrailerModal component renders correctly Spinner inside modal renders correctly 1`] = `
+<div
+  className="videoContainer"
+>
+  <div
+    className="spinner"
+  >
+    <div
+      className="ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+    <p
+      className="title"
+    >
+      Loading
+    </p>
+  </div>
+</div>
+`;
+
+exports[`TrailerModal component renders correctly TrailerModal renders and unmount correctly 1`] = `
+<div
+  className="videoContainer"
+>
+  <h2
+    className="heading"
+  >
+    Sorry, no trailer available
+  </h2>
+</div>
+`;

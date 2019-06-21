@@ -6,7 +6,7 @@ exports[`TableCard component renders correctly TableCard renders correctly 1`] =
 >
   <img
     alt="Poster"
-    src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
+    src="https://image.tmdb.org/t/p/w300/AnLCqcH66Ecu8VFmXu3RofK4SMK.jpg"
   />
   <div
     className="info"
@@ -14,7 +14,7 @@ exports[`TableCard component renders correctly TableCard renders correctly 1`] =
     <h2
       className="title"
     >
-      Т-34
+      T-34
     </h2>
     <span
       className="genre"
@@ -62,7 +62,7 @@ exports[`TableCard component renders correctly TableCard renders correctly 1`] =
       <span
         className="numRating"
       >
-        4.7
+        4.5
       </span>
     </div>
     <button

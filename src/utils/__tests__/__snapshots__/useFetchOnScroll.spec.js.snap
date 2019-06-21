@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetch on scroll work correctly Callback call correctly 1`] = `
+<h1>
+  Hello
+</h1>
+`;

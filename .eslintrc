@@ -21,8 +21,7 @@
   ],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": ["error", "unix"],
-    "react-hooks/exhaustive-deps": "warn",
+    "linebreak-style": ["error", "windows"],
     "react-hooks/rules-of-hooks" : "error"
   }
 }

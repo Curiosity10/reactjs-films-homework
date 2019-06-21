@@ -1,10 +1,11 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import Header from '..';
 
 describe('Header component renders correctly', () => {
   it('Header renders correctly', () => {
-    const tree = create(<Header />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(<Header />);
+    expect(result).toMatchSnapshot();
   });
 });

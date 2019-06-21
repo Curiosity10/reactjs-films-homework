@@ -1,11 +1,10 @@
-import React, { useState, useContext, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './ChangeLayoutBtns.scss';
-import { MovieContext } from '../../../MovieContext';
 
-const ChangeLayoutBtns = () => {
+const ChangeLayoutBtns = ({ changeLayout }) => {
   const [active, setActive] = useState('grid');
-  const { changeLayout } = useContext(MovieContext);
   return (
     <div>
       <button
@@ -30,5 +29,12 @@ const ChangeLayoutBtns = () => {
   );
 };
 
+ChangeLayoutBtns.propTypes = {
+  changeLayout: PropTypes.func,
+};
+
+ChangeLayoutBtns.defaultProps = {
+  changeLayout: () => {},
+};
 
 export default ChangeLayoutBtns;

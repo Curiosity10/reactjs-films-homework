@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterPanel component FilterPanel renders correctly 1`] = `
+<nav>
+  <ul>
+    <li
+      className="navItem"
+    >
+      <button
+        aria-label="Trending"
+        className="btn btn__active"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Trending
+      </button>
+    </li>
+    <li
+      className="navItem"
+    >
+      <button
+        aria-label="Top Rated"
+        className="btn"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Top Rated
+      </button>
+    </li>
+    <li
+      className="navItem"
+    >
+      <button
+        aria-label="Coming Soon"
+        className="btn"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Coming Soon
+      </button>
+    </li>
+    <li
+      className="navItem"
+    >
+      <select
+        aria-label="Genres"
+        className="selectGenre"
+        name="selectGenre"
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          disabled={true}
+          hidden={true}
+          value=""
+        >
+          Genre
+        </option>
+      </select>
+    </li>
+  </ul>
+</nav>
+`;

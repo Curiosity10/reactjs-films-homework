@@ -2,22 +2,41 @@
 
 .gridMovieList {
   background-size: cover;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   grid-gap: 2rem;
   justify-content: space-between;
 }
 
-.tableMovieList {
-  margin: 0 5%;
+.container {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 50px;
+}
+
+.toTopBtn {
+  position: fixed;
+  color: $blue-color;
+  text-decoration: none;
+  right: 1vw;
+  top: 90vh;
+  font-size: 3.5rem;
+  transition: font-size 0.2s;
+}
+
+.toTopBtn:hover {
+  font-size: 4rem;
 }
 
 @media (max-width: $desktop-screen-size) {
   .gridMovieList {
     justify-content: space-around;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: $mobile-screen-size) {
+  .toTopBtn {
+    right: 5vw;
   }
 }

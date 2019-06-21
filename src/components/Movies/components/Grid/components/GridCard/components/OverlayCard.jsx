@@ -4,12 +4,16 @@ import styles from '../GridCard.scss';
 import Genres from '../../../../../../Genres';
 import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
-import truncate from '../../../../../../../utils/truncate';
+import { truncate } from '../../../../../../../utils';
 
 const OverlayCard = ({
-  changeActiveCard, title, genres, rating, overview,
+  changeActiveCard, id, title, genres, rating, overview, toggleModal, fetchVideoSrc,
 }) => {
-  const maxLength = 215;
+  const maxLength = 180;
+  const handleClick = useCallback(() => {
+    fetchVideoSrc(id);
+    toggleModal(true);
+  }, [toggleModal, id, fetchVideoSrc]);
   return (
     <div className={styles.overlay}>
       <button
@@ -28,12 +32,13 @@ const OverlayCard = ({
       <p className={styles.description}>
         {truncate(overview, maxLength)}
       </p>
-      <Button type="primary">Watch Now</Button>
+      <Button type="primary" handleClick={handleClick}>Watch Now</Button>
     </div>
   );
 };
 
 OverlayCard.propTypes = {
+  id: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   genres: PropTypes.oneOfType([
@@ -42,6 +47,8 @@ OverlayCard.propTypes = {
   ]).isRequired,
   overview: PropTypes.string.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  fetchVideoSrc: PropTypes.func.isRequired,
 };
 
 export default OverlayCard;

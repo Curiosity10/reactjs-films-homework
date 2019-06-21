@@ -1,14 +1,15 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
-import ChangeLayoutBtns from '..';
-import { MovieContextProvider } from '../../../../MovieContext';
+import ChangeLayoutBtns from '../ChangeLayoutBtns';
 
 describe('ChangeLayoutBtns component', () => {
+  it('ChangeLayoutBtns renders correctly', () => {
+    const tree = create(<ChangeLayoutBtns />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
   it('Grid button set active', () => {
     const tree = create(
-      <MovieContextProvider>
-        <ChangeLayoutBtns />
-      </MovieContextProvider>,
+      <ChangeLayoutBtns />,
     );
     const button = tree.root.findByProps({ 'aria-label': 'Grid' });
     act(() => {
@@ -19,9 +20,7 @@ describe('ChangeLayoutBtns component', () => {
 
   it('Table button set active', () => {
     const tree = create(
-      <MovieContextProvider>
-        <ChangeLayoutBtns />
-      </MovieContextProvider>,
+      <ChangeLayoutBtns />,
     );
     const button = tree.root.findByProps({ 'aria-label': 'Table' });
     act(() => {

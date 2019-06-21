@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import GridCard from './components/GridCard';
+import GridCardContainer from './components/GridCard';
 
-const Grid = ({ movies }) => {
+const Grid = ({ movies, toggleModal }) => {
   const [activeCard, setActiveCard] = useState(0);
   const changeActiveCard = useCallback(
     (id) => {
@@ -9,13 +9,13 @@ const Grid = ({ movies }) => {
     },
     [],
   );
-
   return movies.map(movie => (
-    <GridCard
+    <GridCardContainer
       activeCard={activeCard}
       changeActiveCard={changeActiveCard}
       key={movie.id}
       movie={movie}
+      toggleModal={toggleModal}
       isActive={movie.id !== activeCard}
     />
   ));
