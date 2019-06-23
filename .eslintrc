@@ -6,7 +6,10 @@
     },
     "sourceType": "module"
   },
- "extends": ["airbnb", "plugin:jest/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended"
+  ],
   "env": {
     "es6": true,
     "node": true,
@@ -20,8 +23,20 @@
     "react-hooks"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": ["error", "unix"],
-    "react-hooks/rules-of-hooks" : "error"
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error"
   }
 }

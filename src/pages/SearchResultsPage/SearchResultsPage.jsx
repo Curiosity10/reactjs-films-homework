@@ -12,14 +12,14 @@ const SearchResultsPage = ({ fetchLatestMovies, fetchGenres }) => {
     fetchLatestMovies(1);
   }, [fetchGenres, fetchLatestMovies]);
   return (
-    <>
+    <div className={styles.container}>
       <Header />
       <div className={styles.backdrop}>
         <Menu />
         <MoviesContainer />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
@@ -29,8 +29,8 @@ SearchResultsPage.propTypes = {
 };
 
 SearchResultsPage.defaultProps = {
-  fetchLatestMovies: () => {},
-  fetchGenres: () => {},
+  fetchLatestMovies: () => { },
+  fetchGenres: () => { },
 };
 
 export default SearchResultsPage;

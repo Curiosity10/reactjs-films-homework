@@ -28,25 +28,25 @@ describe('App reducer works correctly', () => {
     expect(reducer({}, {
       type: types.FETCH_LATEST_MOVIES_SUCCESS,
       currentPage: 1,
-      movies: {},
+      movies: [],
       currentTotalPages: 1,
     })).toEqual({
       isLoading: false,
       currentPage: 1,
-      movies: {},
+      movies: [],
       currentTotalPages: 1,
     });
   });
   it('should handle movies by filter if current page > 1 ', () => {
-    expect(reducer({ movies: { 0: { title: 'first movie', id: 0 } } }, {
+    expect(reducer({ movies: ['first movie'] }, {
       type: types.FETCH_LATEST_MOVIES_SUCCESS,
       currentPage: 2,
-      movies: [{ title: 'second movie', id: 1 }],
+      movies: ['second movie'],
       currentTotalPages: 2,
     })).toEqual({
       isLoading: false,
       currentPage: 2,
-      movies: { 0: { title: 'first movie', id: 0 }, 1: { title: 'second movie', id: 1 } },
+      movies: ['first movie', 'second movie'],
       currentTotalPages: 2,
     });
   });
@@ -54,28 +54,28 @@ describe('App reducer works correctly', () => {
     expect(reducer({}, {
       type: types.FETCH_MOVIES_BY_GENRE_SUCCESS,
       currentPage: 1,
-      movies: {},
+      movies: [],
       currentTotalPages: 1,
       currentGenre: 12,
     })).toEqual({
       isLoading: false,
       currentPage: 1,
-      movies: {},
+      movies: [],
       currentTotalPages: 1,
       currentGenre: 12,
     });
   });
   it('should handle movies by genre if current page > 1 ', () => {
-    expect(reducer({ movies: { 0: { title: 'first movie', id: 0 } } }, {
+    expect(reducer({ movies: ['first movie'] }, {
       type: types.FETCH_MOVIES_BY_GENRE_SUCCESS,
       currentPage: 2,
-      movies: [{ title: 'second movie', id: 1 }],
+      movies: ['second movie'],
       currentTotalPages: 2,
       currentGenre: 12,
     })).toEqual({
       isLoading: false,
       currentPage: 2,
-      movies: { 0: { title: 'first movie', id: 0 }, 1: { title: 'second movie', id: 1 } },
+      movies: ['first movie', 'second movie'],
       currentTotalPages: 2,
       currentGenre: 12,
     });
@@ -84,28 +84,28 @@ describe('App reducer works correctly', () => {
     expect(reducer({}, {
       type: types.FETCH_SEARCH_MOVIES_SUCCESS,
       currentPage: 1,
-      movies: {},
+      movies: [],
       currentTotalPages: 1,
       currentSearchQuery: '123',
     })).toEqual({
       isLoading: false,
       currentPage: 1,
-      movies: {},
+      movies: [],
       currentTotalPages: 1,
       currentSearchQuery: '123',
     });
   });
   it('should handle movies by search query if current page > 1 ', () => {
-    expect(reducer({ movies: { 0: { title: 'first movie', id: 0 } } }, {
+    expect(reducer({ movies: ['first movie'] }, {
       type: types.FETCH_SEARCH_MOVIES_SUCCESS,
       currentPage: 2,
-      movies: [{ title: 'second movie', id: 1 }],
+      movies: ['second movie'],
       currentTotalPages: 2,
       currentSearchQuery: '123',
     })).toEqual({
       isLoading: false,
       currentPage: 2,
-      movies: { 0: { title: 'first movie', id: 0 }, 1: { title: 'second movie', id: 1 } },
+      movies: ['first movie', 'second movie'],
       currentTotalPages: 2,
       currentSearchQuery: '123',
     });

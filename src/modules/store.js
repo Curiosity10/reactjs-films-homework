@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddlware from 'redux-thunk';
+import logger from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { uiReducer } from './ui';
 import { appReducer } from './app';
 
 const initialState = {
   app: {
-    movies: {},
+    movies: [],
     genres: [],
     isLoading: true,
     currentPage: 1,
@@ -22,5 +24,9 @@ const initialState = {
 };
 
 const rootReducer = combineReducers({ app: appReducer, ui: uiReducer });
-const store = createStore(rootReducer, initialState, applyMiddleware(thunkMiddlware));
+const store = createStore(
+  rootReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(thunkMiddlware, logger)),
+);
 export default store;

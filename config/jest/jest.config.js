@@ -17,6 +17,7 @@ module.exports = {
     'coverage',
     '<rootDir>/App.jsx',
     '<rootDir>/index.jsx',
+    '<rootDir>/modules/store.js',
   ],
   moduleFileExtensions: ['js', 'jsx'],
   rootDir: '../../src',

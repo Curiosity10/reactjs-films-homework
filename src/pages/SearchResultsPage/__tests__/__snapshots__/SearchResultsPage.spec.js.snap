@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
-Array [
+<div
+  className="container"
+>
   <header
     className="header"
   >
@@ -33,7 +35,7 @@ Array [
         />
       </form>
     </div>
-  </header>,
+  </header>
   <div
     className="backdrop"
   >
@@ -142,7 +144,7 @@ Array [
         Loading
       </p>
     </div>
-  </div>,
+  </div>
   <footer
     className="footer"
   >
@@ -156,12 +158,14 @@ Array [
     >
       Copyright © 2019 FILMS. DZMITRY
     </p>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 1`] = `
-Array [
+<div
+  className="container"
+>
   <header
     className="header"
   >
@@ -193,7 +197,7 @@ Array [
         />
       </form>
     </div>
-  </header>,
+  </header>
   <div
     className="backdrop"
   >
@@ -302,7 +306,7 @@ Array [
         Loading
       </p>
     </div>
-  </div>,
+  </div>
   <footer
     className="footer"
   >
@@ -316,6 +320,6 @@ Array [
     >
       Copyright © 2019 FILMS. DZMITRY
     </p>
-  </footer>,
-]
+  </footer>
+</div>
 `;

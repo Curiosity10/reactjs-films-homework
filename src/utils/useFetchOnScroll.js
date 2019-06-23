@@ -41,5 +41,5 @@ export const useFetchOnScroll = (...args) => {
     return () => {
       document.removeEventListener('scroll', callback);
     };
-  }, [...args]);
+  }, [args]);
 };
