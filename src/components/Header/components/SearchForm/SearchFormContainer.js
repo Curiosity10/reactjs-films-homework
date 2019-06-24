@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
-import { fetchSearchMovies, changeFilter } from '../../../../modules/app';
+import { fetchSearchMovies, changeFilter } from '../../../../modules/app/appActions';
 
 const actions = {
   fetchSearchMovies,

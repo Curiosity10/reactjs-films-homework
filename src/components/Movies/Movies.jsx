@@ -10,36 +10,42 @@ import TrailerModal from './components/TrailerModal';
 const cx = cn.bind(styles);
 
 const Movies = ({
-  isLoading, movies, layout, videoKey, page,
+  isLoading, movies, layout, src, page,
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const isMoviesExist = movies.length !== 0;
-  let renderContent;
+  let content;
 
   if (!isMoviesExist) {
-    renderContent = <h2>Sorry, no movies found.</h2>;
+    content = <p className={styles.notFound}>Sorry, no movies found.</p>;
   } else if (layout === 'grid') {
-    renderContent = <Grid toggleModal={setModalOpen} movies={movies} />;
+    content = <Grid toggleModal={setModalOpen} movies={movies} />;
   } else if (layout === 'table') {
-    renderContent = <Table toggleModal={setModalOpen} movies={movies} />;
+    content = <Table toggleModal={setModalOpen} movies={movies} />;
   }
 
   return (
     <>
       {
-        <main className={cx({ container: true, gridMovieList: (layout === 'grid' && isMoviesExist), tableMovieList: (layout === 'table' && isMoviesExist) })}>
-          { renderContent }
-          {page > 1 ? <a className={styles.toTopBtn} type="button" href="#menu">&#x2B06;</a> : null}
+        <main className={
+          cx({
+            container: true,
+            gridMovieList: (layout === 'grid' && isMoviesExist),
+            tableMovieList: (layout === 'table' && isMoviesExist),
+          })}
+        >
+          { content }
+          {page > 1 && <a className={styles.toTopBtn} type="button" href="#menu">&#x2B06;</a>}
         </main>
       }
-      {isModalOpen ? (
+      {isModalOpen && (
         <TrailerModal
           isLoading={isLoading}
           toggleModal={setModalOpen}
-          videoKey={videoKey}
+          src={src}
         />
-      ) : null}
-      { isLoading ? <Spinner /> : null }
+      )}
+      { isLoading && <Spinner /> }
     </>
   );
 };
@@ -48,7 +54,7 @@ Movies.propTypes = {
   isLoading: PropTypes.bool,
   movies: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.string,
-  videoKey: PropTypes.string,
+  src: PropTypes.string,
   page: PropTypes.number,
 };
 
@@ -56,7 +62,7 @@ Movies.defaultProps = {
   movies: [],
   isLoading: false,
   layout: 'Grid',
-  videoKey: '',
+  src: '',
   page: 1,
 };
 

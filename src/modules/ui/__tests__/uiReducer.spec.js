@@ -1,5 +1,5 @@
 import reducer from '../uiReducer';
-import CHANGE_LAYOUT from '../uiConstants';
+import actions from '../uiConstants';
 
 describe('Ui reducer works correctly', () => {
   it('should return the initial state', () => {
@@ -7,7 +7,7 @@ describe('Ui reducer works correctly', () => {
   });
   it('should handle change layout', () => {
     expect(reducer({}, {
-      type: CHANGE_LAYOUT,
+      type: actions.CHANGE_LAYOUT,
       layout: 'grid',
     })).toEqual({
       layout: 'grid',

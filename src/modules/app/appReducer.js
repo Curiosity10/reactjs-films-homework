@@ -3,77 +3,72 @@ import * as ACTIONS from './appConstants';
 const appReducer = (state = {}, action) => {
   switch (action.type) {
     case ACTIONS.FETCH_GENRES_FAILURE:
-    case ACTIONS.FETCH_LATEST_MOVIES_FAILURE:
-    case ACTIONS.FETCH_MOVIES_BY_GENRE_FAILURE:
-    case ACTIONS.FETCH_SEARCH_MOVIES_FAILURE:
-    case ACTIONS.FETCH_TOPRATED_MOVIES_FAILURE:
-    case ACTIONS.FETCH_UPCOMING_MOVIES_FAILURE:
+    case ACTIONS.FETCH_MOVIES_FAILURE:
+      return {
+        ...state,
+        error: action.payload.error,
+        isLoading: false,
+        src: '',
+      };
     case ACTIONS.FETCH_VIDEO_KEY_FAILURE:
       return {
         ...state,
-        error: action.error,
+        error: '',
         isLoading: false,
+        src: '',
       };
     case ACTIONS.FETCH_GENRES_REQUEST:
-    case ACTIONS.FETCH_LATEST_MOVIES_REQUEST:
-    case ACTIONS.FETCH_MOVIES_BY_GENRE_REQUEST:
-    case ACTIONS.FETCH_SEARCH_MOVIES_REQUEST:
-    case ACTIONS.FETCH_TOPRATED_MOVIES_REQUEST:
-    case ACTIONS.FETCH_UPCOMING_MOVIES_REQUEST:
+    case ACTIONS.FETCH_MOVIES_REQUEST:
     case ACTIONS.FETCH_VIDEO_KEY_REQUEST:
       return {
         ...state,
         isLoading: true,
-        videoKey: '',
+        error: '',
+        src: '',
         currentGenre: '',
         currentSearchQuery: '',
       };
-    case ACTIONS.FETCH_LATEST_MOVIES_SUCCESS:
-    case ACTIONS.FETCH_TOPRATED_MOVIES_SUCCESS:
-    case ACTIONS.FETCH_UPCOMING_MOVIES_SUCCESS:
+    case ACTIONS.FETCH_MOVIES_SUCCESS: {
+      let { movies } = action.payload;
+      const {
+        currentGenre, currentPage,
+        pagesCount, currentSearchQuery,
+      } = action.payload;
+      if (currentPage !== 1) {
+        movies = movies.slice(0, 1)[0].id
+        === state.movies.slice(-1)[0].id
+          ? movies.slice(1) : movies;
+      }
       return {
         ...state,
         isLoading: false,
-        currentPage: action.currentPage,
-        movies: action.currentPage === 1 ? action.movies : state.movies.concat(action.movies),
-        currentTotalPages: action.currentTotalPages,
+        currentPage,
+        currentGenre,
+        currentSearchQuery,
+        movies: currentPage === 1
+          ? movies
+          : state.movies.concat(movies),
+        pagesCount,
       };
-    case ACTIONS.FETCH_MOVIES_BY_GENRE_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        currentPage: action.currentPage,
-        currentGenre: action.currentGenre,
-        movies: action.currentPage === 1 ? action.movies : state.movies.concat(action.movies),
-        currentTotalPages: action.currentTotalPages,
-      };
-    case ACTIONS.FETCH_SEARCH_MOVIES_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        currentPage: action.currentPage,
-        currentSearchQuery: action.currentSearchQuery,
-        movies: action.currentPage === 1 ? action.movies : state.movies.concat(action.movies),
-        currentTotalPages: action.currentTotalPages,
-      };
+    }
     case ACTIONS.FETCH_GENRES_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        genres: action.genres,
+        genres: action.payload.genres,
       };
     case ACTIONS.FETCH_VIDEO_KEY_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        videoKey: action.videoKey,
+        src: action.payload.src,
       };
     case ACTIONS.CHANGE_FILTER:
       return {
         ...state,
-        filter: action.filter,
+        filter: action.payload.filter,
         currentSearchQuery: '',
-        currentTotalPages: 1,
+        pagesCount: 1,
         currentPage: 1,
         currentGenre: '',
       };

@@ -1,124 +1,110 @@
 import {
-  getLatestMovies, getTopMovies, getUpcomingMovies,
-  getGenres, getMoviesByGenre, searchMovies,
-  getMovieVideo, createAsyncFnFailure,
+  getLatestMovies,
+  getTopMovies,
+  getUpcomingMovies,
+  getGenres,
+  getMoviesByGenre,
+  searchMovies,
+  getMovieVideo,
+  createAsyncFnFailure,
   createAsyncFnRequest,
+  createAsyncFnSuccess,
 } from '../../utils';
 
 import * as ACTIONS from './appConstants';
 
-const receiveLatestMovies = (json, page) => ({
-  type: ACTIONS.FETCH_LATEST_MOVIES_SUCCESS,
-  movies: json.results,
-  currentPage: page,
-  currentTotalPages: json.total_pages,
+const receiveMoviesByGenre = (data, page, genre) => ({
+  type: ACTIONS.FETCH_MOVIES_SUCCESS,
+  payload: {
+    movies: data.results,
+    currentPage: page,
+    currentGenre: genre,
+    pagesCount: data.total_pages,
+  },
 });
 
-const receiveTopRatedMovies = (json, page) => ({
-  type: ACTIONS.FETCH_TOPRATED_MOVIES_SUCCESS,
-  movies: json.results,
-  currentPage: page,
-  currentTotalPages: json.total_pages,
+const receiveSearchedMovies = (data, page, query) => ({
+  type: ACTIONS.FETCH_MOVIES_SUCCESS,
+  payload: {
+    movies: data.results,
+    currentPage: page,
+    currentSearchQuery: query,
+    pagesCount: data.total_pages,
+  },
 });
 
-const receiveUpcomingMovies = (json, page) => ({
-  type: ACTIONS.FETCH_UPCOMING_MOVIES_SUCCESS,
-  movies: json.results,
-  currentPage: page,
-  currentTotalPages: json.total_pages,
-});
-
-const receiveMoviesByGenre = (json, page, genre) => ({
-  type: ACTIONS.FETCH_MOVIES_BY_GENRE_SUCCESS,
-  movies: json.results,
-  currentPage: page,
-  currentGenre: genre,
-  currentTotalPages: json.total_pages,
-});
-
-const receiveSearchedMovies = (json, page, query) => ({
-  type: ACTIONS.FETCH_SEARCH_MOVIES_SUCCESS,
-  movies: json.results,
-  currentPage: page,
-  currentSearchQuery: query,
-  currentTotalPages: json.total_pages,
-});
-
-const receiveVideoSrc = json => ({
+const receiveVideoSrc = data => ({
   type: ACTIONS.FETCH_VIDEO_KEY_SUCCESS,
-  videoKey: json.results[0].key,
+  payload: {
+    src: data.results[0].key,
+  },
 });
 
-const receiveGenres = json => ({
+const receiveGenres = data => ({
   type: ACTIONS.FETCH_GENRES_SUCCESS,
-  genres: json.genres,
+  payload: {
+    genres: data.genres,
+  },
 });
 
-const fetchLatestMovies = page => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_LATEST_MOVIES_REQUEST));
-  return getLatestMovies({ page })
+const requestMovies = () => createAsyncFnRequest(ACTIONS.FETCH_MOVIES_REQUEST);
+const failureMovies = error => createAsyncFnFailure(ACTIONS.FETCH_MOVIES_FAILURE, error);
+
+const fetchLatestMovies = page => createAsyncFnSuccess(
+  'FETCH_MOVIES', getLatestMovies, page,
+);
+const fetchTopRatedMovies = page => createAsyncFnSuccess(
+  'FETCH_MOVIES', getTopMovies, page,
+);
+const fetchUpcomingMovies = page => createAsyncFnSuccess(
+  'FETCH_MOVIES', getUpcomingMovies, page,
+);
+
+const fetchMoviesByGenre = (page, genre) => (dispatch) => {
+  dispatch(requestMovies());
+  return getMoviesByGenre({ page, genre })
     .then(response => response.json())
-    .then(json => dispatch(receiveLatestMovies(json, page)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_LATEST_MOVIES_FAILURE, error)));
+    .then(data => dispatch(receiveMoviesByGenre(data, page, genre)))
+    .catch(error => dispatch(failureMovies(error)));
+};
+
+const fetchSearchMovies = (page, query) => (dispatch) => {
+  dispatch(requestMovies());
+  return searchMovies({ page, query })
+    .then(response => response.json())
+    .then(data => dispatch(receiveSearchedMovies(data, page, query)))
+    .catch(error => dispatch(failureMovies(error)));
 };
 
 const fetchGenres = () => (dispatch) => {
   dispatch(createAsyncFnRequest(ACTIONS.FETCH_GENRES_REQUEST));
   return getGenres()
     .then(response => response.json())
-    .then(json => dispatch(receiveGenres(json)))
+    .then(data => dispatch(receiveGenres(data)))
     .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_GENRES_FAILURE, error)));
-};
-
-const fetchTopRatedMovies = page => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_TOPRATED_MOVIES_REQUEST));
-  return getTopMovies({ page })
-    .then(response => response.json())
-    .then(json => dispatch(receiveTopRatedMovies(json, page)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_TOPRATED_MOVIES_FAILURE, error)));
-};
-
-const fetchUpcomingMovies = page => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_UPCOMING_MOVIES_REQUEST));
-  return getUpcomingMovies({ page })
-    .then(response => response.json())
-    .then(json => dispatch(receiveUpcomingMovies(json, page)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_UPCOMING_MOVIES_FAILURE, error)));
-};
-
-const fetchMoviesByGenre = (page, genre) => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_MOVIES_BY_GENRE_REQUEST));
-  return getMoviesByGenre({ page, genre })
-    .then(response => response.json())
-    .then(json => dispatch(receiveMoviesByGenre(json, page, genre)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_MOVIES_BY_GENRE_FAILURE, error)));
-};
-
-const fetchSearchMovies = (page, query) => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_SEARCH_MOVIES_REQUEST));
-  return searchMovies({ page, query })
-    .then(response => response.json())
-    .then(json => dispatch(receiveSearchedMovies(json, page, query)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_SEARCH_MOVIES_FAILURE, error)));
 };
 
 const fetchVideoSrc = movieId => (dispatch) => {
   dispatch(createAsyncFnRequest(ACTIONS.FETCH_VIDEO_KEY_REQUEST));
   return getMovieVideo(movieId)
     .then(res => res.json())
-    .then(json => dispatch(receiveVideoSrc(json)))
+    .then(data => dispatch(receiveVideoSrc(data)))
     .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_VIDEO_KEY_FAILURE, error)));
 };
 
 
 const changeFilter = filter => ({
   type: ACTIONS.CHANGE_FILTER,
-  filter,
+  payload: { filter },
 });
 
 export {
-  fetchGenres, fetchLatestMovies,
-  fetchTopRatedMovies, fetchUpcomingMovies,
-  fetchMoviesByGenre, fetchSearchMovies, changeFilter,
+  fetchGenres,
+  fetchLatestMovies,
+  fetchTopRatedMovies,
+  fetchUpcomingMovies,
+  fetchMoviesByGenre,
+  fetchSearchMovies,
+  changeFilter,
   fetchVideoSrc,
 };

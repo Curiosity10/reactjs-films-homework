@@ -9,12 +9,12 @@ const state = {
     genres: genres.genres,
     isLoading: true,
     currentPage: 5,
-    error: false,
+    error: 'Something went wrong',
     filter: 'Trending',
     currentGenre: 12,
     currentSearchQuery: '123',
-    videoKey: '12345',
-    currentTotalPages: 13,
+    src: '12345',
+    pagesCount: 13,
   },
 };
 describe('Selectors work correctly', () => {
@@ -37,12 +37,15 @@ describe('Selectors work correctly', () => {
     expect(selectors.currentSearchQuerySelector(state)).toEqual('123');
   });
   it('Should return video key', () => {
-    expect(selectors.videoKeySelector(state)).toEqual('12345');
+    expect(selectors.srcSelector(state)).toEqual('https://www.youtube.com/embed/12345');
   });
   it('Should return has more pages', () => {
     expect(selectors.hasMorePagesSelector(state)).toEqual(true);
   });
   it('Should return movies', () => {
     expect(selectors.moviesSelector(state)).toEqual(getMovies(state.app.movies, state.app.genres));
+  });
+  it('Should return error', () => {
+    expect(selectors.errorMessageSelector(state)).toEqual('Something went wrong');
   });
 });

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './TrailerModal.scss';
 import Spinner from '../../../Spinner';
 import Modal from './components/Modal';
-import { useBodyScrollLock, useOnClickOutside } from '../../../../utils';
+import { useBodyScrollLock, useOnClickOutside } from '../../../../hooks';
 
-const TrailerModal = ({ toggleModal, videoKey, isLoading }) => {
+const TrailerModal = ({ toggleModal, src, isLoading }) => {
   useBodyScrollLock();
   let modal;
   const modalRef = useRef();
@@ -20,7 +20,7 @@ const TrailerModal = ({ toggleModal, videoKey, isLoading }) => {
           className={styles.video}
           title="trailer"
           frameBorder="0"
-          src={`https://www.youtube.com/embed/${videoKey}`}
+          src={src}
         />
       </>
     );
@@ -30,7 +30,7 @@ const TrailerModal = ({ toggleModal, videoKey, isLoading }) => {
     <Modal id="trailer" ref={modalRef}>
       <div className={styles.videoContainer}>
         {
-          videoKey || isLoading
+          src || isLoading
             ? modal
             : (
               <>
@@ -44,13 +44,13 @@ const TrailerModal = ({ toggleModal, videoKey, isLoading }) => {
 };
 
 TrailerModal.propTypes = {
-  videoKey: PropTypes.string,
+  src: PropTypes.string,
   toggleModal: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
 };
 
 TrailerModal.defaultProps = {
-  videoKey: '',
+  src: '',
   isLoading: false,
 };
 

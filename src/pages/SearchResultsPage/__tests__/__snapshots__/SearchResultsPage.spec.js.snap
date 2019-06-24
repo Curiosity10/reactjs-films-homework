@@ -123,9 +123,11 @@ exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
     <main
       className="container"
     >
-      <h2>
+      <p
+        className="notFound"
+      >
         Sorry, no movies found.
-      </h2>
+      </p>
     </main>
     <div
       className="spinner"
@@ -285,9 +287,11 @@ exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 
     <main
       className="container"
     >
-      <h2>
+      <p
+        className="notFound"
+      >
         Sorry, no movies found.
-      </h2>
+      </p>
     </main>
     <div
       className="spinner"

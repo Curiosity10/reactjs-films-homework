@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import FilterPanel from './FilterPanel';
 import {
-  fetchTopRatedMovies, fetchLatestMovies, fetchUpcomingMovies, changeFilter,
-  fetchedGenresSelector, filterSelector,
-} from '../../../../modules/app';
+  fetchTopRatedMovies,
+  fetchLatestMovies,
+  fetchUpcomingMovies,
+  changeFilter,
+} from '../../../../modules/app/appActions';
+import { fetchedGenresSelector, filterSelector } from '../../../../modules/app/appSelectors';
 
 const mapStateToProps = state => ({
   fetchedGenres: fetchedGenresSelector(state),

@@ -1,6 +1,6 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
-import useOnClickOutside from '../useOnClickOutside';
+import { useOnClickOutside } from '..';
 
 describe('Body scroll lock work correctly', () => {
   const ref = {

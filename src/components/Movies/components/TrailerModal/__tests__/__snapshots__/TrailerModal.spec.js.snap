@@ -27,7 +27,7 @@ exports[`TrailerModal component renders correctly Click outside modal works corr
     <iframe
       className="video"
       frameBorder="0"
-      src="https://www.youtube.com/embed/12345"
+      src="12345"
       title="trailer"
     />
   </div>

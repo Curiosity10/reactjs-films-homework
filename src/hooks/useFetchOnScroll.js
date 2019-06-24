@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react';
-import getScrollDownPercentage from './scroll';
+import getScrollDownPercentage from '../utils/scroll';
 
 export const handleScroll = (
   isLoading, hasMorePages, filter, currentPage,

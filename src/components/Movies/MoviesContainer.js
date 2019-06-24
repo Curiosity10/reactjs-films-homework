@@ -3,20 +3,30 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Movies from './Movies';
 import {
-  fetchTopRatedMovies, fetchLatestMovies, fetchUpcomingMovies,
-  fetchSearchMovies, fetchMoviesByGenre, filterSelector,
-  currentPageSelector, isLoadingSelector, currentGenreSelector,
-  currentSearchQuerySelector, hasMorePagesSelector, videoKeySelector,
+  fetchTopRatedMovies,
+  fetchLatestMovies,
+  fetchUpcomingMovies,
+  fetchSearchMovies,
+  fetchMoviesByGenre,
+} from '../../modules/app/appActions';
+import layoutSelector from '../../modules/ui/uiSelectors';
+import {
+  filterSelector,
+  currentPageSelector,
+  isLoadingSelector,
+  currentGenreSelector,
+  currentSearchQuerySelector,
+  hasMorePagesSelector,
+  srcSelector,
   moviesSelector,
-} from '../../modules/app';
-import { layoutSelector } from '../../modules/ui';
-import { useFetchOnScroll } from '../../utils';
+} from '../../modules/app/appSelectors';
+import { useFetchOnScroll } from '../../hooks';
 
 const MovieContainer = ({
   isLoading, filter, currentPage, currentGenre,
   currentSearchQuery, movies, layout, getTopRatedMovies,
   getLatestMovies, getUpcomingMovies, getSearchMovies,
-  getMoviesByGenre, videoKey, hasMorePages,
+  getMoviesByGenre, src, hasMorePages,
 }) => {
   useFetchOnScroll(
     isLoading, hasMorePages, filter, currentPage,
@@ -26,7 +36,7 @@ const MovieContainer = ({
   return (
     <Movies
       page={currentPage}
-      videoKey={videoKey}
+      src={src}
       isLoading={isLoading}
       movies={movies}
       layout={layout}
@@ -43,7 +53,7 @@ const mapStateToProps = state => ({
   currentGenre: currentGenreSelector(state),
   currentSearchQuery: currentSearchQuerySelector(state),
   hasMorePages: hasMorePagesSelector(state),
-  videoKey: videoKeySelector(state),
+  src: srcSelector(state),
 });
 
 const actions = {
@@ -61,7 +71,7 @@ MovieContainer.propTypes = {
   filter: PropTypes.string.isRequired,
   currentGenre: PropTypes.string,
   currentSearchQuery: PropTypes.string,
-  videoKey: PropTypes.string,
+  src: PropTypes.string,
   hasMorePages: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object),
   getTopRatedMovies: PropTypes.func.isRequired,
@@ -74,7 +84,7 @@ MovieContainer.propTypes = {
 MovieContainer.defaultProps = {
   currentGenre: '',
   currentSearchQuery: '',
-  videoKey: '',
+  src: '',
   movies: [],
 };
 

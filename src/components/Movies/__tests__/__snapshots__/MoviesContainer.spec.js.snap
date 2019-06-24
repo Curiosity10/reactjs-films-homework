@@ -1783,9 +1783,11 @@ Array [
   <main
     className="container"
   >
-    <h2>
+    <p
+      className="notFound"
+    >
       Sorry, no movies found.
-    </h2>
+    </p>
   </main>,
   <div
     className="spinner"

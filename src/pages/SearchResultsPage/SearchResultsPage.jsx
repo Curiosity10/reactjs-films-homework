@@ -9,7 +9,7 @@ import Footer from '../../components/Footer';
 const SearchResultsPage = ({ fetchLatestMovies, fetchGenres }) => {
   useEffect(() => {
     fetchGenres();
-    fetchLatestMovies(1);
+    fetchLatestMovies();
   }, [fetchGenres, fetchLatestMovies]);
   return (
     <div className={styles.container}>

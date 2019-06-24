@@ -32,8 +32,8 @@ describe('MoviesContainer component renders correctly', () => {
         filter: 'Trending',
         currentGenre: '',
         currentSearchQuery: '',
-        videoKey: '',
-        currentTotalPages: 1,
+        src: '',
+        pagesCount: 1,
       },
       ui: {
         layout: 'grid',
@@ -62,8 +62,8 @@ describe('MoviesContainer component renders correctly', () => {
         filter: 'Trending',
         currentGenre: '',
         currentSearchQuery: '',
-        videoKey: '',
-        currentTotalPages: 1,
+        src: '',
+        pagesCount: 1,
       },
       ui: {
         layout: 'table',
@@ -94,8 +94,8 @@ describe('MoviesContainer component renders correctly', () => {
         filter: 'Trending',
         currentGenre: '',
         currentSearchQuery: '',
-        videoKey: '',
-        currentTotalPages: 1,
+        src: '',
+        pagesCount: 1,
       },
       ui: {
         layout: '',
@@ -120,8 +120,8 @@ describe('MoviesContainer component renders correctly', () => {
         filter: 'Trending',
         currentGenre: '',
         currentSearchQuery: '',
-        videoKey: '',
-        currentTotalPages: 1,
+        src: '',
+        pagesCount: 1,
       },
       ui: {
         layout: 'table',

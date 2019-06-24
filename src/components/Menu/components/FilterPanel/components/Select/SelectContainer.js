@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Select from './Select';
-import { fetchMoviesByGenre, fetchedGenresSelector, filterSelector } from '../../../../../../modules/app';
+import { fetchMoviesByGenre } from '../../../../../../modules/app/appActions';
+import { fetchedGenresSelector, filterSelector } from '../../../../../../modules/app/appSelectors';
 
 const mapStateToProps = state => ({
   fetchedGenres: fetchedGenresSelector(state),

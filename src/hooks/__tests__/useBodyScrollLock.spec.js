@@ -1,6 +1,6 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
-import useBodyScrollLock from '../useBodyScrollLock';
+import { useBodyScrollLock } from '..';
 
 describe('Body scroll lock work correctly', () => {
   const Component = () => {

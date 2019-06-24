@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import React from 'react';
 import { act, create } from 'react-test-renderer';
-import { handleScroll, useFetchOnScroll } from '../useFetchOnScroll';
+import { handleScroll, useFetchOnScroll } from '..';
 
 describe('Fetch on scroll work correctly', () => {
   const currentPage = 1;

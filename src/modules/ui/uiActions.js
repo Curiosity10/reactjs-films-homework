@@ -1,8 +1,9 @@
-import CHANGE_LAYOUT from './uiConstants';
+import types from './uiConstants';
 
 const changeLayout = layout => ({
-  type: CHANGE_LAYOUT,
+  type: types.CHANGE_LAYOUT,
   layout,
 });
 
-export default changeLayout;
+// eslint-disable-next-line import/prefer-default-export
+export { changeLayout };

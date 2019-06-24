@@ -1,8 +1,8 @@
-import CHANGE_LAYOUT from './uiConstants';
+import types from './uiConstants';
 
 const uiReducer = (state = {}, action) => {
   switch (action.type) {
-    case CHANGE_LAYOUT:
+    case types.CHANGE_LAYOUT:
       return {
         ...state,
         layout: action.layout,

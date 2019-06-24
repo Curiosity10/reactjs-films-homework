@@ -29,7 +29,7 @@ describe('TrailerModal component renders correctly', () => {
     const ContainerComponent = () => (
       <div>
         <button type="button" className="button" onClick={mockClick}>123</button>
-        <TrailerModal toggleModal={mockFn} videoKey="12345" />
+        <TrailerModal toggleModal={mockFn} src="12345" />
       </div>
     );
     let tree;

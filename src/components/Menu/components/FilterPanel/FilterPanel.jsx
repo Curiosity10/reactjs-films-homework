@@ -8,7 +8,7 @@ const FilterPanel = ({
   fetchTopRatedMovies, fetchLatestMovies, fetchUpcomingMovies,
   changeFilter, filter,
 }) => {
-  const setActiveItem = itemName => (itemName === filter ? styles.btn__active : null);
+  const setActiveItem = itemName => (itemName === filter && styles.btn__active);
   return (
     <nav>
       <ul>
