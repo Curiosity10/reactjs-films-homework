@@ -14,14 +14,14 @@ const Movies = ({
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const isMoviesExist = movies.length !== 0;
-  let content;
+  let moviesList;
 
   if (!isMoviesExist) {
-    content = <p className={styles.notFound}>Sorry, no movies found.</p>;
+    moviesList = <p className={styles.notFound}>Sorry, no movies found.</p>;
   } else if (layout === 'grid') {
-    content = <Grid toggleModal={setModalOpen} movies={movies} />;
+    moviesList = <Grid toggleModal={setModalOpen} movies={movies} />;
   } else if (layout === 'table') {
-    content = <Table toggleModal={setModalOpen} movies={movies} />;
+    moviesList = <Table toggleModal={setModalOpen} movies={movies} />;
   }
 
   return (
@@ -34,7 +34,7 @@ const Movies = ({
             tableMovieList: (layout === 'table' && isMoviesExist),
           })}
         >
-          { content }
+          { moviesList }
           {page > 1 && <a className={styles.toTopBtn} type="button" href="#menu">&#x2B06;</a>}
         </main>
       }
