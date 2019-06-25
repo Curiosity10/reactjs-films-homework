@@ -6,31 +6,27 @@ import {
   getMoviesByGenre,
   searchMovies,
   getMovieVideo,
-  createAsyncFnFailure,
-  createAsyncFnRequest,
-  createAsyncFnSuccess,
+  createFailureAction,
+  createRequestAction,
+  createAsyncAction,
 } from '../../utils';
 
 import * as ACTIONS from './appConstants';
 
-const receiveMoviesByGenre = (data, page, genre) => ({
-  type: ACTIONS.FETCH_MOVIES_SUCCESS,
-  payload: {
-    movies: data.results,
-    currentPage: page,
-    currentGenre: genre,
-    pagesCount: data.total_pages,
-  },
+const fetchLatestMovies = page => createAsyncAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getLatestMovies, page,
 });
-
-const receiveSearchedMovies = (data, page, query) => ({
-  type: ACTIONS.FETCH_MOVIES_SUCCESS,
-  payload: {
-    movies: data.results,
-    currentPage: page,
-    currentSearchQuery: query,
-    pagesCount: data.total_pages,
-  },
+const fetchTopRatedMovies = page => createAsyncAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getTopMovies, page,
+});
+const fetchUpcomingMovies = page => createAsyncAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getUpcomingMovies, page,
+});
+const fetchMoviesByGenre = (page, genre) => createAsyncAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByGenre, page, genre,
+});
+const fetchSearchMovies = (page, query) => createAsyncAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: searchMovies, page, query,
 });
 
 const receiveVideoSrc = data => ({
@@ -47,51 +43,21 @@ const receiveGenres = data => ({
   },
 });
 
-const requestMovies = () => createAsyncFnRequest(ACTIONS.FETCH_MOVIES_REQUEST);
-const failureMovies = error => createAsyncFnFailure(ACTIONS.FETCH_MOVIES_FAILURE, error);
-
-const fetchLatestMovies = page => createAsyncFnSuccess(
-  'FETCH_MOVIES', getLatestMovies, page,
-);
-const fetchTopRatedMovies = page => createAsyncFnSuccess(
-  'FETCH_MOVIES', getTopMovies, page,
-);
-const fetchUpcomingMovies = page => createAsyncFnSuccess(
-  'FETCH_MOVIES', getUpcomingMovies, page,
-);
-
-const fetchMoviesByGenre = (page, genre) => (dispatch) => {
-  dispatch(requestMovies());
-  return getMoviesByGenre({ page, genre })
-    .then(response => response.json())
-    .then(data => dispatch(receiveMoviesByGenre(data, page, genre)))
-    .catch(error => dispatch(failureMovies(error)));
-};
-
-const fetchSearchMovies = (page, query) => (dispatch) => {
-  dispatch(requestMovies());
-  return searchMovies({ page, query })
-    .then(response => response.json())
-    .then(data => dispatch(receiveSearchedMovies(data, page, query)))
-    .catch(error => dispatch(failureMovies(error)));
-};
-
 const fetchGenres = () => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_GENRES_REQUEST));
+  dispatch(createRequestAction(ACTIONS.FETCH_GENRES_REQUEST));
   return getGenres()
     .then(response => response.json())
     .then(data => dispatch(receiveGenres(data)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_GENRES_FAILURE, error)));
+    .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_GENRES_FAILURE, error)));
 };
 
 const fetchVideoSrc = movieId => (dispatch) => {
-  dispatch(createAsyncFnRequest(ACTIONS.FETCH_VIDEO_KEY_REQUEST));
+  dispatch(createRequestAction(ACTIONS.FETCH_VIDEO_KEY_REQUEST));
   return getMovieVideo(movieId)
     .then(res => res.json())
     .then(data => dispatch(receiveVideoSrc(data)))
-    .catch(error => dispatch(createAsyncFnFailure(ACTIONS.FETCH_VIDEO_KEY_FAILURE, error)));
+    .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_VIDEO_KEY_FAILURE, error)));
 };
-
 
 const changeFilter = filter => ({
   type: ACTIONS.CHANGE_FILTER,

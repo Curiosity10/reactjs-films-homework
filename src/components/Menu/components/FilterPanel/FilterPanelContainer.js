@@ -6,10 +6,10 @@ import {
   fetchUpcomingMovies,
   changeFilter,
 } from '../../../../modules/app/appActions';
-import { fetchedGenresSelector, filterSelector } from '../../../../modules/app/appSelectors';
+import { genresSelector, filterSelector } from '../../../../modules/app/appSelectors';
 
 const mapStateToProps = state => ({
-  fetchedGenres: fetchedGenresSelector(state),
+  fetchedGenres: genresSelector(state),
   filter: filterSelector(state),
 });
 

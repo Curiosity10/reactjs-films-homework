@@ -39,7 +39,13 @@ describe('Fetch latest movies works correctly', () => {
       { type: types.FETCH_MOVIES_REQUEST },
       {
         type: types.FETCH_MOVIES_SUCCESS,
-        payload: { movies: [], currentPage: 1, pagesCount: 1 },
+        payload: {
+          movies: [],
+          currentPage: 1,
+          pagesCount: 1,
+          currentGenre: null,
+          currentSearchQuery: '',
+        },
       },
     ];
     const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
@@ -70,7 +76,13 @@ describe('Fetch top rated movies works correctly', () => {
       { type: types.FETCH_MOVIES_REQUEST },
       {
         type: types.FETCH_MOVIES_SUCCESS,
-        payload: { movies: [], currentPage: 1, pagesCount: 1 },
+        payload: {
+          movies: [],
+          currentPage: 1,
+          pagesCount: 1,
+          currentGenre: null,
+          currentSearchQuery: '',
+        },
       },
     ];
     const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
@@ -101,7 +113,13 @@ describe('Fetch upcoming movies works correctly', () => {
       { type: types.FETCH_MOVIES_REQUEST },
       {
         type: types.FETCH_MOVIES_SUCCESS,
-        payload: { movies: [], currentPage: 1, pagesCount: 1 },
+        payload: {
+          movies: [],
+          currentPage: 1,
+          pagesCount: 1,
+          currentGenre: null,
+          currentSearchQuery: '',
+        },
       },
     ];
     const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
@@ -137,6 +155,7 @@ describe('Fetch movies by genre works correctly', () => {
           currentPage: 1,
           pagesCount: 1,
           currentGenre: 12,
+          currentSearchQuery: '',
         },
       },
     ];
@@ -173,6 +192,7 @@ describe('Fetch movies by search query works correctly', () => {
           currentPage: 1,
           pagesCount: 1,
           currentSearchQuery: '123',
+          currentGenre: null,
         },
       },
     ];

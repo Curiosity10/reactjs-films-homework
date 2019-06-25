@@ -9,7 +9,12 @@ import {
 } from './api';
 import { getMovies } from './tbdbApiService';
 import truncate from './truncate';
-import { createAsyncFnFailure, createAsyncFnRequest, createAsyncFnSuccess } from './actions.helpers';
+import {
+  createFailureAction,
+  createRequestAction,
+  createAsyncAction,
+  createReceiveMoviesAction,
+} from './actions.helpers';
 
 export {
   getTopMovies,
@@ -21,7 +26,8 @@ export {
   getMovieVideo,
   truncate,
   getMovies,
-  createAsyncFnFailure,
-  createAsyncFnRequest,
-  createAsyncFnSuccess,
+  createFailureAction,
+  createRequestAction,
+  createAsyncAction,
+  createReceiveMoviesAction,
 };

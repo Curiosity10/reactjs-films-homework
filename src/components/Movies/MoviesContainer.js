@@ -18,7 +18,7 @@ import {
   currentSearchQuerySelector,
   hasMorePagesSelector,
   srcSelector,
-  moviesSelector,
+  getMoviesSelector,
 } from '../../modules/app/appSelectors';
 import { useFetchOnScroll } from '../../hooks';
 
@@ -45,7 +45,7 @@ const MovieContainer = ({
 };
 
 const mapStateToProps = state => ({
-  movies: moviesSelector(state),
+  movies: getMoviesSelector(state),
   layout: layoutSelector(state),
   currentPage: currentPageSelector(state),
   isLoading: isLoadingSelector(state),

@@ -5,5 +5,4 @@ const changeLayout = layout => ({
   layout,
 });
 
-// eslint-disable-next-line import/prefer-default-export
-export { changeLayout };
+export default { changeLayout };

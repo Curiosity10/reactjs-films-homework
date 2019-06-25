@@ -65,7 +65,12 @@ const getMovieVideo = (movieId) => {
 };
 
 export {
-  getTopMovies, searchMovies, getMovieDetails,
-  getGenres, getMoviesByGenre, getLatestMovies,
-  getUpcomingMovies, getMovieVideo,
+  getTopMovies,
+  searchMovies,
+  getMovieDetails,
+  getGenres,
+  getMoviesByGenre,
+  getLatestMovies,
+  getUpcomingMovies,
+  getMovieVideo,
 };

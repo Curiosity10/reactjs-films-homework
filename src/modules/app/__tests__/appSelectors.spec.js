@@ -19,7 +19,7 @@ const state = {
 };
 describe('Selectors work correctly', () => {
   it('Should return genres', () => {
-    expect(selectors.fetchedGenresSelector(state)).toEqual(state.app.genres);
+    expect(selectors.genresSelector(state)).toEqual(state.app.genres);
   });
   it('Should return filter', () => {
     expect(selectors.filterSelector(state)).toEqual('Trending');
@@ -43,7 +43,11 @@ describe('Selectors work correctly', () => {
     expect(selectors.hasMorePagesSelector(state)).toEqual(true);
   });
   it('Should return movies', () => {
-    expect(selectors.moviesSelector(state)).toEqual(getMovies(state.app.movies, state.app.genres));
+    expect(selectors.moviesSelector(state)).toEqual(state.app.movies);
+  });
+  it('Should return movies with filter on props', () => {
+    expect(selectors.getMoviesSelector(state))
+      .toEqual(getMovies(state.app.movies, state.app.genres));
   });
   it('Should return error', () => {
     expect(selectors.errorMessageSelector(state)).toEqual('Something went wrong');

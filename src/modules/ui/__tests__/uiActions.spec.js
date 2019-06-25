@@ -1,13 +1,13 @@
-import { changeLayout } from '../uiActions';
-import actions from '../uiConstants';
+import actions from '../uiActions';
+import types from '../uiConstants';
 
 describe('Change layout works correctly', () => {
   it('Change layout to grid', () => {
     const layout = 'grid';
     const expectedAction = {
-      type: actions.CHANGE_LAYOUT,
+      type: types.CHANGE_LAYOUT,
       layout,
     };
-    expect(changeLayout(layout)).toEqual(expectedAction);
+    expect(actions.changeLayout(layout)).toEqual(expectedAction);
   });
 });
