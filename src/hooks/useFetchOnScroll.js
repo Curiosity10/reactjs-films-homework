@@ -2,16 +2,23 @@ import { useLayoutEffect } from 'react';
 import getScrollDownPercentage from '../utils/scroll';
 
 export const handleScroll = (
-  isLoading, hasMorePages, filter, currentPage,
-  getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-  getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery, window,
+  isLoading,
+  hasMorePages,
+  filter,
+  currentPage,
+  getLatestMovies,
+  getTopRatedMovies,
+  getUpcomingMovies,
+  getMoviesByGenre,
+  currentGenre,
+  getSearchMovies,
+  currentSearchQuery,
+  window,
 ) => {
   if (!isLoading) {
     const { scrollHeight, clientHeight } = window.document.documentElement;
     const scrollPos = window.pageYOffset;
-    const percentageScrolled = getScrollDownPercentage(
-      { scrollHeight, clientHeight, scrollPos },
-    );
+    const percentageScrolled = getScrollDownPercentage({ scrollHeight, clientHeight, scrollPos });
     if (percentageScrolled > 0.99 && hasMorePages) {
       switch (filter) {
         case 'Trending':
@@ -29,17 +36,30 @@ export const handleScroll = (
         case 'Search':
           getSearchMovies(currentPage + 1, currentSearchQuery);
           break;
-        default: break;
+        default:
+          break;
       }
     }
   }
 };
-export const useFetchOnScroll = (...args) => {
+export const useFetchOnScroll = (
+  isLoading, hasMorePages, filter, currentPage,
+  getLatestMovies, getTopRatedMovies, getUpcomingMovies,
+  getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+) => {
   useLayoutEffect(() => {
-    const callback = () => handleScroll(...args, window);
+    const callback = () => handleScroll(
+      isLoading, hasMorePages, filter, currentPage,
+      getLatestMovies, getTopRatedMovies, getUpcomingMovies,
+      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery, window,
+    );
     document.addEventListener('scroll', callback);
     return () => {
       document.removeEventListener('scroll', callback);
     };
-  }, [args]);
+  }, [
+    isLoading, hasMorePages, filter, currentPage,
+    getLatestMovies, getTopRatedMovies, getUpcomingMovies,
+    getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+  ]);
 };
