@@ -14,7 +14,7 @@ const SearchResultsPage = ({ fetchLatestMovies, fetchGenres }) => {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.backdrop}>
+      <div className={styles.backdrop} id="top">
         <Menu />
         <MoviesContainer />
       </div>

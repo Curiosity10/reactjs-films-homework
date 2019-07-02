@@ -20,11 +20,25 @@ exports[`Movies component renders correctly Movies grid renders correctly 1`] = 
     />
     <a
       className="toTopBtn"
-      href="#menu"
+      href="#top"
       type="button"
     >
       ⬆
     </a>
+  </main>
+</React.Fragment>
+`;
+
+exports[`Movies component renders correctly Movies not found message renders correctly 1`] = `
+<React.Fragment>
+  <main
+    className="container"
+  >
+    <p
+      className="notFound"
+    >
+      Sorry, no movies found.
+    </p>
   </main>
 </React.Fragment>
 `;

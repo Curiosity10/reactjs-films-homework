@@ -7,11 +7,14 @@ describe('Body scroll lock work correctly', () => {
     useBodyScrollLock();
     return <h1>Hello</h1>;
   };
+
   it('Set overflow to hidden', () => {
     let tree;
+
     act(() => {
       tree = create(<Component />);
     });
+
     expect(tree.toJSON()).toMatchSnapshot();
     tree.unmount();
   });

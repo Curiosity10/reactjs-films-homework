@@ -6,7 +6,7 @@ import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
 
 const DefaultCard = ({
-  changeActiveCard, title, genres, rating, id, toggleModal, fetchVideoSrc,
+  changeActiveCard, title, genres, rating, id, toggleModal, fetchvideoKey,
 }) => (
   <>
     <div className={styles.onHover}>
@@ -15,9 +15,9 @@ const DefaultCard = ({
         className={styles.btnWatch}
         type="button"
         onClick={useCallback(() => {
-          fetchVideoSrc(id);
+          fetchvideoKey(id);
           toggleModal(true);
-        }, [toggleModal, id, fetchVideoSrc])}
+        }, [toggleModal, id, fetchvideoKey])}
       >
         <span> Watch Now </span>
       </button>
@@ -45,7 +45,7 @@ DefaultCard.propTypes = {
   ]).isRequired,
   changeActiveCard: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  fetchVideoSrc: PropTypes.func.isRequired,
+  fetchvideoKey: PropTypes.func.isRequired,
 };
 
 DefaultCard.defaultProps = {

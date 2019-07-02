@@ -35,6 +35,7 @@ describe('Service functions work correctly', () => {
       runtime: 120,
     },
   ];
+
   it('Get movies work correctly', () => {
     expect(service.getMovies(movies, genres)).toEqual([
       {
@@ -55,6 +56,7 @@ describe('Service functions work correctly', () => {
       },
     ]);
   });
+
   it('Get movie work correctly', () => {
     expect(service.getMovieInfo(movies[0])).toEqual({
       title: 'title',
@@ -65,12 +67,15 @@ describe('Service functions work correctly', () => {
       image: 'https://image.tmdb.org/t/p/original/12345',
     });
   });
+
   it('Get movies without params not break', () => {
     expect(service.getMovies()).toEqual([]);
   });
+
   it('Get genres without params not break', () => {
     expect(service.getMovieGenres()).toEqual([]);
   });
+
   it('Get movies without image work correctly', () => {
     expect(service.getMovies(movieWithoutImage, genres)).toEqual([
       {
@@ -83,6 +88,7 @@ describe('Service functions work correctly', () => {
       },
     ]);
   });
+
   it('Get movie without image work correctly', () => {
     expect(service.getMovieInfo(movieWithoutImage[0])).toEqual({
       title: 'title',

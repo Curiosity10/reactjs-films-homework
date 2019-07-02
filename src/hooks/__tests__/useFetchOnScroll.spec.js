@@ -5,8 +5,9 @@ import { handleScroll, useFetchOnScroll } from '..';
 
 describe('Fetch on scroll work correctly', () => {
   const currentPage = 1;
-  const currentGenre = 12;
-  const currentSearchQuery = '123';
+  const genreId = 12;
+  const searchQuery = '123';
+
   const window = {
     document: {
       documentElement: {
@@ -16,11 +17,13 @@ describe('Fetch on scroll work correctly', () => {
     },
     pageYOffset: 500,
   };
+
   const getLatestMovies = jest.fn();
   const getTopRatedMovies = jest.fn();
   const getUpcomingMovies = jest.fn();
   const getMoviesByGenre = jest.fn();
   const getSearchMovies = jest.fn();
+
   it('Fetch on scroll if not load and filter trending', () => {
     const isLoading = false;
     const hasMorePages = true;
@@ -28,10 +31,11 @@ describe('Fetch on scroll work correctly', () => {
     handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery, window,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery, window,
     );
     expect(getLatestMovies).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if not load and filter top rated', () => {
     const hasMorePages = true;
     const isLoading = false;
@@ -39,11 +43,12 @@ describe('Fetch on scroll work correctly', () => {
     handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     );
     expect(getTopRatedMovies).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if not load and filter coming soon', () => {
     const hasMorePages = true;
     const isLoading = false;
@@ -51,11 +56,12 @@ describe('Fetch on scroll work correctly', () => {
     handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     );
     expect(getUpcomingMovies).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if not load and filter genres', () => {
     const hasMorePages = true;
     const isLoading = false;
@@ -63,11 +69,12 @@ describe('Fetch on scroll work correctly', () => {
     handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     );
     expect(getMoviesByGenre).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if not load and filter search', () => {
     const hasMorePages = true;
     const isLoading = false;
@@ -75,11 +82,12 @@ describe('Fetch on scroll work correctly', () => {
     handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     );
     expect(getSearchMovies).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if not load without filter', () => {
     const hasMorePages = true;
     const isLoading = false;
@@ -87,14 +95,17 @@ describe('Fetch on scroll work correctly', () => {
     const mockFn = jest.fn(() => handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     ));
+
     act(() => {
       mockFn();
     });
+
     expect(mockFn).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if loading = true', () => {
     const hasMorePages = true;
     const isLoading = true;
@@ -102,14 +113,17 @@ describe('Fetch on scroll work correctly', () => {
     const mockFn = jest.fn(() => handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     ));
+
     act(() => {
       mockFn();
     });
+
     expect(mockFn).toHaveBeenCalled();
   });
+
   it('Fetch on scroll if hasn\'t more pages', () => {
     const hasMorePages = false;
     const isLoading = false;
@@ -117,18 +131,22 @@ describe('Fetch on scroll work correctly', () => {
     const mockFn = jest.fn(() => handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       window,
     ));
+
     act(() => {
       mockFn();
     });
+
     expect(mockFn).toHaveBeenCalled();
   });
+
   it('Callback call correctly', () => {
     const dom = new JSDOM();
     global.document = dom.window.document;
     global.window = dom.window;
+
     const hasMorePages = false;
     const isLoading = false;
     const filter = 'Hello';
@@ -136,18 +154,21 @@ describe('Fetch on scroll work correctly', () => {
       useFetchOnScroll(
         isLoading, hasMorePages, filter, currentPage,
         getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-        getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+        getMoviesByGenre, genreId, getSearchMovies, searchQuery,
       );
       return <h1>Hello</h1>;
     };
+
     let tree;
     act(() => {
       tree = create(<Component />);
     });
+
     const event = new Event('scroll', {});
     act(() => {
       document.dispatchEvent(event);
     });
+
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });

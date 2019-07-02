@@ -17,8 +17,8 @@ export const createReceiveMoviesAction = ({
     movies: data.results,
     currentPage: page,
     pagesCount: data.total_pages,
-    currentGenre: genre,
-    currentSearchQuery: query,
+    genreId: genre,
+    searchQuery: query,
   },
 });
 

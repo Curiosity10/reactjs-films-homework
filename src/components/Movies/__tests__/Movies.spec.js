@@ -14,4 +14,17 @@ describe('Movies component renders correctly', () => {
     );
     expect(result).toMatchSnapshot();
   });
+
+  it('Movies not found message renders correctly', () => {
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(
+      <Movies
+        page={1}
+        isLoading={false}
+        movies={[]}
+        layout="grid"
+      />,
+    );
+    expect(result).toMatchSnapshot();
+  });
 });

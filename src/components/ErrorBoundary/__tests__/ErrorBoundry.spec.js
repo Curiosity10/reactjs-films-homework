@@ -2,9 +2,9 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import ErrorBoundryContainer from '..';
+import ErrorBoundaryContainer from '..';
 
-describe('ErrorBoundry component renders correctly', () => {
+describe('ErrorBoundary component renders correctly', () => {
   const middlewares = [];
   const mockStore = configureStore(middlewares);
   const initialState = {
@@ -15,9 +15,9 @@ describe('ErrorBoundry component renders correctly', () => {
       currentPage: 1,
       error: '',
       filter: 'Trending',
-      currentGenre: '',
-      currentSearchQuery: '',
-      src: '',
+      genreId: null,
+      searchQuery: '',
+      videoKey: '',
       pagesCount: 1,
     },
     ui: {
@@ -25,15 +25,17 @@ describe('ErrorBoundry component renders correctly', () => {
     },
   };
   const store = mockStore(initialState);
-  it('ErrorBoundry renders correctly', () => {
+
+  it('ErrorBoundary renders correctly', () => {
     const tree = create(
       <Provider store={store}>
-        <ErrorBoundryContainer />
+        <ErrorBoundaryContainer />
       </Provider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  it('ErrorBoundry catch error correctly', () => {
+
+  it('ErrorBoundary catch error correctly', () => {
     const ComponentWithProblem = () => {
       throw new Error('Error thrown from problem child');
       // eslint-disable-next-line no-unreachable
@@ -41,9 +43,9 @@ describe('ErrorBoundry component renders correctly', () => {
     };
     const tree = create(
       <Provider store={store}>
-        <ErrorBoundryContainer>
+        <ErrorBoundaryContainer>
           <ComponentWithProblem />
-        </ErrorBoundryContainer>
+        </ErrorBoundaryContainer>
       </Provider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();

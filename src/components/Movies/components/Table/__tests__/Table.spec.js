@@ -19,9 +19,9 @@ describe('Table component renders correctly', () => {
       currentPage: 1,
       error: false,
       filter: 'Trending',
-      currentGenre: '',
-      currentSearchQuery: '',
-      src: '',
+      genreId: null,
+      searchQuery: '',
+      videoKey: '',
       pagesCount: 1,
     },
     ui: {
@@ -29,6 +29,7 @@ describe('Table component renders correctly', () => {
     },
   };
   const store = mockStore(initialState);
+
   it('Table renders correctly', () => {
     const tree = create(
       <Provider store={store}>

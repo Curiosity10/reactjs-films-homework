@@ -1782,13 +1782,7 @@ exports[`MoviesContainer component renders correctly MoviesContainer without mov
 Array [
   <main
     className="container"
-  >
-    <p
-      className="notFound"
-    >
-      Sorry, no movies found.
-    </p>
-  </main>,
+  />,
   <div
     className="spinner"
   >

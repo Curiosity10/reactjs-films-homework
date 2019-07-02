@@ -10,9 +10,9 @@ export const handleScroll = (
   getTopRatedMovies,
   getUpcomingMovies,
   getMoviesByGenre,
-  currentGenre,
+  genreId,
   getSearchMovies,
-  currentSearchQuery,
+  searchQuery,
   window,
 ) => {
   if (!isLoading) {
@@ -31,10 +31,10 @@ export const handleScroll = (
           getUpcomingMovies(currentPage + 1);
           break;
         case 'Genres':
-          getMoviesByGenre(currentPage + 1, currentGenre);
+          getMoviesByGenre(currentPage + 1, genreId);
           break;
         case 'Search':
-          getSearchMovies(currentPage + 1, currentSearchQuery);
+          getSearchMovies(currentPage + 1, searchQuery);
           break;
         default:
           break;
@@ -45,13 +45,13 @@ export const handleScroll = (
 export const useFetchOnScroll = (
   isLoading, hasMorePages, filter, currentPage,
   getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-  getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+  getMoviesByGenre, genreId, getSearchMovies, searchQuery,
 ) => {
   useLayoutEffect(() => {
     const callback = () => handleScroll(
       isLoading, hasMorePages, filter, currentPage,
       getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-      getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery, window,
+      getMoviesByGenre, genreId, getSearchMovies, searchQuery, window,
     );
     document.addEventListener('scroll', callback);
     return () => {
@@ -60,6 +60,6 @@ export const useFetchOnScroll = (
   }, [
     isLoading, hasMorePages, filter, currentPage,
     getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-    getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+    getMoviesByGenre, genreId, getSearchMovies, searchQuery,
   ]);
 };

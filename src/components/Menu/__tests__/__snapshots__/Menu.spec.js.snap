@@ -3,7 +3,6 @@
 exports[`Menu component renders correctly Menu renders correctly 1`] = `
 <section
   className="menu"
-  id="menu"
 >
   <Memo(ConnectFunction) />
   <Memo(ConnectFunction) />

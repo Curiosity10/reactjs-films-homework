@@ -10,10 +10,13 @@ exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
     <div
       className="container"
     >
-      <h1
-        className="logo"
-      >
-        Films
+      <h1>
+        <a
+          className="logo"
+          href="/"
+        >
+          Films
+        </a>
       </h1>
       <form
         className="searchForm"
@@ -22,7 +25,6 @@ exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
         <input
           aria-label="Search Input"
           className="input"
-          onBlur={[Function]}
           onChange={[Function]}
           placeholder="Search..."
           type="search"
@@ -38,10 +40,10 @@ exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
   </header>
   <div
     className="backdrop"
+    id="top"
   >
     <section
       className="menu"
-      id="menu"
     >
       <nav>
         <ul>
@@ -122,13 +124,7 @@ exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
     </section>
     <main
       className="container"
-    >
-      <p
-        className="notFound"
-      >
-        Sorry, no movies found.
-      </p>
-    </main>
+    />
     <div
       className="spinner"
     >
@@ -174,10 +170,13 @@ exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 
     <div
       className="container"
     >
-      <h1
-        className="logo"
-      >
-        Films
+      <h1>
+        <a
+          className="logo"
+          href="/"
+        >
+          Films
+        </a>
       </h1>
       <form
         className="searchForm"
@@ -186,7 +185,6 @@ exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 
         <input
           aria-label="Search Input"
           className="input"
-          onBlur={[Function]}
           onChange={[Function]}
           placeholder="Search..."
           type="search"
@@ -202,10 +200,10 @@ exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 
   </header>
   <div
     className="backdrop"
+    id="top"
   >
     <section
       className="menu"
-      id="menu"
     >
       <nav>
         <ul>
@@ -286,13 +284,7 @@ exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 
     </section>
     <main
       className="container"
-    >
-      <p
-        className="notFound"
-      >
-        Sorry, no movies found.
-      </p>
-    </main>
+    />
     <div
       className="spinner"
     >

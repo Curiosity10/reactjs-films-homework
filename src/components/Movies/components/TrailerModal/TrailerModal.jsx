@@ -5,7 +5,7 @@ import Spinner from '../../../Spinner';
 import Modal from './components/Modal';
 import { useBodyScrollLock, useOnClickOutside } from '../../../../hooks';
 
-const TrailerModal = ({ toggleModal, src, isLoading }) => {
+const TrailerModal = ({ toggleModal, videoSrc, isLoading }) => {
   useBodyScrollLock();
   let modal;
   const modalRef = useRef();
@@ -15,14 +15,12 @@ const TrailerModal = ({ toggleModal, src, isLoading }) => {
     modal = <Spinner />;
   } else {
     modal = (
-      <>
-        <iframe
-          className={styles.video}
-          title="trailer"
-          frameBorder="0"
-          src={src}
-        />
-      </>
+      <iframe
+        className={styles.video}
+        title="trailer"
+        frameBorder="0"
+        src={videoSrc}
+      />
     );
   }
 
@@ -30,11 +28,11 @@ const TrailerModal = ({ toggleModal, src, isLoading }) => {
     <Modal id="trailer" ref={modalRef}>
       <div className={styles.videoContainer}>
         {
-          src || isLoading
+          videoSrc || isLoading
             ? modal
             : (
               <>
-                <h2 className={styles.heading}>Sorry, no trailer available</h2>
+                <h2 className={styles.heading}>Sorry, no trailer available.</h2>
               </>
             )
         }
@@ -44,13 +42,13 @@ const TrailerModal = ({ toggleModal, src, isLoading }) => {
 };
 
 TrailerModal.propTypes = {
-  src: PropTypes.string,
+  videoSrc: PropTypes.string,
   toggleModal: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
 };
 
 TrailerModal.defaultProps = {
-  src: '',
+  videoSrc: '',
   isLoading: false,
 };
 

@@ -10,13 +10,13 @@ import TrailerModal from './components/TrailerModal';
 const cx = cn.bind(styles);
 
 const Movies = ({
-  isLoading, movies, layout, src, page,
+  isLoading, movies, layout, videoSrc, page,
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const isMoviesExist = movies.length !== 0;
   let moviesList;
 
-  if (!isMoviesExist) {
+  if (!isMoviesExist && !isLoading) {
     moviesList = <p className={styles.notFound}>Sorry, no movies found.</p>;
   } else if (layout === 'grid') {
     moviesList = <Grid toggleModal={setModalOpen} movies={movies} />;
@@ -35,14 +35,14 @@ const Movies = ({
           })}
         >
           { moviesList }
-          {page > 1 && <a className={styles.toTopBtn} type="button" href="#menu">&#x2B06;</a>}
+          {page > 1 && <a className={styles.toTopBtn} type="button" href="#top">&#x2B06;</a>}
         </main>
       }
       {isModalOpen && (
         <TrailerModal
           isLoading={isLoading}
           toggleModal={setModalOpen}
-          src={src}
+          videoSrc={videoSrc}
         />
       )}
       { isLoading && <Spinner /> }
@@ -54,7 +54,7 @@ Movies.propTypes = {
   isLoading: PropTypes.bool,
   movies: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.string,
-  src: PropTypes.string,
+  videoSrc: PropTypes.string,
   page: PropTypes.number,
 };
 
@@ -62,7 +62,7 @@ Movies.defaultProps = {
   movies: [],
   isLoading: false,
   layout: 'Grid',
-  src: '',
+  videoSrc: '',
   page: 1,
 };
 

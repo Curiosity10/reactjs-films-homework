@@ -14,29 +14,29 @@ import {
   filterSelector,
   currentPageSelector,
   isLoadingSelector,
-  currentGenreSelector,
-  currentSearchQuerySelector,
+  genreIdSelector,
+  searchQuerySelector,
   hasMorePagesSelector,
-  srcSelector,
+  videoSrcSelector,
   getMoviesSelector,
 } from '../../modules/app/appSelectors';
 import { useFetchOnScroll } from '../../hooks';
 
 const MovieContainer = ({
-  isLoading, filter, currentPage, currentGenre,
-  currentSearchQuery, movies, layout, getTopRatedMovies,
+  isLoading, filter, currentPage, genreId,
+  searchQuery, movies, layout, getTopRatedMovies,
   getLatestMovies, getUpcomingMovies, getSearchMovies,
-  getMoviesByGenre, src, hasMorePages,
+  getMoviesByGenre, videoSrc, hasMorePages,
 }) => {
   useFetchOnScroll(
     isLoading, hasMorePages, filter, currentPage,
     getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-    getMoviesByGenre, currentGenre, getSearchMovies, currentSearchQuery,
+    getMoviesByGenre, genreId, getSearchMovies, searchQuery,
   );
   return (
     <Movies
       page={currentPage}
-      src={src}
+      videoSrc={videoSrc}
       isLoading={isLoading}
       movies={movies}
       layout={layout}
@@ -50,10 +50,10 @@ const mapStateToProps = state => ({
   currentPage: currentPageSelector(state),
   isLoading: isLoadingSelector(state),
   filter: filterSelector(state),
-  currentGenre: currentGenreSelector(state),
-  currentSearchQuery: currentSearchQuerySelector(state),
+  genreId: genreIdSelector(state),
+  searchQuery: searchQuerySelector(state),
   hasMorePages: hasMorePagesSelector(state),
-  src: srcSelector(state),
+  videoSrc: videoSrcSelector(state),
 });
 
 const actions = {
@@ -69,9 +69,9 @@ MovieContainer.propTypes = {
   layout: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
   filter: PropTypes.string.isRequired,
-  currentGenre: PropTypes.string,
-  currentSearchQuery: PropTypes.string,
-  src: PropTypes.string,
+  genreId: PropTypes.string,
+  searchQuery: PropTypes.string,
+  videoSrc: PropTypes.string,
   hasMorePages: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object),
   getTopRatedMovies: PropTypes.func.isRequired,
@@ -82,9 +82,9 @@ MovieContainer.propTypes = {
 };
 
 MovieContainer.defaultProps = {
-  currentGenre: '',
-  currentSearchQuery: '',
-  src: '',
+  genreId: null,
+  searchQuery: '',
+  videoSrc: '',
   movies: [],
 };
 

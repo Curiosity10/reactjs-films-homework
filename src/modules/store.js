@@ -13,9 +13,9 @@ const initialState = {
     currentPage: 1,
     error: false,
     filter: 'Trending',
-    currentGenre: null,
-    currentSearchQuery: '',
-    src: '',
+    genreId: null,
+    searchQuery: '',
+    videoKey: '',
     pagesCount: 1,
   },
   ui: {

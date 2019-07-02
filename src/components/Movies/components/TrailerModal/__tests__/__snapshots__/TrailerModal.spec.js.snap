@@ -24,12 +24,11 @@ exports[`TrailerModal component renders correctly Click outside modal works corr
   <div
     className="videoContainer"
   >
-    <iframe
-      className="video"
-      frameBorder="0"
-      src="12345"
-      title="trailer"
-    />
+    <h2
+      className="heading"
+    >
+      Sorry, no trailer available.
+    </h2>
   </div>
 </div>
 `;
@@ -65,7 +64,7 @@ exports[`TrailerModal component renders correctly TrailerModal renders and unmou
   <h2
     className="heading"
   >
-    Sorry, no trailer available
+    Sorry, no trailer available.
   </h2>
 </div>
 `;

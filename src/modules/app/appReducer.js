@@ -8,14 +8,14 @@ const appReducer = (state = {}, action) => {
         ...state,
         error: action.payload.error,
         isLoading: false,
-        src: '',
+        videoKey: '',
       };
     case ACTIONS.FETCH_VIDEO_KEY_FAILURE:
       return {
         ...state,
         error: '',
         isLoading: false,
-        src: '',
+        videoKey: '',
       };
     case ACTIONS.FETCH_GENRES_REQUEST:
     case ACTIONS.FETCH_MOVIES_REQUEST:
@@ -24,15 +24,13 @@ const appReducer = (state = {}, action) => {
         ...state,
         isLoading: true,
         error: '',
-        src: '',
-        currentGenre: '',
-        currentSearchQuery: '',
+        videoKey: '',
       };
     case ACTIONS.FETCH_MOVIES_SUCCESS: {
       let { movies } = action.payload;
       const {
-        currentGenre, currentPage,
-        pagesCount, currentSearchQuery,
+        genreId, currentPage,
+        pagesCount, searchQuery,
       } = action.payload;
       if (currentPage !== 1) {
         movies = movies.slice(0, 1)[0].id
@@ -43,8 +41,8 @@ const appReducer = (state = {}, action) => {
         ...state,
         isLoading: false,
         currentPage,
-        currentGenre,
-        currentSearchQuery,
+        genreId,
+        searchQuery,
         movies: currentPage === 1
           ? movies
           : state.movies.concat(movies),
@@ -54,23 +52,22 @@ const appReducer = (state = {}, action) => {
     case ACTIONS.FETCH_GENRES_SUCCESS:
       return {
         ...state,
-        isLoading: false,
         genres: action.payload.genres,
       };
     case ACTIONS.FETCH_VIDEO_KEY_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        src: action.payload.src,
+        videoKey: action.payload.videoKey,
       };
     case ACTIONS.CHANGE_FILTER:
       return {
         ...state,
         filter: action.payload.filter,
-        currentSearchQuery: '',
+        searchQuery: '',
         pagesCount: 1,
         currentPage: 1,
-        currentGenre: '',
+        genreId: null,
       };
     default:
       return state;

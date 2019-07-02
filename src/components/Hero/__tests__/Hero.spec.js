@@ -15,9 +15,11 @@ describe('Hero component renders correctly', () => {
   it('Hide description works correctly', () => {
     const tree = create(<Hero movie={movie} />);
     const button = tree.root.findByProps({ 'aria-label': 'View Info' });
+
     act(() => {
       button.props.onClick();
     });
+
     const description = tree.toJSON().children[1].children[0];
     expect(description.props.className).toEqual('hiddenDesc');
   });

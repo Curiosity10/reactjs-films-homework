@@ -7,14 +7,17 @@ describe('ChangeLayoutBtns component', () => {
     const tree = create(<ChangeLayoutBtns />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('Grid button set active', () => {
     const tree = create(
       <ChangeLayoutBtns />,
     );
     const button = tree.root.findByProps({ 'aria-label': 'Grid' });
+
     act(() => {
       button.props.onClick();
     });
+
     expect(button.props.className).toEqual('btn btn__active');
   });
 

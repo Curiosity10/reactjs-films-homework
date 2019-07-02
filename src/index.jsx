@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader/root';
 import App from './App';
 import store from './modules/store';
-import ErrorBoundryContainer from './components/ErrorBoundry';
+import ErrorBoundaryContainer from './components/ErrorBoundary';
 
 ReactDOM.render(
   <Provider store={store}>
-    <ErrorBoundryContainer>
+    <ErrorBoundaryContainer>
       <App />
-    </ErrorBoundryContainer>
+    </ErrorBoundaryContainer>
   </Provider>,
   document.getElementById('app'),
 );

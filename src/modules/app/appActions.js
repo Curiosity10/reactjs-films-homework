@@ -29,10 +29,10 @@ const fetchSearchMovies = (page, query) => createAsyncAction({
   type: ACTIONS.FETCH_MOVIES, asyncFn: searchMovies, page, query,
 });
 
-const receiveVideoSrc = data => ({
+const receivevideoKey = data => ({
   type: ACTIONS.FETCH_VIDEO_KEY_SUCCESS,
   payload: {
-    src: data.results[0].key,
+    videoKey: data.results[0].key,
   },
 });
 
@@ -51,11 +51,11 @@ const fetchGenres = () => (dispatch) => {
     .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_GENRES_FAILURE, error)));
 };
 
-const fetchVideoSrc = movieId => (dispatch) => {
+const fetchvideoKey = movieId => (dispatch) => {
   dispatch(createRequestAction(ACTIONS.FETCH_VIDEO_KEY_REQUEST));
   return getMovieVideo(movieId)
     .then(res => res.json())
-    .then(data => dispatch(receiveVideoSrc(data)))
+    .then(data => dispatch(receivevideoKey(data)))
     .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_VIDEO_KEY_FAILURE, error)));
 };
 
@@ -72,5 +72,5 @@ export {
   fetchMoviesByGenre,
   fetchSearchMovies,
   changeFilter,
-  fetchVideoSrc,
+  fetchvideoKey,
 };

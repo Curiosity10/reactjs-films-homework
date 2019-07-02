@@ -18,9 +18,9 @@ describe('FilterPanel component', () => {
       currentPage: 1,
       error: false,
       filter: 'Trending',
-      currentGenre: '',
-      currentSearchQuery: '',
-      src: '',
+      genreId: null,
+      searchQuery: '',
+      videoKey: '',
       pagesCount: 1,
     },
     ui: {
@@ -29,11 +29,13 @@ describe('FilterPanel component', () => {
   };
   const store = mockStore(initialState);
   const mockSetActive = jest.fn();
+
   it('FilterPanel component renders correctly', () => {
     const mockFetchTopRatedMovies = jest.fn();
     const mockFetchLatestMovies = jest.fn();
     const mockFetchUpcomingMovies = jest.fn();
     const mockchangeFilter = jest.fn();
+
     const MockComponent = () => {
       const [activeItem, setActiveItem] = useState('Top Rated');
       return (
@@ -48,6 +50,7 @@ describe('FilterPanel component', () => {
         />
       );
     };
+
     const tree = create(
       <Provider store={store}>
         <MockComponent />
@@ -55,6 +58,7 @@ describe('FilterPanel component', () => {
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
+
   it('FilterPanel component without props works correctly', () => {
     const MockComponent = () => {
       const [activeItem, setActiveItem] = useState('Top Rated');
@@ -66,11 +70,13 @@ describe('FilterPanel component', () => {
         />
       );
     };
+
     const tree = create(
       <Provider store={store}>
         <MockComponent />
       </Provider>,
     );
+
     const latestBtn = tree.root.findByProps({ 'aria-label': 'Trending' });
     const topRatedBtn = tree.root.findByProps({ 'aria-label': 'Top Rated' });
     const upcomingBtn = tree.root.findByProps({ 'aria-label': 'Coming Soon' });
@@ -79,17 +85,20 @@ describe('FilterPanel component', () => {
     const mockFetchLatestMovies = jest.fn(topRatedBtn.props.onClick);
     const mockFetchUpcomingMovies = jest.fn(upcomingBtn.props.onClick);
     const mockchangeFilter = jest.fn(genresSelect.props.onChange);
+
     act(() => {
       mockFetchTopRatedMovies();
       mockFetchLatestMovies();
       mockFetchUpcomingMovies();
       mockchangeFilter({ target: { value: '123' } });
     });
+
     expect(mockFetchTopRatedMovies).toHaveBeenCalled();
     expect(mockFetchLatestMovies).toHaveBeenCalled();
     expect(mockFetchUpcomingMovies).toHaveBeenCalled();
     expect(mockchangeFilter).toHaveBeenCalled();
   });
+
   it('FilterPanel\'s defaultprops defined', () => {
     expect(FilterPanel.defaultProps.fetchTopRatedMovies).toBeDefined();
     expect(FilterPanel.defaultProps.fetchLatestMovies).toBeDefined();

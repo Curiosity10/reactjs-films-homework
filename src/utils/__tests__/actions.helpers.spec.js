@@ -8,12 +8,14 @@ describe('Action helpers work correctly', () => {
   it('createRequestAction works correctly', () => {
     expect(createRequestAction('GET_DATA_REQUEST')).toEqual({ type: 'GET_DATA_REQUEST' });
   });
+
   it('createFailureAction works correctly', () => {
     expect(createFailureAction(
       'GET_DATA_FAILURE',
       { message: 'error' },
     )).toEqual({ type: 'GET_DATA_FAILURE', payload: { error: 'error' } });
   });
+
   it('createReceiveMoviesAction works correctly', () => {
     expect(createReceiveMoviesAction(
       {
@@ -27,8 +29,8 @@ describe('Action helpers work correctly', () => {
         movies: [],
         currentPage: 1,
         pagesCount: 1,
-        currentGenre: null,
-        currentSearchQuery: '',
+        genreId: null,
+        searchQuery: '',
       },
     });
   });

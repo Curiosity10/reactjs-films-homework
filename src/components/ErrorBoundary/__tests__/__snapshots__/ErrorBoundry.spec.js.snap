@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorBoundry component renders correctly ErrorBoundry catch error correctly 1`] = `
+exports[`ErrorBoundary component renders correctly ErrorBoundary catch error correctly 1`] = `
 Array [
   <header
     className="header"
@@ -8,10 +8,13 @@ Array [
     <div
       className="container"
     >
-      <h1
-        className="logo"
-      >
-        Films
+      <h1>
+        <a
+          className="logo"
+          href="/"
+        >
+          Films
+        </a>
       </h1>
       <form
         className="searchForm"
@@ -20,7 +23,6 @@ Array [
         <input
           aria-label="Search Input"
           className="input"
-          onBlur={[Function]}
           onChange={[Function]}
           placeholder="Search..."
           type="search"
@@ -39,7 +41,6 @@ Array [
   >
     <section
       className="menu"
-      id="menu"
     >
       <nav>
         <ul>
@@ -139,4 +140,4 @@ Array [
 ]
 `;
 
-exports[`ErrorBoundry component renders correctly ErrorBoundry renders correctly 1`] = `""`;
+exports[`ErrorBoundary component renders correctly ErrorBoundary renders correctly 1`] = `""`;

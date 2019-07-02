@@ -7,13 +7,13 @@ import Button from '../../../../../../Button';
 import { truncate } from '../../../../../../../utils';
 
 const OverlayCard = ({
-  changeActiveCard, id, title, genres, rating, overview, toggleModal, fetchVideoSrc,
+  changeActiveCard, id, title, genres, rating, overview, toggleModal, fetchvideoKey,
 }) => {
   const maxLength = 180;
   const handleClick = useCallback(() => {
-    fetchVideoSrc(id);
+    fetchvideoKey(id);
     toggleModal(true);
-  }, [toggleModal, id, fetchVideoSrc]);
+  }, [toggleModal, id, fetchvideoKey]);
   return (
     <div className={styles.overlay}>
       <button
@@ -48,7 +48,7 @@ OverlayCard.propTypes = {
   overview: PropTypes.string.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  fetchVideoSrc: PropTypes.func.isRequired,
+  fetchvideoKey: PropTypes.func.isRequired,
 };
 
 export default OverlayCard;

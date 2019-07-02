@@ -21,14 +21,18 @@ describe('SearchForm component renders correctly', () => {
     const input = tree.root.findByProps({ 'aria-label': 'Search Input' });
     const e = { target: { value: '123' } };
     const mockOnChangeFn = jest.fn(() => input.props.onChange(e));
+
     act(() => {
       mockOnChangeFn();
     });
+
     const event = { preventDefault: jest.fn() };
     const mockOnSubmitFn = jest.fn(() => tree.toJSON().props.onSubmit(event));
+
     act(() => {
       mockOnSubmitFn();
     });
+
     expect(input.props.value).toBe('123');
   });
 
@@ -36,18 +40,22 @@ describe('SearchForm component renders correctly', () => {
     const input = tree.root.findByProps({ 'aria-label': 'Search Input' });
     const e = { target: { value: '123' } };
     const mockFunction = jest.fn(() => input.props.onChange(e));
+
     act(() => {
       mockFunction();
     });
+
     expect(mockFunction).toHaveBeenCalled();
   });
 
   it('SearchForm onBlur works correctly', () => {
     const input = tree.root.findByProps({ 'aria-label': 'Search Input' });
     const mockFunction = jest.fn(input.props.onBlur);
+
     act(() => {
       mockFunction();
     });
+
     expect(mockFunction).toHaveBeenCalled();
   });
 });

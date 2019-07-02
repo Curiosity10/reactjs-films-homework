@@ -15,9 +15,9 @@ describe('SearchResultsPage renders correctly', () => {
       currentPage: 1,
       error: false,
       filter: 'Trending',
-      currentGenre: '',
-      currentSearchQuery: '',
-      src: '',
+      genreId: null,
+      searchQuery: '',
+      videoKey: '',
       pagesCount: 1,
     },
     ui: {
@@ -25,6 +25,7 @@ describe('SearchResultsPage renders correctly', () => {
     },
   };
   const store = mockStore(initialState);
+
   it('SearchResultsPage render correctly', () => {
     const tree = create(
       <Provider store={store}>
@@ -33,9 +34,11 @@ describe('SearchResultsPage renders correctly', () => {
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
+
   it('Fetch data calls correctly', () => {
     const mockGenres = jest.fn();
     const mockMovies = jest.fn();
+
     let tree;
     act(() => {
       tree = create(
@@ -44,6 +47,7 @@ describe('SearchResultsPage renders correctly', () => {
         </Provider>,
       );
     });
+
     expect(mockGenres).toHaveBeenCalled();
     expect(mockMovies).toHaveBeenCalled();
     expect(tree.toJSON()).toMatchSnapshot();

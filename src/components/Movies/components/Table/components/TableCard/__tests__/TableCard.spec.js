@@ -16,17 +16,21 @@ describe('TableCard component renders correctly', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
   it('TableCard watchBtnClick works correctly', () => {
     const tree = create(
       <TableCard
         movie={movie}
       />,
     );
+
     const watchBtn = tree.root.findByProps({ 'aria-label': 'Watch Now' });
     const mockWatchBtn = jest.fn(watchBtn.props.onClick);
+
     act(() => {
       mockWatchBtn();
     });
+
     expect(mockWatchBtn).toHaveBeenCalled();
   });
 });

@@ -9,6 +9,7 @@ describe('SearchFormContainer component renders correctly', () => {
   const mockStore = configureStore(middlewares);
   const initialState = {};
   const store = mockStore(initialState);
+
   it('SearchFormContainer renders correctly', () => {
     const tree = create(
       <Provider store={store}>

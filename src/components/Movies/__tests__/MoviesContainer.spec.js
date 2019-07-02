@@ -15,12 +15,15 @@ describe('MoviesContainer component renders correctly', () => {
   beforeAll(() => {
     ReactDOM.createPortal = jest.fn(element => element);
   });
+
   afterEach(() => {
     ReactDOM.createPortal.mockClear();
   });
+
   const middlewares = [thunk];
   const mockStore = configureStore(middlewares);
   const movies = getMovies(results, genres);
+
   it('MoviesContainer grid render and unmount correctly', () => {
     const initialState = {
       app: {
@@ -30,9 +33,9 @@ describe('MoviesContainer component renders correctly', () => {
         currentPage: 1,
         error: false,
         filter: 'Trending',
-        currentGenre: '',
-        currentSearchQuery: '',
-        src: '',
+        genreId: null,
+        searchQuery: '',
+        videoKey: '',
         pagesCount: 1,
       },
       ui: {
@@ -41,6 +44,7 @@ describe('MoviesContainer component renders correctly', () => {
     };
     const store = mockStore(initialState);
     let tree;
+
     act(() => {
       tree = create(
         <Provider store={store}>
@@ -48,9 +52,11 @@ describe('MoviesContainer component renders correctly', () => {
         </Provider>,
       );
     });
+
     expect(tree.toJSON()).toMatchSnapshot();
     tree.unmount();
   });
+
   it('MoviesContainer table render correctly', () => {
     const initialState = {
       app: {
@@ -60,9 +66,9 @@ describe('MoviesContainer component renders correctly', () => {
         currentPage: 1,
         error: false,
         filter: 'Trending',
-        currentGenre: '',
-        currentSearchQuery: '',
-        src: '',
+        genreId: null,
+        searchQuery: '',
+        videoKey: '',
         pagesCount: 1,
       },
       ui: {
@@ -70,19 +76,24 @@ describe('MoviesContainer component renders correctly', () => {
       },
     };
     const store = mockStore(initialState);
+
     const tree = create(
       <Provider store={store}>
         <MoviesContainer />
       </Provider>,
     );
+
     const button = tree.root.findAllByProps({ 'aria-label': 'Watch Now' })[0];
     const mockFn = jest.fn(button.props.onClick);
+
     act(() => {
       mockFn();
     });
+
     expect(mockFn).toHaveBeenCalled();
     expect(tree.toJSON()).toMatchSnapshot();
   });
+
   it('MoviesContainer without layout', () => {
     const initialState = {
       app: {
@@ -92,9 +103,9 @@ describe('MoviesContainer component renders correctly', () => {
         currentPage: 1,
         error: false,
         filter: 'Trending',
-        currentGenre: '',
-        currentSearchQuery: '',
-        src: '',
+        genreId: null,
+        searchQuery: '',
+        videoKey: '',
         pagesCount: 1,
       },
       ui: {
@@ -102,6 +113,7 @@ describe('MoviesContainer component renders correctly', () => {
       },
     };
     const store = mockStore(initialState);
+
     const tree = create(
       <Provider store={store}>
         <MoviesContainer />
@@ -109,6 +121,7 @@ describe('MoviesContainer component renders correctly', () => {
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
+
   it('MoviesContainer without movies table render correctly', () => {
     const initialState = {
       app: {
@@ -118,9 +131,9 @@ describe('MoviesContainer component renders correctly', () => {
         currentPage: 1,
         error: false,
         filter: 'Trending',
-        currentGenre: '',
-        currentSearchQuery: '',
-        src: '',
+        genreId: null,
+        searchQuery: '',
+        videoKey: '',
         pagesCount: 1,
       },
       ui: {
@@ -128,6 +141,7 @@ describe('MoviesContainer component renders correctly', () => {
       },
     };
     const store = mockStore(initialState);
+
     let tree;
     act(() => {
       tree = create(

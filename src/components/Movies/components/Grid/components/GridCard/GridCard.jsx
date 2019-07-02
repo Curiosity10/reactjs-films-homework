@@ -5,7 +5,7 @@ import { OverlayCard, DefaultCard } from './components';
 
 const GridCard = ({
   movie, isActive, changeActiveCard,
-  toggleModal, fetchVideoSrc,
+  toggleModal, fetchvideoKey,
 }) => {
   const {
     rating,
@@ -27,7 +27,7 @@ const GridCard = ({
             changeActiveCard={changeActiveCard}
             genres={genres}
             toggleModal={toggleModal}
-            fetchVideoSrc={fetchVideoSrc}
+            fetchvideoKey={fetchvideoKey}
           />
         )
         : (
@@ -38,7 +38,7 @@ const GridCard = ({
             rating={rating}
             changeActiveCard={changeActiveCard}
             genres={genres}
-            fetchVideoSrc={fetchVideoSrc}
+            fetchvideoKey={fetchvideoKey}
             toggleModal={toggleModal}
           />
         )}
@@ -57,12 +57,12 @@ GridCard.propTypes = {
   isActive: PropTypes.bool.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
   toggleModal: PropTypes.func,
-  fetchVideoSrc: PropTypes.func,
+  fetchvideoKey: PropTypes.func,
 };
 
 GridCard.defaultProps = {
   toggleModal: () => {},
-  fetchVideoSrc: () => {},
+  fetchvideoKey: () => {},
 };
 
 export default GridCard;

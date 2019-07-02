@@ -39,13 +39,16 @@ describe('GridCard component renders correctly', () => {
     const tree = create(
       <Wrapper />,
     );
+
     const watchBtn = tree.root.findByProps({ 'aria-label': 'Watch' });
     const mockWatchBtn = jest.fn(watchBtn.props.onClick);
     const button = tree.root.findByProps({ 'aria-label': 'View Info' });
+
     act(() => {
       mockWatchBtn();
       button.props.onClick();
     });
+
     const overlay = tree.toJSON().children[1];
     expect(mockWatchBtn).toHaveBeenCalled();
     expect(overlay.props).toEqual({ className: 'overlay' });
@@ -65,16 +68,20 @@ describe('GridCard component renders correctly', () => {
         </>
       );
     };
+
     const tree = create(
       <Wrapper />,
     );
+
     const watchBtn = tree.root.findByProps({ 'aria-label': 'Watch Now' });
     const mockWatchBtn = jest.fn(watchBtn.props.onClick);
     const button = tree.root.findByProps({ 'aria-label': 'Close' });
+
     act(() => {
       mockWatchBtn();
       button.props.onClick();
     });
+
     const onHover = tree.toJSON().children[1];
     expect(onHover.props).toEqual({ className: 'onHover' });
     expect(mockWatchBtn).toHaveBeenCalled();

@@ -19,9 +19,9 @@ describe('Grid component renders correctly', () => {
       currentPage: 1,
       error: false,
       filter: 'Trending',
-      currentGenre: '',
-      currentSearchQuery: '',
-      src: '',
+      genreId: null,
+      searchQuery: '',
+      videoKey: '',
       pagesCount: 1,
     },
     ui: {
@@ -29,6 +29,7 @@ describe('Grid component renders correctly', () => {
     },
   };
   const store = mockStore(initialState);
+
   it('Grid renders correctly', () => {
     const tree = create(
       <Provider store={store}>
@@ -45,23 +46,29 @@ describe('Grid component renders correctly', () => {
       </Provider>,
     );
     const mockFunction = jest.fn(tree.toTree().rendered.props.changeActiveCard);
+
     act(() => {
       mockFunction();
     });
+
     expect(mockFunction).toHaveBeenCalled();
   });
+
   it('Change active card works correctly', () => {
     const tree = create(
       <Provider store={store}>
         <Grid movies={movies} />
       </Provider>,
     );
+
     const mockFunction = jest.fn(
       id => tree.toTree().rendered.rendered[0].props.changeActiveCard(id),
     );
+
     act(() => {
       mockFunction(123);
     });
+
     expect(mockFunction).toHaveBeenCalled();
   });
 });

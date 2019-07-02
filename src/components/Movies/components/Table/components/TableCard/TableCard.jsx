@@ -7,7 +7,7 @@ import Button from '../../../../../Button';
 import StarRating from '../../../../../StarRating';
 import { truncate } from '../../../../../../utils';
 
-const TableCard = ({ movie, fetchVideoSrc, toggleModal }) => {
+const TableCard = ({ movie, fetchvideoKey, toggleModal }) => {
   const {
     id,
     rating,
@@ -18,9 +18,9 @@ const TableCard = ({ movie, fetchVideoSrc, toggleModal }) => {
   } = movie;
   const maxLength = 500;
   const handleClick = useCallback(() => {
-    fetchVideoSrc(id);
+    fetchvideoKey(id);
     toggleModal(true);
-  }, [toggleModal, id, fetchVideoSrc]);
+  }, [toggleModal, id, fetchvideoKey]);
   return (
     <article className={styles.card}>
       <img src={image} alt="Poster" />
@@ -47,12 +47,12 @@ TableCard.propTypes = {
     image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   }).isRequired,
   toggleModal: PropTypes.func,
-  fetchVideoSrc: PropTypes.func,
+  fetchvideoKey: PropTypes.func,
 };
 
 TableCard.defaultProps = {
   toggleModal: () => {},
-  fetchVideoSrc: () => {},
+  fetchvideoKey: () => {},
 };
 
 export default TableCard;

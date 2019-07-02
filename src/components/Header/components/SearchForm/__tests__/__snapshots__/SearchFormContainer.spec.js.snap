@@ -8,7 +8,6 @@ exports[`SearchFormContainer component renders correctly SearchFormContainer ren
   <input
     aria-label="Search Input"
     className="input"
-    onBlur={[Function]}
     onChange={[Function]}
     placeholder="Search..."
     type="search"

@@ -6,8 +6,9 @@ const SearchForm = ({ fetchSearchMovies, changeFilter }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
+    changeFilter('Search');
+    window.scrollTo(0, 0);
     if (searchQuery.trim()) {
-      changeFilter('Search');
       fetchSearchMovies(1, searchQuery);
     }
   };
@@ -25,7 +26,6 @@ const SearchForm = ({ fetchSearchMovies, changeFilter }) => {
         type="search"
         value={searchQuery}
         onChange={handleChange}
-        onBlur={() => setSearchQuery('')}
       />
       <button aria-label="Search Button" type="submit" className={styles.searchBtn} />
     </form>

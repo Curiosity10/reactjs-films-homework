@@ -4,7 +4,7 @@ import FilterPanelContainer from './components/FilterPanel';
 import ChangeLayoutBtnsContainer from './components/ChangeLayoutBtns';
 
 const Menu = () => (
-  <section className={styles.menu} id="menu">
+  <section className={styles.menu}>
     <FilterPanelContainer />
     <ChangeLayoutBtnsContainer />
   </section>
