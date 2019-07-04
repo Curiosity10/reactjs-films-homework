@@ -19,6 +19,7 @@ import {
   hasMorePagesSelector,
   videoSrcSelector,
   getMoviesSelector,
+  errorMessageSelector,
 } from '../../modules/app/appSelectors';
 import { useFetchOnScroll } from '../../hooks';
 
@@ -26,7 +27,7 @@ const MovieContainer = ({
   isLoading, filter, currentPage, genreId,
   searchQuery, movies, layout, getTopRatedMovies,
   getLatestMovies, getUpcomingMovies, getSearchMovies,
-  getMoviesByGenre, videoSrc, hasMorePages,
+  getMoviesByGenre, videoSrc, hasMorePages, errorMsg,
 }) => {
   useFetchOnScroll(
     isLoading, hasMorePages, filter, currentPage,
@@ -35,6 +36,7 @@ const MovieContainer = ({
   );
   return (
     <Movies
+      errorMsg={errorMsg}
       page={currentPage}
       videoSrc={videoSrc}
       isLoading={isLoading}
@@ -54,6 +56,7 @@ const mapStateToProps = state => ({
   searchQuery: searchQuerySelector(state),
   hasMorePages: hasMorePagesSelector(state),
   videoSrc: videoSrcSelector(state),
+  errorMsg: errorMessageSelector(state),
 });
 
 const actions = {
@@ -72,6 +75,7 @@ MovieContainer.propTypes = {
   genreId: PropTypes.string,
   searchQuery: PropTypes.string,
   videoSrc: PropTypes.string,
+  errorMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hasMorePages: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object),
   getTopRatedMovies: PropTypes.func.isRequired,
@@ -86,6 +90,7 @@ MovieContainer.defaultProps = {
   searchQuery: '',
   videoSrc: '',
   movies: [],
+  errorMsg: '',
 };
 
 export default connect(mapStateToProps, actions)(MovieContainer);

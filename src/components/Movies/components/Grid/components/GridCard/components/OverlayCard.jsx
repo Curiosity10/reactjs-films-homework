@@ -4,16 +4,16 @@ import styles from '../GridCard.scss';
 import Genres from '../../../../../../Genres';
 import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
-import { truncate } from '../../../../../../../utils';
+import truncate from '../../../../../utils/truncate';
+import { MAX_OVERLAY_CARD_DESC_LENGTH } from '../../../../../utils/constants';
 
 const OverlayCard = ({
-  changeActiveCard, id, title, genres, rating, overview, toggleModal, fetchvideoKey,
+  changeActiveCard, id, title, genres, rating, overview, toggleModal, fetchVideoKey,
 }) => {
-  const maxLength = 180;
   const handleClick = useCallback(() => {
-    fetchvideoKey(id);
+    fetchVideoKey(id);
     toggleModal(true);
-  }, [toggleModal, id, fetchvideoKey]);
+  }, [toggleModal, id, fetchVideoKey]);
   return (
     <div className={styles.overlay}>
       <button
@@ -24,13 +24,13 @@ const OverlayCard = ({
       />
       <div className={styles.wrapper}>
         <div>
-          <h3 className={styles.title}>{title}</h3>
+          <h3 title={title} className={styles.title}>{title}</h3>
           <Genres genres={genres} />
         </div>
         <NumRating rating={rating} />
       </div>
       <p className={styles.description}>
-        {truncate(overview, maxLength)}
+        {truncate(overview, MAX_OVERLAY_CARD_DESC_LENGTH)}
       </p>
       <Button type="primary" handleClick={handleClick}>Watch Now</Button>
     </div>
@@ -39,16 +39,21 @@ const OverlayCard = ({
 
 OverlayCard.propTypes = {
   id: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
   title: PropTypes.string.isRequired,
   genres: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.string,
-  ]).isRequired,
+  ]),
   overview: PropTypes.string.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  fetchvideoKey: PropTypes.func.isRequired,
+  fetchVideoKey: PropTypes.func.isRequired,
+};
+
+OverlayCard.defaultProps = {
+  rating: null,
+  genres: [],
 };
 
 export default OverlayCard;

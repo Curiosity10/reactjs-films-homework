@@ -36,20 +36,18 @@ describe('SearchResultsPage renders correctly', () => {
   });
 
   it('Fetch data calls correctly', () => {
-    const mockGenres = jest.fn();
-    const mockMovies = jest.fn();
+    const mockFn = jest.fn();
 
     let tree;
     act(() => {
       tree = create(
         <Provider store={store}>
-          <SearchResultsPage fetchGenres={mockGenres} fetchLatestMovies={mockMovies} />
+          <SearchResultsPage fetchData={mockFn} />
         </Provider>,
       );
     });
 
-    expect(mockGenres).toHaveBeenCalled();
-    expect(mockMovies).toHaveBeenCalled();
+    expect(mockFn).toHaveBeenCalled();
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });

@@ -5,7 +5,7 @@ const uiReducer = (state = {}, action) => {
     case types.CHANGE_LAYOUT:
       return {
         ...state,
-        layout: action.layout,
+        layout: action.payload.layout,
       };
     default:
       return state;

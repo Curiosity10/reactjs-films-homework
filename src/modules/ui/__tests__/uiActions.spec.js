@@ -6,7 +6,9 @@ describe('Change layout works correctly', () => {
     const layout = 'grid';
     const expectedAction = {
       type: types.CHANGE_LAYOUT,
-      layout,
+      payload: {
+        layout,
+      },
     };
     expect(actions.changeLayout(layout)).toEqual(expectedAction);
   });

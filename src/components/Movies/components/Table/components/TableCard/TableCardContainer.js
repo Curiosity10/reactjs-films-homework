@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
 import TableCard from './TableCard';
-import { fetchvideoKey } from '../../../../../../modules/app/appActions';
+import { fetchVideoKey } from '../../../../../../modules/app/appActions';
 
-export default connect(null, { fetchvideoKey })(TableCard);
+export default connect(null, { fetchVideoKey })(TableCard);

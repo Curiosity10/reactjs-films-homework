@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Movies component renders correctly Movies error message renders correctly 1`] = `
+<React.Fragment>
+  <main
+    className="container"
+  >
+    <p
+      className="errorMsg"
+    >
+      Sorry, something went wrong.
+      O-ops
+    </p>
+  </main>
+</React.Fragment>
+`;
+
 exports[`Movies component renders correctly Movies grid renders correctly 1`] = `
 <React.Fragment>
   <main

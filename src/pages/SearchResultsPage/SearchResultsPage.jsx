@@ -6,11 +6,10 @@ import MoviesContainer from '../../components/Movies';
 import styles from './SearchResultsPage.scss';
 import Footer from '../../components/Footer';
 
-const SearchResultsPage = ({ fetchLatestMovies, fetchGenres }) => {
+const SearchResultsPage = ({ fetchData }) => {
   useEffect(() => {
-    fetchGenres();
-    fetchLatestMovies();
-  }, [fetchGenres, fetchLatestMovies]);
+    fetchData();
+  }, [fetchData]);
   return (
     <div className={styles.container}>
       <Header />
@@ -24,13 +23,11 @@ const SearchResultsPage = ({ fetchLatestMovies, fetchGenres }) => {
 };
 
 SearchResultsPage.propTypes = {
-  fetchLatestMovies: PropTypes.func,
-  fetchGenres: PropTypes.func,
+  fetchData: PropTypes.func,
 };
 
 SearchResultsPage.defaultProps = {
-  fetchLatestMovies: () => { },
-  fetchGenres: () => { },
+  fetchData: () => { },
 };
 
 export default SearchResultsPage;

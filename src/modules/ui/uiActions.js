@@ -2,7 +2,9 @@ import types from './uiConstants';
 
 const changeLayout = layout => ({
   type: types.CHANGE_LAYOUT,
-  layout,
+  payload: {
+    layout,
+  },
 });
 
 export default { changeLayout };

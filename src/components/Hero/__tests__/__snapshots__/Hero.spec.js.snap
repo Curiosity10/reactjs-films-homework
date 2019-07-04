@@ -5,7 +5,7 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
   className="hero"
   style={
     Object {
-      "backgroundImage": "url(https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg)",
+      "backgroundImage": "url(/123)",
     }
   }
 >
@@ -15,21 +15,11 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
     <h2
       className="title"
     >
-      T-34
+      Test title
     </h2>
     <div
       className="wrapper"
     >
-      <span
-        className="genre"
-      >
-        War
-      </span>
-      <span
-        className="genre"
-      >
-        Drama
-      </span>
       <span
         className="genre"
       >
@@ -42,9 +32,7 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
       </span>
       <span
         className="duration"
-      >
-        2h 19m
-      </span>
+      />
     </div>
     <div
       className="rating"
@@ -67,7 +55,7 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
       <span
         className="numRating"
       >
-        4.7
+        5
       </span>
     </div>
   </div>
@@ -77,7 +65,7 @@ exports[`Hero component renders correctly Hero renders correctly 1`] = `
     <p
       className="description"
     >
-      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen german ...
+      Test description ...
     </p>
     <div
       className="buttons"

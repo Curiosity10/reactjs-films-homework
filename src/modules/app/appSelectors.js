@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getMovies } from '../../utils';
+import noAvailableImage from '../../assets/images/noAvailableImage.png';
 
 export const genresSelector = state => state.app.genres;
 export const filterSelector = state => state.app.filter;
@@ -19,5 +19,15 @@ export const moviesSelector = state => state.app.movies;
 export const getMoviesSelector = createSelector(
   moviesSelector,
   genresSelector,
-  (movies, genres) => getMovies(movies, genres),
+  (movies, genres) => movies.map((movie) => {
+    const movieGenres = genres.filter(genre => movie.genre_ids.includes(genre.id));
+    return {
+      id: movie.id,
+      rating: movie.vote_average,
+      title: movie.title,
+      genres: movieGenres,
+      overview: movie.overview,
+      image: movie.poster_path ? `https://image.tmdb.org/t/p/w300${movie.poster_path}` : noAvailableImage,
+    };
+  }),
 );

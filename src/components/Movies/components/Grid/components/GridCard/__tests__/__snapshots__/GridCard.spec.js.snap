@@ -7,7 +7,6 @@ exports[`GridCard component renders correctly GridCard renders and works correct
   <img
     alt="Poster"
     height="100%"
-    src="https://image.tmdb.org/t/p/w300/AnLCqcH66Ecu8VFmXu3RofK4SMK.jpg"
   />
   <div
     className="overlay"
@@ -24,40 +23,16 @@ exports[`GridCard component renders correctly GridCard renders and works correct
       <div>
         <h3
           className="title"
+          title="test"
         >
-          T-34
+          test
         </h3>
-        <span
-          className="genre"
-        >
-          War
-        </span>
-        <span
-          className="genre"
-        >
-          Drama
-        </span>
-        <span
-          className="genre"
-        >
-          Adventure
-        </span>
-        <span
-          className="genre"
-        >
-          Action
-        </span>
       </div>
-      <span
-        className="numRating"
-      >
-        4.5
-      </span>
     </div>
     <p
       className="description"
     >
-      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more...
+      desc
     </p>
     <button
       aria-label="Watch Now"

@@ -23,10 +23,10 @@ export const createReceiveMoviesAction = ({
 });
 
 export const createAsyncAction = ({
-  type, asyncFn, page = 1, genre = null, query = '',
+  type, asyncFn, page = 1, genre = null, query = '', filterType = '',
 }) => (dispatch) => {
   dispatch(createRequestAction(`${type}_REQUEST`));
-  return asyncFn({ page, genre, query })
+  return asyncFn({ page, genre, query }, filterType)
     .then(response => response.json())
     .then(data => dispatch(createReceiveMoviesAction({
       type: `${type}_SUCCESS`, data, page, genre, query,

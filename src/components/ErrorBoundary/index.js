@@ -1,3 +1,3 @@
-import ErrorBoundaryContainer from './ErrorBoundaryContainer';
+import ErrorBoundary from './ErrorBoundary';
 
-export default ErrorBoundaryContainer;
+export default ErrorBoundary;

@@ -5,9 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
 import MoviesContainer from '..';
-import { results } from '../../../assets/json/popular.json';
 import { genres } from '../../../assets/json/genres.json';
-import { getMovies } from '../../../utils/tbdbApiService';
 
 global.fetch = require('jest-fetch-mock');
 
@@ -22,7 +20,38 @@ describe('MoviesContainer component renders correctly', () => {
 
   const middlewares = [thunk];
   const mockStore = configureStore(middlewares);
-  const movies = getMovies(results, genres);
+  const movies = [
+    {
+      title: 'test',
+      id: 1,
+      genre_ids: [
+        {
+          id: 12,
+          name: 'Action',
+        },
+        {
+          id: 16,
+          name: 'Adventure',
+        },
+      ],
+      overview: 'desc',
+    },
+    {
+      title: 'test2',
+      id: 2,
+      genre_ids: [
+        {
+          id: 21,
+          name: 'Action',
+        },
+        {
+          id: 23,
+          name: 'Adventure',
+        },
+      ],
+      overview: 'desc2',
+    },
+  ];
 
   it('MoviesContainer grid render and unmount correctly', () => {
     const initialState = {

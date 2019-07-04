@@ -1,35 +1,39 @@
 import {
-  getLatestMovies,
-  getTopMovies,
-  getUpcomingMovies,
-  getGenres,
-  getMoviesByGenre,
-  searchMovies,
-  getMovieVideo,
   createFailureAction,
   createRequestAction,
   createAsyncAction,
-} from '../../utils';
+} from './utils/actions.helpers';
+import {
+  getGenres,
+  getMoviesByGenre,
+  getMoviesByFilter,
+  searchMovies,
+  getMovieVideo,
+} from './utils/api';
 
 import * as ACTIONS from './appConstants';
 
 const fetchLatestMovies = page => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getLatestMovies, page,
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter, page, filterType: 'popular',
 });
+
 const fetchTopRatedMovies = page => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getTopMovies, page,
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter, page, filterType: 'top_rated',
 });
+
 const fetchUpcomingMovies = page => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getUpcomingMovies, page,
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter, page, filterType: 'upcoming',
 });
+
 const fetchMoviesByGenre = (page, genre) => createAsyncAction({
   type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByGenre, page, genre,
 });
+
 const fetchSearchMovies = (page, query) => createAsyncAction({
   type: ACTIONS.FETCH_MOVIES, asyncFn: searchMovies, page, query,
 });
 
-const receivevideoKey = data => ({
+const receiveVideoKey = data => ({
   type: ACTIONS.FETCH_VIDEO_KEY_SUCCESS,
   payload: {
     videoKey: data.results[0].key,
@@ -51,11 +55,11 @@ const fetchGenres = () => (dispatch) => {
     .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_GENRES_FAILURE, error)));
 };
 
-const fetchvideoKey = movieId => (dispatch) => {
+const fetchVideoKey = movieId => (dispatch) => {
   dispatch(createRequestAction(ACTIONS.FETCH_VIDEO_KEY_REQUEST));
   return getMovieVideo(movieId)
     .then(res => res.json())
-    .then(data => dispatch(receivevideoKey(data)))
+    .then(data => dispatch(receiveVideoKey(data)))
     .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_VIDEO_KEY_FAILURE, error)));
 };
 
@@ -72,5 +76,5 @@ export {
   fetchMoviesByGenre,
   fetchSearchMovies,
   changeFilter,
-  fetchvideoKey,
+  fetchVideoKey,
 };

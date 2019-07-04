@@ -1,11 +1,25 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import Hero from '..';
-import { getMovieInfo } from '../../../utils/tbdbApiService';
-import mockedMovie from '../../../assets/json/movie.json';
 
 describe('Hero component renders correctly', () => {
-  const movie = getMovieInfo(mockedMovie);
+  const movie = {
+    id: 123,
+    rating: 5,
+    title: 'Test title',
+    genres: [
+      {
+        id: 12,
+        name: 'Adventure',
+      },
+      {
+        id: 16,
+        name: 'Action',
+      },
+    ],
+    overview: 'Test description',
+    image: '/123',
+  };
 
   it('Hero renders correctly', () => {
     const tree = create(<Hero movie={movie} />).toJSON();

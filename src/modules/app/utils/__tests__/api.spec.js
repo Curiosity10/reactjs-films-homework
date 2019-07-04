@@ -8,12 +8,7 @@ describe('API calls work correctly', () => {
       expect(data).toBeDefined();
     }));
 
-  it('Get top movies work correctly', () => api.getTopMovies({ page: 1 })
-    .then((data) => {
-      expect(data).toBeDefined();
-    }));
-
-  it('Get latest movies work correctly', () => api.getLatestMovies({ page: 1 })
+  it('Get top movies work correctly', () => api.getMoviesByFilter({ page: 1 }, 'top_rated')
     .then((data) => {
       expect(data).toBeDefined();
     }));
@@ -29,11 +24,6 @@ describe('API calls work correctly', () => {
     }));
 
   it('Get movies by genre work correctly', () => api.getMoviesByGenre({ page: 1, genre: 12 })
-    .then((data) => {
-      expect(data).toBeDefined();
-    }));
-
-  it('Get upcoming movies work correctly', () => api.getUpcomingMovies({ page: 1 })
     .then((data) => {
       expect(data).toBeDefined();
     }));

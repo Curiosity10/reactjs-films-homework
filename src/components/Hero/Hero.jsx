@@ -1,17 +1,15 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames/bind';
 import styles from './Hero.scss';
 import StarRating from '../StarRating';
-import { getMovieInfo } from '../../utils/tbdbApiService';
 import NumRating from '../NumRating';
 import Genres from '../Genres';
 import Button from '../Button';
-import movieInfo from '../../assets/json/movie.json';
 
 const cx = cn.bind(styles);
-const Hero = () => {
+const Hero = ({ movie }) => {
   const [showInfo, setShowInfo] = useState(true);
-  const movie = getMovieInfo(movieInfo);
   const {
     title,
     genres,
@@ -46,6 +44,17 @@ const Hero = () => {
       </div>
     </section>
   );
+};
+
+Hero.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    genres: PropTypes.array,
+    rating: PropTypes.number,
+    runtime: PropTypes.string,
+    overview: PropTypes.string,
+    image: PropTypes.string,
+  }).isRequired,
 };
 
 export default Hero;

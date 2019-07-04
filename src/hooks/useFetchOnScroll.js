@@ -1,5 +1,4 @@
 import { useLayoutEffect } from 'react';
-import getScrollDownPercentage from '../utils/scroll';
 
 export const handleScroll = (
   isLoading,
@@ -18,7 +17,8 @@ export const handleScroll = (
   if (!isLoading) {
     const { scrollHeight, clientHeight } = window.document.documentElement;
     const scrollPos = window.pageYOffset;
-    const percentageScrolled = getScrollDownPercentage({ scrollHeight, clientHeight, scrollPos });
+    const currentPosition = scrollPos + clientHeight;
+    const percentageScrolled = currentPosition / scrollHeight;
     if (percentageScrolled > 0.99 && hasMorePages) {
       switch (filter) {
         case 'Trending':

@@ -5,9 +5,10 @@ import NumRating from '../../../../../NumRating';
 import Genres from '../../../../../Genres';
 import Button from '../../../../../Button';
 import StarRating from '../../../../../StarRating';
-import { truncate } from '../../../../../../utils';
+import truncate from '../../../../utils/truncate';
+import { MAX_TABLE_CARD_DESC_LENGTH } from '../../../../utils/constants';
 
-const TableCard = ({ movie, fetchvideoKey, toggleModal }) => {
+const TableCard = ({ movie, fetchVideoKey, toggleModal }) => {
   const {
     id,
     rating,
@@ -16,18 +17,17 @@ const TableCard = ({ movie, fetchvideoKey, toggleModal }) => {
     overview,
     image,
   } = movie;
-  const maxLength = 500;
   const handleClick = useCallback(() => {
-    fetchvideoKey(id);
+    fetchVideoKey(id);
     toggleModal(true);
-  }, [toggleModal, id, fetchvideoKey]);
+  }, [toggleModal, id, fetchVideoKey]);
   return (
     <article className={styles.card}>
       <img src={image} alt="Poster" />
       <div className={styles.info}>
         <h2 className={styles.title}>{title}</h2>
         <Genres genres={genres} />
-        <p className={styles.overview}>{truncate(overview, maxLength)}</p>
+        <p className={styles.overview}>{truncate(overview, MAX_TABLE_CARD_DESC_LENGTH)}</p>
         <div className={styles.rating}>
           <StarRating starsSelected={rating} />
           <NumRating rating={rating} />
@@ -47,12 +47,12 @@ TableCard.propTypes = {
     image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   }).isRequired,
   toggleModal: PropTypes.func,
-  fetchvideoKey: PropTypes.func,
+  fetchVideoKey: PropTypes.func,
 };
 
 TableCard.defaultProps = {
   toggleModal: () => {},
-  fetchvideoKey: () => {},
+  fetchVideoKey: () => {},
 };
 
 export default TableCard;

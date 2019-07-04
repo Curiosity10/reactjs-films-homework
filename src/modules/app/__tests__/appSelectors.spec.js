@@ -1,11 +1,22 @@
 import * as selectors from '../appSelectors';
-import movies from '../../../assets/json/popular.json';
 import genres from '../../../assets/json/genres.json';
-import { getMovies } from '../../../utils/tbdbApiService';
 
 const state = {
   app: {
-    movies: movies.results,
+    movies: [
+      {
+        id: 505954,
+        image: null,
+        overview: 'Test desc',
+        vote_average: 4.5,
+        title: 'Test',
+        poster_path: '/123',
+        genre_ids: [
+          18,
+          12,
+        ],
+      },
+    ],
     genres: genres.genres,
     isLoading: true,
     currentPage: 5,
@@ -52,12 +63,26 @@ describe('Selectors work correctly', () => {
   });
 
   it('Should return movies', () => {
-    expect(selectors.moviesSelector(state)).toEqual(state.app.movies);
-  });
-
-  it('Should return movies with filter on props', () => {
-    expect(selectors.getMoviesSelector(state))
-      .toEqual(getMovies(state.app.movies, state.app.genres));
+    const movie = [
+      {
+        id: 505954,
+        rating: 4.5,
+        title: 'Test',
+        genres: [
+          {
+            id: 12,
+            name: 'Adventure',
+          },
+          {
+            id: 18,
+            name: 'Drama',
+          },
+        ],
+        overview: 'Test desc',
+        image: 'https://image.tmdb.org/t/p/w300/123',
+      },
+    ];
+    expect(selectors.getMoviesSelector(state)).toEqual(movie);
   });
 
   it('Should return error', () => {

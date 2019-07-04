@@ -10,13 +10,20 @@ import TrailerModal from './components/TrailerModal';
 const cx = cn.bind(styles);
 
 const Movies = ({
-  isLoading, movies, layout, videoSrc, page,
+  isLoading, movies, layout, videoSrc, page, errorMsg,
 }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const isMoviesExist = movies.length !== 0;
   let moviesList;
 
-  if (!isMoviesExist && !isLoading) {
+  if (errorMsg) {
+    moviesList = (
+      <p className={styles.errorMsg}>
+       Sorry, something went wrong.
+        { errorMsg }
+      </p>
+    );
+  } else if (!isMoviesExist && !isLoading) {
     moviesList = <p className={styles.notFound}>Sorry, no movies found.</p>;
   } else if (layout === 'grid') {
     moviesList = <Grid toggleModal={setModalOpen} movies={movies} />;
@@ -30,8 +37,8 @@ const Movies = ({
         <main className={
           cx({
             container: true,
-            gridMovieList: (layout === 'grid' && isMoviesExist),
-            tableMovieList: (layout === 'table' && isMoviesExist),
+            gridMovieList: (layout === 'grid' && isMoviesExist && !errorMsg),
+            tableMovieList: (layout === 'table' && isMoviesExist && !errorMsg),
           })}
         >
           { moviesList }
@@ -56,6 +63,7 @@ Movies.propTypes = {
   layout: PropTypes.string,
   videoSrc: PropTypes.string,
   page: PropTypes.number,
+  errorMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };
 
 Movies.defaultProps = {
@@ -64,6 +72,7 @@ Movies.defaultProps = {
   layout: 'Grid',
   videoSrc: '',
   page: 1,
+  errorMsg: '',
 };
 
 export default Movies;

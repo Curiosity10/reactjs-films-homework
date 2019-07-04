@@ -2,7 +2,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import ErrorBoundaryContainer from '..';
+import ErrorBoundary from '..';
 
 describe('ErrorBoundary component renders correctly', () => {
   const middlewares = [];
@@ -29,7 +29,7 @@ describe('ErrorBoundary component renders correctly', () => {
   it('ErrorBoundary renders correctly', () => {
     const tree = create(
       <Provider store={store}>
-        <ErrorBoundaryContainer />
+        <ErrorBoundary />
       </Provider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -43,9 +43,9 @@ describe('ErrorBoundary component renders correctly', () => {
     };
     const tree = create(
       <Provider store={store}>
-        <ErrorBoundaryContainer>
+        <ErrorBoundary>
           <ComponentWithProblem />
-        </ErrorBoundaryContainer>
+        </ErrorBoundary>
       </Provider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();

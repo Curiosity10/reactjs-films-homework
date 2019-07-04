@@ -8,7 +8,9 @@ describe('Ui reducer works correctly', () => {
   it('should handle change layout', () => {
     expect(reducer({}, {
       type: actions.CHANGE_LAYOUT,
-      layout: 'grid',
+      payload: {
+        layout: 'grid',
+      },
     })).toEqual({
       layout: 'grid',
     });

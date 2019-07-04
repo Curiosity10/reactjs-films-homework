@@ -260,7 +260,7 @@ describe('Fetch src works correctly', () => {
     ];
 
     const store = mockStore({ videoKey: '' });
-    return store.dispatch(actions.fetchvideoKey()).then(() => {
+    return store.dispatch(actions.fetchVideoKey()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -277,7 +277,7 @@ describe('Fetch src works correctly', () => {
     ];
 
     const store = mockStore({ });
-    return store.dispatch(actions.fetchvideoKey()).then(() => {
+    return store.dispatch(actions.fetchVideoKey()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

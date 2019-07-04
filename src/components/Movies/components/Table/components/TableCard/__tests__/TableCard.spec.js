@@ -1,12 +1,23 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import TableCard from '../TableCard';
-import { getMovies } from '../../../../../../../utils';
-import mockMovies from '../../../../../../../assets/json/popular.json';
-import { genres } from '../../../../../../../assets/json/genres.json';
 
 describe('TableCard component renders correctly', () => {
-  const movie = { ...getMovies(mockMovies.results, genres)[0], id: 1 };
+  const movie = {
+    title: 'test',
+    id: 1,
+    genre_ids: [
+      {
+        id: 12,
+        name: 'Action',
+      },
+      {
+        id: 16,
+        name: 'Adventure',
+      },
+    ],
+    overview: 'desc',
+  };
 
   it('TableCard renders correctly', () => {
     const tree = create(

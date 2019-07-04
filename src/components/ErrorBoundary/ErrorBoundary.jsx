@@ -18,15 +18,15 @@ export default class ErrorBoundary extends Component {
 
   render() {
     const { hasError } = this.state;
-    const { errorMessage, children } = this.props;
-    if (hasError || errorMessage) {
+    const { children } = this.props;
+    if (hasError) {
       return (
         <>
           <Header />
           <div className={styles.container}>
             <Menu />
             <p>
-              {`Sorry, something went wrong. ${errorMessage}.` }
+              Sorry, something went wrong.
             </p>
           </div>
           <Footer />
@@ -38,11 +38,9 @@ export default class ErrorBoundary extends Component {
 }
 
 ErrorBoundary.propTypes = {
-  errorMessage: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 ErrorBoundary.defaultProps = {
-  errorMessage: '',
   children: '',
 };

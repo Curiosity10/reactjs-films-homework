@@ -4,6 +4,7 @@ import SearchForm from '../SearchForm';
 
 describe('SearchForm component renders correctly', () => {
   const tree = create(<SearchForm />);
+
   it('SearchForm renders correctly', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -11,9 +12,11 @@ describe('SearchForm component renders correctly', () => {
   it('SearchForm empty onSubmit works correctly', () => {
     const e = { preventDefault: jest.fn() };
     const mockFunction = jest.fn(() => tree.toJSON().props.onSubmit(e));
+
     act(() => {
       mockFunction();
     });
+
     expect(mockFunction).toHaveBeenCalled();
   });
 
@@ -40,17 +43,6 @@ describe('SearchForm component renders correctly', () => {
     const input = tree.root.findByProps({ 'aria-label': 'Search Input' });
     const e = { target: { value: '123' } };
     const mockFunction = jest.fn(() => input.props.onChange(e));
-
-    act(() => {
-      mockFunction();
-    });
-
-    expect(mockFunction).toHaveBeenCalled();
-  });
-
-  it('SearchForm onBlur works correctly', () => {
-    const input = tree.root.findByProps({ 'aria-label': 'Search Input' });
-    const mockFunction = jest.fn(input.props.onBlur);
 
     act(() => {
       mockFunction();

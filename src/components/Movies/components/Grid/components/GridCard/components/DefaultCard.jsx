@@ -6,7 +6,7 @@ import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
 
 const DefaultCard = ({
-  changeActiveCard, title, genres, rating, id, toggleModal, fetchvideoKey,
+  changeActiveCard, title, genres, rating, id, toggleModal, fetchVideoKey,
 }) => (
   <>
     <div className={styles.onHover}>
@@ -15,9 +15,9 @@ const DefaultCard = ({
         className={styles.btnWatch}
         type="button"
         onClick={useCallback(() => {
-          fetchvideoKey(id);
+          fetchVideoKey(id);
           toggleModal(true);
-        }, [toggleModal, id, fetchvideoKey])}
+        }, [toggleModal, id, fetchVideoKey])}
       >
         <span> Watch Now </span>
       </button>
@@ -25,7 +25,9 @@ const DefaultCard = ({
     </div>
     <div className={styles.info}>
       <div>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 title={title} className={styles.title}>
+          {title}
+        </h3>
         <p>
           <Genres genres={genres} />
         </p>
@@ -42,16 +44,17 @@ DefaultCard.propTypes = {
   genres: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.string,
-  ]).isRequired,
+  ]),
   changeActiveCard: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  fetchvideoKey: PropTypes.func.isRequired,
+  fetchVideoKey: PropTypes.func.isRequired,
 };
 
 DefaultCard.defaultProps = {
   rating: null,
   title: '',
   id: Math.random() * 1000,
+  genres: [],
 };
 
 export default DefaultCard;

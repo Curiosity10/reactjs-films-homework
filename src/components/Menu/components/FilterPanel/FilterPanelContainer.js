@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import FilterPanel from './FilterPanel';
 import {
-  fetchTopRatedMovies,
   fetchLatestMovies,
+  fetchTopRatedMovies,
   fetchUpcomingMovies,
   changeFilter,
 } from '../../../../modules/app/appActions';
@@ -14,8 +14,8 @@ const mapStateToProps = state => ({
 });
 
 const actions = {
-  fetchTopRatedMovies,
   fetchLatestMovies,
+  fetchTopRatedMovies,
   fetchUpcomingMovies,
   changeFilter,
 };

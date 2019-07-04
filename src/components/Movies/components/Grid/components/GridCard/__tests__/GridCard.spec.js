@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { create, act } from 'react-test-renderer';
 import GridCard from '../GridCard';
-import { getMovies } from '../../../../../../../utils';
-import mockMovies from '../../../../../../../assets/json/popular.json';
-import { genres } from '../../../../../../../assets/json/genres.json';
 
 describe('GridCard component renders correctly', () => {
-  const movie = { ...getMovies(mockMovies.results, genres)[0], id: 1 };
+  const movie = {
+    title: 'test',
+    id: 1,
+    genre_ids: [
+      {
+        id: 12,
+        name: 'Action',
+      },
+      {
+        id: 16,
+        name: 'Adventure',
+      },
+    ],
+    overview: 'desc',
+  };
   const activeCard = 1;
   const mockFunction = jest.fn();
 
@@ -24,7 +35,21 @@ describe('GridCard component renders correctly', () => {
 
   it('Set overlay works correctly', () => {
     const Wrapper = () => {
-      const film = { ...getMovies(mockMovies.results, genres)[0], id: 2 };
+      const film = {
+        title: 'test',
+        id: 2,
+        genre_ids: [
+          {
+            id: 12,
+            name: 'Action',
+          },
+          {
+            id: 16,
+            name: 'Adventure',
+          },
+        ],
+        overview: 'desc',
+      };
       const [currentCard, setCurrentCard] = useState(1);
       return (
         <>
@@ -56,7 +81,21 @@ describe('GridCard component renders correctly', () => {
 
   it('Set default card with short overview works correctly', () => {
     const Wrapper = () => {
-      const film = { ...getMovies(mockMovies.results, genres)[0], id: 2 };
+      const film = {
+        title: 'test',
+        id: 2,
+        genre_ids: [
+          {
+            id: 12,
+            name: 'Action',
+          },
+          {
+            id: 16,
+            name: 'Adventure',
+          },
+        ],
+        overview: 'desc',
+      };
       const [currentCard, setCurrentCard] = useState(2);
       return (
         <>
