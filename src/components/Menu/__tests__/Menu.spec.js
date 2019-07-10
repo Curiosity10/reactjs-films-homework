@@ -6,6 +6,7 @@ describe('Menu component renders correctly', () => {
   it('Menu renders correctly', () => {
     const renderer = new ShallowRenderer();
     const result = renderer.render(<Menu />);
+
     expect(result).toMatchSnapshot();
   });
 });

@@ -61,10 +61,11 @@ exports[`TrailerModal component renders correctly TrailerModal renders and unmou
 <div
   className="videoContainer"
 >
-  <h2
-    className="heading"
-  >
-    Sorry, no trailer available.
-  </h2>
+  <iframe
+    className="video"
+    frameBorder="0"
+    src="/123"
+    title="trailer"
+  />
 </div>
 `;

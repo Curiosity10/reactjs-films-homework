@@ -1,5 +1,5 @@
 import * as selectors from '../appSelectors';
-import genres from '../../../assets/json/genres.json';
+import genres from '../../../__mocks__/genres.json';
 
 const state = {
   app: {
@@ -82,7 +82,7 @@ describe('Selectors work correctly', () => {
         image: 'https://image.tmdb.org/t/p/w300/123',
       },
     ];
-    expect(selectors.getMoviesSelector(state)).toEqual(movie);
+    expect(selectors.moviesSelector(state)).toEqual(movie);
   });
 
   it('Should return error', () => {

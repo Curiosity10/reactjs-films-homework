@@ -32,6 +32,7 @@ describe('ErrorBoundary component renders correctly', () => {
         <ErrorBoundary />
       </Provider>,
     ).toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 
@@ -48,6 +49,7 @@ describe('ErrorBoundary component renders correctly', () => {
         </ErrorBoundary>
       </Provider>,
     ).toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 });

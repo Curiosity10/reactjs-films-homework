@@ -8,11 +8,11 @@ const SearchForm = ({ fetchSearchMovies, changeFilter }) => {
     e.preventDefault();
     changeFilter('Search');
     window.scrollTo(0, 0);
+
     if (searchQuery.trim()) {
-      fetchSearchMovies(1, searchQuery);
+      fetchSearchMovies(searchQuery);
     }
   };
-
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
   };

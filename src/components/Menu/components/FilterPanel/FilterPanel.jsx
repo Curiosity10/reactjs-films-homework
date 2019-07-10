@@ -2,57 +2,54 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FilterPanel.scss';
 import FilterPanelButton from './components/FilterPanelButton';
-import SelectContainer from './components/Select';
+import GenresSelectionContainer from './components/GenresSelection';
 
 const FilterPanel = ({
-  fetchTopRatedMovies, fetchLatestMovies, fetchUpcomingMovies,
-  changeFilter, filter,
+  fetchMoviesByFilter, changeFilter, filter,
 }) => {
-  const setActiveItem = itemName => (itemName === filter && styles.btn__active);
+  const checkActiveItem = url => (url === filter && styles.btn__active);
+
   return (
     <nav>
       <ul>
         <FilterPanelButton
           activeItem={filter}
-          setActiveItem={setActiveItem}
+          checkActiveItem={checkActiveItem}
           name="Trending"
           setActive={changeFilter}
-          fetchMovies={fetchLatestMovies}
+          url="popular"
+          fetchMovies={fetchMoviesByFilter}
         />
         <FilterPanelButton
           activeItem={filter}
-          setActiveItem={setActiveItem}
+          checkActiveItem={checkActiveItem}
           name="Top Rated"
+          url="top_rated"
           setActive={changeFilter}
-          fetchMovies={fetchTopRatedMovies}
+          fetchMovies={fetchMoviesByFilter}
         />
         <FilterPanelButton
           activeItem={filter}
-          setActiveItem={setActiveItem}
+          checkActiveItem={checkActiveItem}
           name="Coming Soon"
+          url="upcoming"
           setActive={changeFilter}
-          fetchMovies={fetchUpcomingMovies}
+          fetchMovies={fetchMoviesByFilter}
         />
-        <SelectContainer setActiveItem={setActiveItem} setActive={changeFilter} />
+        <GenresSelectionContainer checkActiveItem={checkActiveItem} setActive={changeFilter} />
       </ul>
     </nav>
   );
 };
 
 FilterPanel.propTypes = {
-  fetchTopRatedMovies: PropTypes.func,
-  fetchLatestMovies: PropTypes.func,
-  fetchUpcomingMovies: PropTypes.func,
-  changeFilter: PropTypes.func,
+  fetchMoviesByFilter: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string,
 };
 
 FilterPanel.defaultProps = {
-  fetchTopRatedMovies: () => {},
-  fetchLatestMovies: () => {},
-  fetchUpcomingMovies: () => {},
-  changeFilter: () => {},
-  filter: 'Trending',
+  filter: 'popular',
 };
 
 export default FilterPanel;

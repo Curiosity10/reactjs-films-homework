@@ -1,36 +1,28 @@
 import {
   createFailureAction,
   createRequestAction,
-  createAsyncAction,
-} from './utils/actions.helpers';
+  createAsyncReceiveMoviesAction,
+} from './helpers/actions.helpers';
 import {
   getGenres,
   getMoviesByGenre,
   getMoviesByFilter,
   searchMovies,
   getMovieVideo,
-} from './utils/api';
+} from './helpers/api.helpers';
 
 import * as ACTIONS from './appConstants';
 
-const fetchLatestMovies = page => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter, page, filterType: 'popular',
+const fetchMoviesByFilter = () => createAsyncReceiveMoviesAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter,
 });
 
-const fetchTopRatedMovies = page => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter, page, filterType: 'top_rated',
+const fetchMoviesByGenre = genre => createAsyncReceiveMoviesAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByGenre, genre,
 });
 
-const fetchUpcomingMovies = page => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByFilter, page, filterType: 'upcoming',
-});
-
-const fetchMoviesByGenre = (page, genre) => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: getMoviesByGenre, page, genre,
-});
-
-const fetchSearchMovies = (page, query) => createAsyncAction({
-  type: ACTIONS.FETCH_MOVIES, asyncFn: searchMovies, page, query,
+const fetchSearchMovies = query => createAsyncReceiveMoviesAction({
+  type: ACTIONS.FETCH_MOVIES, asyncFn: searchMovies, query,
 });
 
 const receiveVideoKey = data => ({
@@ -49,6 +41,7 @@ const receiveGenres = data => ({
 
 const fetchGenres = () => (dispatch) => {
   dispatch(createRequestAction(ACTIONS.FETCH_GENRES_REQUEST));
+
   return getGenres()
     .then(response => response.json())
     .then(data => dispatch(receiveGenres(data)))
@@ -57,6 +50,7 @@ const fetchGenres = () => (dispatch) => {
 
 const fetchVideoKey = movieId => (dispatch) => {
   dispatch(createRequestAction(ACTIONS.FETCH_VIDEO_KEY_REQUEST));
+
   return getMovieVideo(movieId)
     .then(res => res.json())
     .then(data => dispatch(receiveVideoKey(data)))
@@ -70,9 +64,7 @@ const changeFilter = filter => ({
 
 export {
   fetchGenres,
-  fetchLatestMovies,
-  fetchTopRatedMovies,
-  fetchUpcomingMovies,
+  fetchMoviesByFilter,
   fetchMoviesByGenre,
   fetchSearchMovies,
   changeFilter,

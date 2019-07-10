@@ -12,6 +12,7 @@ describe('Movies component renders correctly', () => {
         layout="grid"
       />,
     );
+
     expect(result).toMatchSnapshot();
   });
 
@@ -25,6 +26,7 @@ describe('Movies component renders correctly', () => {
         layout="grid"
       />,
     );
+
     expect(result).toMatchSnapshot();
   });
 
@@ -39,6 +41,7 @@ describe('Movies component renders correctly', () => {
         errorMsg="O-ops"
       />,
     );
+
     expect(result).toMatchSnapshot();
   });
 });

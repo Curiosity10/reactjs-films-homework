@@ -12,7 +12,7 @@ const initialState = {
     isLoading: true,
     currentPage: 1,
     error: false,
-    filter: 'Trending',
+    filter: 'popular',
     genreId: null,
     searchQuery: '',
     videoKey: '',

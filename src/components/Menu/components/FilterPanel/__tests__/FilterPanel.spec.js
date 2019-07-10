@@ -31,9 +31,7 @@ describe('FilterPanel component', () => {
   const mockSetActive = jest.fn();
 
   it('FilterPanel component renders correctly', () => {
-    const mockFetchTopRatedMovies = jest.fn();
-    const mockFetchLatestMovies = jest.fn();
-    const mockFetchUpcomingMovies = jest.fn();
+    const mockFetchMoviesByFilter = jest.fn();
     const mockchangeFilter = jest.fn();
 
     const MockComponent = () => {
@@ -41,11 +39,9 @@ describe('FilterPanel component', () => {
       return (
         <FilterPanel
           activeItem={activeItem}
-          setActiveItem={setActiveItem}
+          checkActiveItem={setActiveItem}
           setActive={mockSetActive}
-          fetchTopRatedMovies={mockFetchTopRatedMovies}
-          fetchLatestMovies={mockFetchLatestMovies}
-          fetchUpcomingMovies={mockFetchUpcomingMovies}
+          fetchMoviesByFilter={mockFetchMoviesByFilter}
           changeFilter={mockchangeFilter}
         />
       );
@@ -61,12 +57,14 @@ describe('FilterPanel component', () => {
 
   it('FilterPanel component without props works correctly', () => {
     const MockComponent = () => {
-      const [activeItem, setActiveItem] = useState('Top Rated');
+      const fetchMoviesByFilter = jest.fn();
+      const changeFilter = jest.fn();
+
       return (
         <FilterPanel
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-          setActive={mockSetActive}
+          fetchMoviesByFilter={fetchMoviesByFilter}
+          changeFilter={changeFilter}
+          filter="top_rated"
         />
       );
     };
@@ -97,12 +95,5 @@ describe('FilterPanel component', () => {
     expect(mockFetchLatestMovies).toHaveBeenCalled();
     expect(mockFetchUpcomingMovies).toHaveBeenCalled();
     expect(mockchangeFilter).toHaveBeenCalled();
-  });
-
-  it('FilterPanel\'s defaultprops defined', () => {
-    expect(FilterPanel.defaultProps.fetchTopRatedMovies).toBeDefined();
-    expect(FilterPanel.defaultProps.fetchLatestMovies).toBeDefined();
-    expect(FilterPanel.defaultProps.fetchUpcomingMovies).toBeDefined();
-    expect(FilterPanel.defaultProps.changeFilter).toBeDefined();
   });
 });

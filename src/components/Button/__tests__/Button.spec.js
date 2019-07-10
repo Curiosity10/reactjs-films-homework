@@ -6,12 +6,14 @@ describe('Button component renders correctly', () => {
   it('Primary button renders correctly', () => {
     const tree = create(<Button type="primary">Watch Now</Button>)
       .toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 
   it('Ghost button renders correctly', () => {
     const tree = create(<Button type="ghost">View Info</Button>)
       .toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 
@@ -21,9 +23,11 @@ describe('Button component renders correctly', () => {
       <Button handleClick={mockFunction} type="ghost"> View Info </Button>,
     );
     const button = tree.root.children[0];
+
     act(() => {
       button.props.onClick();
     });
+
     expect(mockFunction.mock.calls.length).toEqual(1);
   });
 
@@ -33,9 +37,11 @@ describe('Button component renders correctly', () => {
     );
     const button = tree.root.children[0];
     const mockFunction = jest.fn(button.props.onClick);
+
     act(() => {
       mockFunction();
     });
+
     expect(mockFunction).toHaveBeenCalled();
   });
 });

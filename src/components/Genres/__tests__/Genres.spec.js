@@ -1,7 +1,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Genres from '..';
-import { genres } from '../../../assets/json/genres.json';
+import { genres } from '../../../__mocks__/genres.json';
 
 describe('Genres component renders correctly', () => {
   it('Genres renders correctly', () => {

@@ -6,6 +6,7 @@ describe('Header component renders correctly', () => {
   it('Header renders correctly', () => {
     const renderer = new ShallowRenderer();
     const result = renderer.render(<Header />);
+
     expect(result).toMatchSnapshot();
   });
 });

@@ -9,7 +9,7 @@ exports[`FilterPanel component FilterPanel component renders correctly 1`] = `
       <button
         aria-label="Trending"
         className="btn btn__active"
-        disabled={true}
+        disabled={false}
         onClick={[Function]}
         type="button"
       >

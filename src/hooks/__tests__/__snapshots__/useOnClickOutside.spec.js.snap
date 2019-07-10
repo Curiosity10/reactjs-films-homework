@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Body scroll lock work correctly Body scroll lock not calls without ref 1`] = `
-<h1>
-  Hello
-</h1>
-`;

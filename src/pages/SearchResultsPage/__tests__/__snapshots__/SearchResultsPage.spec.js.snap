@@ -52,7 +52,7 @@ exports[`SearchResultsPage renders correctly Fetch data calls correctly 1`] = `
           >
             <button
               aria-label="Trending"
-              className="btn btn__active"
+              className="btn"
               disabled={true}
               onClick={[Function]}
               type="button"
@@ -212,7 +212,7 @@ exports[`SearchResultsPage renders correctly SearchResultsPage render correctly 
           >
             <button
               aria-label="Trending"
-              className="btn btn__active"
+              className="btn"
               disabled={true}
               onClick={[Function]}
               type="button"

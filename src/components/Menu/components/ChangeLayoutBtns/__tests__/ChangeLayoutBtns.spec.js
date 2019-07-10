@@ -26,9 +26,11 @@ describe('ChangeLayoutBtns component', () => {
       <ChangeLayoutBtns />,
     );
     const button = tree.root.findByProps({ 'aria-label': 'Table' });
+
     act(() => {
       button.props.onClick();
     });
+
     expect(button.props.className).toEqual('btn btn__active');
   });
 });

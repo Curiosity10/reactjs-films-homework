@@ -39,6 +39,7 @@ describe('SearchResultsPage renders correctly', () => {
     const mockFn = jest.fn();
 
     let tree;
+
     act(() => {
       tree = create(
         <Provider store={store}>

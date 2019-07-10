@@ -6,6 +6,7 @@ const StarRating = (props) => {
   const {
     starsSelected,
   } = props;
+
   return (
     <>
       {[...Array(Math.round(starsSelected))].map((n, i) => (

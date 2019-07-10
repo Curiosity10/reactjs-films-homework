@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select component Select component renders correctly 1`] = `
+exports[`GenresSelection component GenresSelection component renders correctly 1`] = `
 <li
   className="navItem"
 >
@@ -117,7 +117,7 @@ exports[`Select component Select component renders correctly 1`] = `
 </li>
 `;
 
-exports[`Select component Select component with filter renders correctly 1`] = `
+exports[`GenresSelection component GenresSelection component with filter renders correctly 1`] = `
 <li
   className="navItem"
 >

@@ -5,6 +5,7 @@ import styles from './ChangeLayoutBtns.scss';
 
 const ChangeLayoutBtns = ({ changeLayout }) => {
   const [active, setActive] = useState('grid');
+
   return (
     <div>
       <button

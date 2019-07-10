@@ -17,6 +17,7 @@ describe('SearchFormContainer component renders correctly', () => {
       </Provider>,
     )
       .toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 });

@@ -8,6 +8,7 @@ import Genres from '../Genres';
 import Button from '../Button';
 
 const cx = cn.bind(styles);
+
 const Hero = ({ movie }) => {
   const [showInfo, setShowInfo] = useState(true);
   const {
@@ -18,6 +19,7 @@ const Hero = ({ movie }) => {
     overview,
     image,
   } = movie;
+
   return (
     <section className={styles.hero} style={{ backgroundImage: `url(${image})` }}>
       <div className={styles.movieInfo}>

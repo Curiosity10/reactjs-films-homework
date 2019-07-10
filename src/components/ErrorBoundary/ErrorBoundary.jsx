@@ -19,6 +19,7 @@ export default class ErrorBoundary extends Component {
   render() {
     const { hasError } = this.state;
     const { children } = this.props;
+
     if (hasError) {
       return (
         <>
@@ -33,6 +34,7 @@ export default class ErrorBoundary extends Component {
         </>
       );
     }
+
     return children;
   }
 }

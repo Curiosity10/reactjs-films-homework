@@ -37,8 +37,8 @@ describe('Fetch genres works correctly', () => {
   });
 });
 
-describe('Fetch latest movies works correctly', () => {
-  it('creates FETCH_LATEST_MOVIES_SUCCESS when fetching movies has been done', () => {
+describe('Fetch movies works correctly', () => {
+  it('creates FETCH_MOVIES_SUCCESS when fetching movies has been done', () => {
     fetch.mockResponse(JSON.stringify({ results: [], currentPage: 1, total_pages: 1 }));
 
     const expectedActions = [
@@ -53,57 +53,21 @@ describe('Fetch latest movies works correctly', () => {
           searchQuery: '',
         },
       },
-    ];
-
-    const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
-    return store.dispatch(actions.fetchLatestMovies(1)).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
-  });
-
-  it('creates FETCH_LATEST_MOVIES_FAILURE when fetching movies hasn\'t been done', () => {
-    fetch.mockReject(new Error('fake error message'));
-
-    const expectedActions = [
-      { type: types.FETCH_MOVIES_REQUEST },
       {
-        type: types.FETCH_MOVIES_FAILURE,
-        payload: { error: 'fake error message' },
-      },
-    ];
-
-    const store = mockStore({ });
-    return store.dispatch(actions.fetchLatestMovies()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
-  });
-});
-
-describe('Fetch top rated movies works correctly', () => {
-  it('creates FETCH_TOPRATED_MOVIES_SUCCESS when fetching movies has been done', () => {
-    fetch.mockResponse(JSON.stringify({ results: [], currentPage: 1, total_pages: 1 }));
-
-    const expectedActions = [
-      { type: types.FETCH_MOVIES_REQUEST },
-      {
-        type: types.FETCH_MOVIES_SUCCESS,
+        type: types.INCREASE_PAGE,
         payload: {
-          movies: [],
-          currentPage: 1,
-          pagesCount: 1,
-          genreId: null,
-          searchQuery: '',
+          currentPage: 2,
         },
       },
     ];
 
-    const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
-    return store.dispatch(actions.fetchTopRatedMovies(1)).then(() => {
+    const store = mockStore({ movies: [], currentPage: 2, pagesCount: 1 });
+    return store.dispatch(actions.fetchMoviesByFilter(1)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
 
-  it('creates FETCH_TOPRATED_MOVIES_FAILURE when fetching movies hasn\'t been done', () => {
+  it('creates FETCH_MOVIES_FAILURE when fetching movies hasn\'t been done', () => {
     fetch.mockReject(new Error('fake error message'));
 
     const expectedActions = [
@@ -115,49 +79,7 @@ describe('Fetch top rated movies works correctly', () => {
     ];
 
     const store = mockStore({ });
-    return store.dispatch(actions.fetchTopRatedMovies()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
-  });
-});
-
-describe('Fetch upcoming movies works correctly', () => {
-  it('creates FETCH_UPCOMING_MOVIES_SUCCESS when fetching movies has been done', () => {
-    fetch.mockResponse(JSON.stringify({ results: [], currentPage: 1, total_pages: 1 }));
-
-    const expectedActions = [
-      { type: types.FETCH_MOVIES_REQUEST },
-      {
-        type: types.FETCH_MOVIES_SUCCESS,
-        payload: {
-          movies: [],
-          currentPage: 1,
-          pagesCount: 1,
-          genreId: null,
-          searchQuery: '',
-        },
-      },
-    ];
-
-    const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
-    return store.dispatch(actions.fetchUpcomingMovies(1)).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
-  });
-
-  it('creates FETCH_UPCOMING_MOVIES_FAILURE when fetching movies hasn\'t been done', () => {
-    fetch.mockReject(new Error('fake error message'));
-
-    const expectedActions = [
-      { type: types.FETCH_MOVIES_REQUEST },
-      {
-        type: types.FETCH_MOVIES_FAILURE,
-        payload: { error: 'fake error message' },
-      },
-    ];
-
-    const store = mockStore({ });
-    return store.dispatch(actions.fetchUpcomingMovies()).then(() => {
+    return store.dispatch(actions.fetchMoviesByFilter()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -179,10 +101,16 @@ describe('Fetch movies by genre works correctly', () => {
           searchQuery: '',
         },
       },
+      {
+        type: types.INCREASE_PAGE,
+        payload: {
+          currentPage: 2,
+        },
+      },
     ];
 
     const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
-    return store.dispatch(actions.fetchMoviesByGenre(1, 12)).then(() => {
+    return store.dispatch(actions.fetchMoviesByGenre(12)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -221,10 +149,16 @@ describe('Fetch movies by search query works correctly', () => {
           genreId: null,
         },
       },
+      {
+        type: types.INCREASE_PAGE,
+        payload: {
+          currentPage: 2,
+        },
+      },
     ];
 
     const store = mockStore({ movies: [], currentPage: 1, pagesCount: 1 });
-    return store.dispatch(actions.fetchSearchMovies(1, '123')).then(() => {
+    return store.dispatch(actions.fetchSearchMovies('123')).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

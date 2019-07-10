@@ -199,4 +199,13 @@ describe('App reducer works correctly', () => {
       genreId: null,
     });
   });
+
+  it('should increase page by 1', () => {
+    expect(reducer({}, {
+      type: types.INCREASE_PAGE,
+      payload: { currentPage: 2 },
+    })).toEqual({
+      currentPage: 2,
+    });
+  });
 });

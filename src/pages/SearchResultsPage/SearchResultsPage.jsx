@@ -10,6 +10,7 @@ const SearchResultsPage = ({ fetchData }) => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
   return (
     <div className={styles.container}>
       <Header />

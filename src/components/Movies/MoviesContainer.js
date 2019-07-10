@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Movies from './Movies';
 import {
-  fetchTopRatedMovies,
-  fetchLatestMovies,
-  fetchUpcomingMovies,
+  fetchMoviesByFilter,
   fetchSearchMovies,
   fetchMoviesByGenre,
 } from '../../modules/app/appActions';
@@ -18,22 +16,83 @@ import {
   searchQuerySelector,
   hasMorePagesSelector,
   videoSrcSelector,
-  getMoviesSelector,
+  moviesSelector,
   errorMessageSelector,
 } from '../../modules/app/appSelectors';
-import { useFetchOnScroll } from '../../hooks';
+import { MAX_SCROLL_HEIGHT } from './utils/constants';
 
+export const handleScroll = ({
+  isLoading,
+  hasMorePages,
+  filter,
+  getMoviesByFilter,
+  getMoviesByGenre,
+  getSearchMovies,
+  genreId,
+  searchQuery,
+  window,
+}) => {
+  if (isLoading) {
+    return;
+  }
+
+  const { scrollHeight, clientHeight } = window.document.documentElement;
+  const scrollPos = window.pageYOffset;
+  const currentPosition = scrollPos + clientHeight;
+  const percentageScrolled = currentPosition / scrollHeight;
+
+  if (percentageScrolled > MAX_SCROLL_HEIGHT && hasMorePages) {
+    switch (filter) {
+      case 'popular':
+        getMoviesByFilter();
+        break;
+      case 'top_rated':
+        getMoviesByFilter();
+        break;
+      case 'upcoming':
+        getMoviesByFilter();
+        break;
+      case 'Genres':
+        getMoviesByGenre(genreId);
+        break;
+      case 'Search':
+        getSearchMovies(searchQuery);
+        break;
+      default:
+        break;
+    }
+  }
+};
 const MovieContainer = ({
   isLoading, filter, currentPage, genreId,
-  searchQuery, movies, layout, getTopRatedMovies,
-  getLatestMovies, getUpcomingMovies, getSearchMovies,
-  getMoviesByGenre, videoSrc, hasMorePages, errorMsg,
+  searchQuery, movies, layout, getMoviesByFilter,
+  getSearchMovies, getMoviesByGenre, videoSrc,
+  hasMorePages, errorMsg,
 }) => {
-  useFetchOnScroll(
-    isLoading, hasMorePages, filter, currentPage,
-    getLatestMovies, getTopRatedMovies, getUpcomingMovies,
-    getMoviesByGenre, genreId, getSearchMovies, searchQuery,
-  );
+  useLayoutEffect(() => {
+    const callback = () => handleScroll({
+      isLoading,
+      hasMorePages,
+      filter,
+      getMoviesByFilter,
+      getMoviesByGenre,
+      getSearchMovies,
+      genreId,
+      searchQuery,
+      window,
+    });
+
+    document.addEventListener('scroll', callback);
+
+    return () => {
+      document.removeEventListener('scroll', callback);
+    };
+  }, [
+    isLoading, hasMorePages, filter,
+    getMoviesByFilter, getMoviesByGenre, genreId,
+    getSearchMovies, searchQuery,
+  ]);
+
   return (
     <Movies
       errorMsg={errorMsg}
@@ -47,7 +106,7 @@ const MovieContainer = ({
 };
 
 const mapStateToProps = state => ({
-  movies: getMoviesSelector(state),
+  movies: moviesSelector(state),
   layout: layoutSelector(state),
   currentPage: currentPageSelector(state),
   isLoading: isLoadingSelector(state),
@@ -60,9 +119,7 @@ const mapStateToProps = state => ({
 });
 
 const actions = {
-  getTopRatedMovies: fetchTopRatedMovies,
-  getLatestMovies: fetchLatestMovies,
-  getUpcomingMovies: fetchUpcomingMovies,
+  getMoviesByFilter: fetchMoviesByFilter,
   getSearchMovies: fetchSearchMovies,
   getMoviesByGenre: fetchMoviesByGenre,
 };
@@ -78,9 +135,7 @@ MovieContainer.propTypes = {
   errorMsg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   hasMorePages: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object),
-  getTopRatedMovies: PropTypes.func.isRequired,
-  getLatestMovies: PropTypes.func.isRequired,
-  getUpcomingMovies: PropTypes.func.isRequired,
+  getMoviesByFilter: PropTypes.func.isRequired,
   getSearchMovies: PropTypes.func.isRequired,
   getMoviesByGenre: PropTypes.func.isRequired,
 };

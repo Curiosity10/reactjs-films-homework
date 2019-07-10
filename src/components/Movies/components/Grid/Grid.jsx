@@ -9,6 +9,7 @@ const Grid = ({ movies, toggleModal }) => {
     },
     [],
   );
+
   return movies.map(movie => (
     <GridCardContainer
       activeCard={activeCard}

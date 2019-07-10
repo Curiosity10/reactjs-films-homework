@@ -17,7 +17,7 @@ describe('TrailerModal component renders correctly', () => {
   });
 
   it('TrailerModal renders and unmount correctly', () => {
-    const tree = create(<TrailerModal toggleModal={() => {}} />);
+    const tree = create(<TrailerModal videoSrc="/123" toggleModal={() => {}} />);
     expect(tree.toJSON()).toMatchSnapshot();
     tree.unmount();
   });
@@ -39,6 +39,7 @@ describe('TrailerModal component renders correctly', () => {
     );
 
     let tree;
+
     act(() => {
       tree = create(
         <ContainerComponent />,
@@ -46,6 +47,7 @@ describe('TrailerModal component renders correctly', () => {
     });
 
     const event = new MouseEvent('mousedown', {});
+
     act(() => {
       mockClick();
       document.dispatchEvent(event);

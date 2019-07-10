@@ -15,12 +15,13 @@ export const hasMorePagesSelector = createSelector(
   pagesCountSelector,
   (currentPage, pagesCount) => pagesCount > currentPage,
 );
-export const moviesSelector = state => state.app.movies;
-export const getMoviesSelector = createSelector(
-  moviesSelector,
+export const moviesFromStateSelector = state => state.app.movies;
+export const moviesSelector = createSelector(
+  moviesFromStateSelector,
   genresSelector,
   (movies, genres) => movies.map((movie) => {
     const movieGenres = genres.filter(genre => movie.genre_ids.includes(genre.id));
+
     return {
       id: movie.id,
       rating: movie.vote_average,

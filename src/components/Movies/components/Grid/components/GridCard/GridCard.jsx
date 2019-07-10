@@ -15,6 +15,7 @@ const GridCard = ({
     image,
     id,
   } = movie;
+
   return (
     <article className={styles.card}>
       <img height={isActive ? '70%' : '100%'} src={image} alt="Poster" />

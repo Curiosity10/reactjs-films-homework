@@ -4,6 +4,7 @@ import styles from './NumRating.scss';
 
 const NumRating = (props) => {
   const { rating } = props;
+
   return (
     <>
       {
