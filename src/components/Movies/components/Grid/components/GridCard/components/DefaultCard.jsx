@@ -5,25 +5,29 @@ import Genres from '../../../../../../Genres';
 import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
 
-
 const DefaultCard = ({
-  changeActiveCard, title, genres, rating, id,
+  changeActiveCard, title, genres, rating, id, toggleModal, fetchVideoKey,
 }) => (
   <>
     <div className={styles.onHover}>
-      <button aria-label="Watch" className={styles.btnWatch} type="button">
+      <button
+        aria-label="Watch"
+        className={styles.btnWatch}
+        type="button"
+        onClick={useCallback(() => {
+          fetchVideoKey(id);
+          toggleModal(true);
+        }, [toggleModal, id, fetchVideoKey])}
+      >
         <span> Watch Now </span>
       </button>
-      <Button
-        handleClick={useCallback(() => changeActiveCard(id), [changeActiveCard, id])}
-        type="ghost"
-      >
-        View Info
-      </Button>
+      <Button type="ghost" handleClick={useCallback(() => changeActiveCard(id), [changeActiveCard, id])}>View Info</Button>
     </div>
     <div className={styles.info}>
       <div>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 title={title} className={styles.title}>
+          {title}
+        </h3>
         <p>
           <Genres genres={genres} />
         </p>
@@ -34,14 +38,23 @@ const DefaultCard = ({
 );
 
 DefaultCard.propTypes = {
-  rating: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  rating: PropTypes.number,
+  title: PropTypes.string,
+  id: PropTypes.number,
   genres: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.string,
-  ]).isRequired,
+  ]),
   changeActiveCard: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  fetchVideoKey: PropTypes.func.isRequired,
+};
+
+DefaultCard.defaultProps = {
+  rating: null,
+  title: '',
+  id: Math.random() * 1000,
+  genres: [],
 };
 
 export default DefaultCard;

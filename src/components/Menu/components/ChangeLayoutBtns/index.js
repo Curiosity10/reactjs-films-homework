@@ -1,3 +1,3 @@
-import ChangeLayoutBtns from './ChangeLayoutBtns';
+import ChangeLayoutBtnsContainer from './ChangeLayoutContainer';
 
-export default ChangeLayoutBtns;
+export default ChangeLayoutBtnsContainer;

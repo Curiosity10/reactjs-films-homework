@@ -1,3 +1,3 @@
-import GridCard from './GridCard';
+import GridCardContainer from './GridCardContainer';
 
-export default GridCard;
+export default GridCardContainer;

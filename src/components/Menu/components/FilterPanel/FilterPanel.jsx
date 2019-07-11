@@ -1,37 +1,55 @@
-import React, { useState, useCallback } from 'react';
-import cn from 'classnames';
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './FilterPanel.scss';
-import { getGenres } from '../../../../utils/tbdbApiService';
-import FilterPanelButton from './components';
+import FilterPanelButton from './components/FilterPanelButton';
+import GenresSelectionContainer from './components/GenresSelection';
 
-const FilterPanel = () => {
-  const [genres] = useState(getGenres());
-  const genreList = genres.map(item => (
-    <option value={item.name} key={item.id}>{item.name}</option>
-  ));
-  const [active, setActive] = useState('Trending');
-  const setActiveItem = itemName => (itemName === active ? styles.btn__active : null);
+const FilterPanel = ({
+  fetchMoviesByFilter, changeFilter, filter,
+}) => {
+  const checkActiveItem = url => (url === filter && styles.btn__active);
+
   return (
     <nav>
       <ul>
-        <FilterPanelButton setActiveItem={setActiveItem} name="Trending" setActive={setActive} />
-        <FilterPanelButton setActiveItem={setActiveItem} name="Top Rated" setActive={setActive} />
-        <FilterPanelButton setActiveItem={setActiveItem} name="Coming Soon" setActive={setActive} />
-        <li className={styles.navItem}>
-          <select
-            defaultValue=""
-            aria-label="Genres"
-            className={cn(styles.selectGenre, setActiveItem('Genres'))}
-            onClick={useCallback(() => setActive('Genres'), [])}
-            name="selectGenre"
-          >
-            <option value="" disabled hidden>Genre</option>
-            { genreList }
-          </select>
-        </li>
+        <FilterPanelButton
+          activeItem={filter}
+          checkActiveItem={checkActiveItem}
+          name="Trending"
+          setActive={changeFilter}
+          url="popular"
+          fetchMovies={fetchMoviesByFilter}
+        />
+        <FilterPanelButton
+          activeItem={filter}
+          checkActiveItem={checkActiveItem}
+          name="Top Rated"
+          url="top_rated"
+          setActive={changeFilter}
+          fetchMovies={fetchMoviesByFilter}
+        />
+        <FilterPanelButton
+          activeItem={filter}
+          checkActiveItem={checkActiveItem}
+          name="Coming Soon"
+          url="upcoming"
+          setActive={changeFilter}
+          fetchMovies={fetchMoviesByFilter}
+        />
+        <GenresSelectionContainer checkActiveItem={checkActiveItem} setActive={changeFilter} />
       </ul>
     </nav>
   );
+};
+
+FilterPanel.propTypes = {
+  fetchMoviesByFilter: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string,
+};
+
+FilterPanel.defaultProps = {
+  filter: 'popular',
 };
 
 export default FilterPanel;

@@ -1,0 +1,10 @@
+.container {
+  padding-top: 80px;
+  height: calc(100vh - 240px);
+
+  & > p {
+    padding: 0 5%;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}

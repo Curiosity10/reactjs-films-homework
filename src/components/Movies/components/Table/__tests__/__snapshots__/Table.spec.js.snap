@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component renders correctly Table renders correctly 1`] = `
+Array [
+  <article
+    className="card"
+  >
+    <img
+      alt="Poster"
+    />
+    <div
+      className="info"
+    >
+      <h2
+        className="title"
+      >
+        test
+      </h2>
+      <p
+        className="overview"
+      >
+        desc
+      </p>
+      <div
+        className="rating"
+      />
+      <button
+        aria-label="Watch Now"
+        className="btn primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Watch Now
+      </button>
+    </div>
+  </article>,
+  <article
+    className="card"
+  >
+    <img
+      alt="Poster"
+    />
+    <div
+      className="info"
+    >
+      <h2
+        className="title"
+      >
+        test2
+      </h2>
+      <p
+        className="overview"
+      >
+        desc2
+      </p>
+      <div
+        className="rating"
+      />
+      <button
+        aria-label="Watch Now"
+        className="btn primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Watch Now
+      </button>
+    </div>
+  </article>,
+]
+`;

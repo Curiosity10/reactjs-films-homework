@@ -9,6 +9,7 @@
 .btn {
   box-sizing: border-box;
   font-size: 1rem;
+  line-height: 1.3rem;
   border: none;
   outline: none;
   background-color: transparent;
@@ -40,6 +41,7 @@
   color: $blue-color;
   padding-bottom: 10px;
   font-size: 1rem;
+  line-height: 1.3rem;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: bold;
   background: url("../../../../assets/images/sprites.png") -130px -102px no-repeat;

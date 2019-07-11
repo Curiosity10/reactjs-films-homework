@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesContainer component renders correctly MoviesContainer grid render, unmount and scroll correctly 1`] = `
+Array [
+  <main
+    className="container gridMovieList"
+  >
+    <article
+      className="card"
+    >
+      <img
+        alt="Poster"
+        height="70%"
+        src={
+          Object {
+            "process": [Function],
+          }
+        }
+      />
+      <div
+        className="onHover"
+      >
+        <button
+          aria-label="Watch"
+          className="btnWatch"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+             Watch Now 
+          </span>
+        </button>
+        <button
+          aria-label="View Info"
+          className="btn ghost"
+          onClick={[Function]}
+          type="button"
+        >
+          View Info
+        </button>
+      </div>
+      <div
+        className="info"
+      >
+        <div>
+          <h3
+            className="title"
+            title="test"
+          >
+            test
+          </h3>
+          <p />
+        </div>
+      </div>
+    </article>
+    <article
+      className="card"
+    >
+      <img
+        alt="Poster"
+        height="70%"
+        src={
+          Object {
+            "process": [Function],
+          }
+        }
+      />
+      <div
+        className="onHover"
+      >
+        <button
+          aria-label="Watch"
+          className="btnWatch"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+             Watch Now 
+          </span>
+        </button>
+        <button
+          aria-label="View Info"
+          className="btn ghost"
+          onClick={[Function]}
+          type="button"
+        >
+          View Info
+        </button>
+      </div>
+      <div
+        className="info"
+      >
+        <div>
+          <h3
+            className="title"
+            title="test2"
+          >
+            test2
+          </h3>
+          <p />
+        </div>
+      </div>
+    </article>
+  </main>,
+  <div
+    className="spinner"
+  >
+    <div
+      className="ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+    <p
+      className="title"
+    >
+      Loading
+    </p>
+  </div>,
+]
+`;
+
+exports[`MoviesContainer component renders correctly MoviesContainer table render correctly 1`] = `
+Array [
+  <main
+    className="container tableMovieList"
+  >
+    <article
+      className="card"
+    >
+      <img
+        alt="Poster"
+        src={
+          Object {
+            "process": [Function],
+          }
+        }
+      />
+      <div
+        className="info"
+      >
+        <h2
+          className="title"
+        >
+          test
+        </h2>
+        <p
+          className="overview"
+        >
+          desc
+        </p>
+        <div
+          className="rating"
+        />
+        <button
+          aria-label="Watch Now"
+          className="btn primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Watch Now
+        </button>
+      </div>
+    </article>
+    <article
+      className="card"
+    >
+      <img
+        alt="Poster"
+        src={
+          Object {
+            "process": [Function],
+          }
+        }
+      />
+      <div
+        className="info"
+      >
+        <h2
+          className="title"
+        >
+          test2
+        </h2>
+        <p
+          className="overview"
+        >
+          desc2
+        </p>
+        <div
+          className="rating"
+        />
+        <button
+          aria-label="Watch Now"
+          className="btn primary"
+          onClick={[Function]}
+          type="button"
+        >
+          Watch Now
+        </button>
+      </div>
+    </article>
+  </main>,
+  <div
+    className="videoContainer"
+  >
+    <div
+      className="spinner"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+      <p
+        className="title"
+      >
+        Loading
+      </p>
+    </div>
+  </div>,
+  <div
+    className="spinner"
+  >
+    <div
+      className="ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+    <p
+      className="title"
+    >
+      Loading
+    </p>
+  </div>,
+]
+`;
+
+exports[`MoviesContainer component renders correctly MoviesContainer without layout renders correctly 1`] = `
+Array [
+  <main
+    className="container"
+  />,
+  <div
+    className="spinner"
+  >
+    <div
+      className="ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+    <p
+      className="title"
+    >
+      Loading
+    </p>
+  </div>,
+]
+`;
+
+exports[`MoviesContainer component renders correctly MoviesContainer without movies table render correctly 1`] = `
+Array [
+  <main
+    className="container"
+  />,
+  <div
+    className="spinner"
+  >
+    <div
+      className="ellipsis"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+    <p
+      className="title"
+    >
+      Loading
+    </p>
+  </div>,
+]
+`;

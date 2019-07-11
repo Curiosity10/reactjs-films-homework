@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid component renders correctly Grid renders correctly 1`] = `
+Array [
+  <article
+    className="card"
+  >
+    <img
+      alt="Poster"
+      height="70%"
+    />
+    <div
+      className="onHover"
+    >
+      <button
+        aria-label="Watch"
+        className="btnWatch"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+           Watch Now 
+        </span>
+      </button>
+      <button
+        aria-label="View Info"
+        className="btn ghost"
+        onClick={[Function]}
+        type="button"
+      >
+        View Info
+      </button>
+    </div>
+    <div
+      className="info"
+    >
+      <div>
+        <h3
+          className="title"
+          title="test"
+        >
+          test
+        </h3>
+        <p />
+      </div>
+    </div>
+  </article>,
+  <article
+    className="card"
+  >
+    <img
+      alt="Poster"
+      height="70%"
+    />
+    <div
+      className="onHover"
+    >
+      <button
+        aria-label="Watch"
+        className="btnWatch"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+           Watch Now 
+        </span>
+      </button>
+      <button
+        aria-label="View Info"
+        className="btn ghost"
+        onClick={[Function]}
+        type="button"
+      >
+        View Info
+      </button>
+    </div>
+    <div
+      className="info"
+    >
+      <div>
+        <h3
+          className="title"
+          title="test2"
+        >
+          test2
+        </h3>
+        <p />
+      </div>
+    </div>
+  </article>,
+]
+`;
