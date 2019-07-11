@@ -4,7 +4,7 @@
 
 > A React project
 
-> Demo: https://build-ppw00khvn.now.sh
+> Demo: https://reactjs-films-homework.curiosity10.now.sh/
 
 ## Build Setup
 
