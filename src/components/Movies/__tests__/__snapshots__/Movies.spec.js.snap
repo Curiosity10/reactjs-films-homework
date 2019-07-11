@@ -38,7 +38,7 @@ exports[`Movies component renders correctly Movies grid renders correctly 1`] = 
       href="#top"
       type="button"
     >
-      ⮝
+      ↑
     </a>
   </main>
 </React.Fragment>
