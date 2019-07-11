@@ -44,11 +44,7 @@ export const handleScroll = ({
   if (percentageScrolled > MAX_SCROLL_HEIGHT && hasMorePages) {
     switch (filter) {
       case 'popular':
-        getMoviesByFilter();
-        break;
       case 'top_rated':
-        getMoviesByFilter();
-        break;
       case 'upcoming':
         getMoviesByFilter();
         break;

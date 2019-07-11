@@ -42,7 +42,7 @@ const Movies = ({
           })}
         >
           { moviesList }
-          {page > 1 && <a className={styles.toTopBtn} type="button" href="#top">&#x2b9d;</a>}
+          {page > 1 && <a className={styles.toTopBtn} type="button" href="#top">&#x2191;</a>}
         </main>
       }
       {isModalOpen && (
