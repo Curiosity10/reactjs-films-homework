@@ -6,6 +6,7 @@ const StarRating = (props) => {
   const {
     starsSelected,
   } = props;
+
   return (
     <>
       {[...Array(Math.round(starsSelected))].map((n, i) => (
@@ -19,7 +20,11 @@ const StarRating = (props) => {
 };
 
 StarRating.propTypes = {
-  starsSelected: PropTypes.number.isRequired,
+  starsSelected: PropTypes.number,
+};
+
+StarRating.defaultProps = {
+  starsSelected: null,
 };
 
 export default StarRating;

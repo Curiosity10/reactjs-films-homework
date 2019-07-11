@@ -5,6 +5,7 @@ import styles from './Button.scss';
 
 const Button = (props) => {
   const { children, type, handleClick } = props;
+
   return (
     <button
       aria-label={children}

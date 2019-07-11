@@ -1,10 +1,11 @@
 import React from 'react';
-import TableCard from './components/TableCard';
+import TableCardContainer from './components/TableCard';
 
-const Table = ({ movies }) => (movies.map(movie => (
-  <TableCard
+const Table = ({ movies, toggleModal }) => (movies.map(movie => (
+  <TableCardContainer
     key={movie.id}
     movie={movie}
+    toggleModal={toggleModal}
   />
 ))
 );

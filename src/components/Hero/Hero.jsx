@@ -1,16 +1,16 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames/bind';
 import styles from './Hero.scss';
 import StarRating from '../StarRating';
-import { getMovieInfo } from '../../utils/tbdbApiService';
 import NumRating from '../NumRating';
 import Genres from '../Genres';
 import Button from '../Button';
 
 const cx = cn.bind(styles);
-const Hero = () => {
+
+const Hero = ({ movie }) => {
   const [showInfo, setShowInfo] = useState(true);
-  const movie = getMovieInfo();
   const {
     title,
     genres,
@@ -19,6 +19,7 @@ const Hero = () => {
     overview,
     image,
   } = movie;
+
   return (
     <section className={styles.hero} style={{ backgroundImage: `url(${image})` }}>
       <div className={styles.movieInfo}>
@@ -40,16 +41,22 @@ const Hero = () => {
         </p>
         <div className={styles.buttons}>
           <Button type="primary">Watch Now</Button>
-          <Button
-            handleClick={useCallback(() => setShowInfo(!showInfo), [showInfo])}
-            type="ghost"
-          >
-            View Info
-          </Button>
+          <Button type="ghost" handleClick={useCallback(() => setShowInfo(!showInfo), [showInfo])}>View Info</Button>
         </div>
       </div>
     </section>
   );
+};
+
+Hero.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    genres: PropTypes.array,
+    rating: PropTypes.number,
+    runtime: PropTypes.string,
+    overview: PropTypes.string,
+    image: PropTypes.string,
+  }).isRequired,
 };
 
 export default Hero;

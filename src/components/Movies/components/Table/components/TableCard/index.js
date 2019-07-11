@@ -1,3 +1,3 @@
-import TableCard from './TableCard';
+import TableCardContainer from './TableCardContainer';
 
-export default TableCard;
+export default TableCardContainer;

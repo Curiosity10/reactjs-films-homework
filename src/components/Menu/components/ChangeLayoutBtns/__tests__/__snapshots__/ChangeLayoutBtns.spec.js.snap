@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChangeLayoutBtns component ChangeLayoutBtns renders correctly 1`] = `
+<div>
+  <button
+    aria-label="Grid"
+    className="btn btn__active"
+    onClick={[Function]}
+    type="button"
+  />
+  <button
+    aria-label="Table"
+    className="btn"
+    onClick={[Function]}
+    type="button"
+  />
+</div>
+`;

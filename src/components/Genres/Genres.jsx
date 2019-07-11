@@ -14,7 +14,11 @@ const Genres = (props) => {
 };
 
 Genres.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.object).isRequired,
+  genres: PropTypes.arrayOf(PropTypes.object),
+};
+
+Genres.defaultProps = {
+  genres: [],
 };
 
 export default Genres;

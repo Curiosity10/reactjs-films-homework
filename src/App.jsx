@@ -1,6 +1,16 @@
 import React from 'react';
-import MovieDetailsPage from './pages/MovieDetailsPage';
+import { Provider } from 'react-redux';
+import { SearchResultsPageContainer } from './pages/SearchResultsPage';
+import store from './modules/store';
+import ErrorBoundary from './components/ErrorBoundary';
 import './styles/App.scss';
 
-const App = () => <MovieDetailsPage />;
+const App = () => (
+  <Provider store={store}>
+    <ErrorBoundary>
+      <SearchResultsPageContainer />
+    </ErrorBoundary>
+  </Provider>
+);
+
 export default App;

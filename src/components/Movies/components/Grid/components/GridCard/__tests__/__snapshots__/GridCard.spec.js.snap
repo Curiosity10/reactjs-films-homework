@@ -1,13 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GridCard component renders correctly GridCard renders correctly 1`] = `
+exports[`GridCard component renders correctly GridCard renders and works correctly 1`] = `
 <article
   className="card"
 >
   <img
     alt="Poster"
     height="100%"
-    src="https://image.tmdb.org/t/p/original/59qyrVGLLtrcuFtJGdixzn7H4OI.jpg"
   />
   <div
     className="overlay"
@@ -24,40 +23,16 @@ exports[`GridCard component renders correctly GridCard renders correctly 1`] = `
       <div>
         <h3
           className="title"
+          title="test"
         >
-          Т-34
+          test
         </h3>
-        <span
-          className="genre"
-        >
-          War
-        </span>
-        <span
-          className="genre"
-        >
-          Drama
-        </span>
-        <span
-          className="genre"
-        >
-          Adventure
-        </span>
-        <span
-          className="genre"
-        >
-          Action
-        </span>
       </div>
-      <span
-        className="numRating"
-      >
-        4.7
-      </span>
     </div>
     <p
       className="description"
     >
-      1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen ...
+      desc
     </p>
     <button
       aria-label="Watch Now"
