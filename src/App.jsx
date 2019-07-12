@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { SearchResultsPageContainer } from './pages/SearchResultsPage';
 import { MovieDetailsPageContainer } from './pages/MovieDetailsPage';
 import store from './modules/store';
@@ -10,7 +10,7 @@ import './styles/App.scss';
 const App = () => (
   <Provider store={store}>
     <ErrorBoundary>
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/" component={SearchResultsPageContainer} />
           <Route
@@ -21,7 +21,7 @@ const App = () => (
             }}
           />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </ErrorBoundary>
   </Provider>
 );
