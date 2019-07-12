@@ -101,6 +101,10 @@
   & a {
     text-decoration: none;
     color: inherit;
+
+    &:hover {
+      color: darken(#242b2d, 50%);
+    }
   }
 }
 
@@ -122,6 +126,10 @@
     & a {
       text-decoration: none;
       color: #fff;
+
+      &:hover {
+        color: darken(#fff, 20%);
+      }
     }
   }
 }
