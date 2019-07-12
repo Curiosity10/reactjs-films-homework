@@ -12,7 +12,11 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/movie/(.*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/",
       "dest": "/index.html"
     }
   ]
