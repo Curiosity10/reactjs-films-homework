@@ -1,5 +1,6 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import ErrorBoundary from '..';
@@ -28,9 +29,11 @@ describe('ErrorBoundary component renders correctly', () => {
 
   it('ErrorBoundary renders correctly', () => {
     const tree = create(
-      <Provider store={store}>
-        <ErrorBoundary />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <ErrorBoundary />
+        </Provider>
+      </StaticRouter>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -43,11 +46,13 @@ describe('ErrorBoundary component renders correctly', () => {
       return <div>Error</div>;
     };
     const tree = create(
-      <Provider store={store}>
-        <ErrorBoundary>
-          <ComponentWithProblem />
-        </ErrorBoundary>
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <ErrorBoundary>
+            <ComponentWithProblem />
+          </ErrorBoundary>
+        </Provider>
+      </StaticRouter>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

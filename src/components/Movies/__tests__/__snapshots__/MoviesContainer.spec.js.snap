@@ -1,125 +1,116 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MoviesContainer component renders correctly MoviesContainer grid render, unmount and scroll correctly 1`] = `
-Array [
-  <main
-    className="container gridMovieList"
+<main
+  className="container gridMovieList"
+>
+  <article
+    className="card"
   >
-    <article
-      className="card"
-    >
-      <img
-        alt="Poster"
-        height="70%"
-        src={
-          Object {
-            "process": [Function],
-          }
+    <img
+      alt="Poster"
+      height="70%"
+      src={
+        Object {
+          "process": [Function],
         }
-      />
-      <div
-        className="onHover"
+      }
+    />
+    <div
+      className="onHover"
+    >
+      <button
+        aria-label="Watch"
+        className="btnWatch"
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          aria-label="Watch"
-          className="btnWatch"
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-             Watch Now 
-          </span>
-        </button>
-        <button
-          aria-label="View Info"
-          className="btn ghost"
-          onClick={[Function]}
-          type="button"
-        >
-          View Info
-        </button>
-      </div>
-      <div
-        className="info"
+        <span>
+           Watch Now 
+        </span>
+      </button>
+      <button
+        aria-label="View Info"
+        className="btn ghost"
+        onClick={[Function]}
+        type="button"
       >
-        <div>
-          <h3
-            className="title"
-            title="test"
+        View Info
+      </button>
+    </div>
+    <div
+      className="info"
+    >
+      <div>
+        <h3
+          className="title"
+          title="test"
+        >
+          <a
+            href="/movie/:1"
+            onClick={[Function]}
           >
             test
-          </h3>
-          <p />
-        </div>
+          </a>
+        </h3>
+        <p />
       </div>
-    </article>
-    <article
-      className="card"
-    >
-      <img
-        alt="Poster"
-        height="70%"
-        src={
-          Object {
-            "process": [Function],
-          }
+    </div>
+  </article>
+  <article
+    className="card"
+  >
+    <img
+      alt="Poster"
+      height="70%"
+      src={
+        Object {
+          "process": [Function],
         }
-      />
-      <div
-        className="onHover"
+      }
+    />
+    <div
+      className="onHover"
+    >
+      <button
+        aria-label="Watch"
+        className="btnWatch"
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          aria-label="Watch"
-          className="btnWatch"
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-             Watch Now 
-          </span>
-        </button>
-        <button
-          aria-label="View Info"
-          className="btn ghost"
-          onClick={[Function]}
-          type="button"
-        >
-          View Info
-        </button>
-      </div>
-      <div
-        className="info"
+        <span>
+           Watch Now 
+        </span>
+      </button>
+      <button
+        aria-label="View Info"
+        className="btn ghost"
+        onClick={[Function]}
+        type="button"
       >
-        <div>
-          <h3
-            className="title"
-            title="test2"
+        View Info
+      </button>
+    </div>
+    <div
+      className="info"
+    >
+      <div>
+        <h3
+          className="title"
+          title="test2"
+        >
+          <a
+            href="/movie/:2"
+            onClick={[Function]}
           >
             test2
-          </h3>
-          <p />
-        </div>
+          </a>
+        </h3>
+        <p />
       </div>
-    </article>
-  </main>,
-  <div
-    className="spinner"
-  >
-    <div
-      className="ellipsis"
-    >
-      <div />
-      <div />
-      <div />
-      <div />
     </div>
-    <p
-      className="title"
-    >
-      Loading
-    </p>
-  </div>,
-]
+  </article>
+</main>
 `;
 
 exports[`MoviesContainer component renders correctly MoviesContainer table render correctly 1`] = `
@@ -144,7 +135,12 @@ Array [
         <h2
           className="title"
         >
-          test
+          <a
+            href="/movie/:1"
+            onClick={[Function]}
+          >
+            test
+          </a>
         </h2>
         <p
           className="overview"
@@ -181,7 +177,12 @@ Array [
         <h2
           className="title"
         >
-          test2
+          <a
+            href="/movie/:2"
+            onClick={[Function]}
+          >
+            test2
+          </a>
         </h2>
         <p
           className="overview"
@@ -202,27 +203,6 @@ Array [
       </div>
     </article>
   </main>,
-  <div
-    className="videoContainer"
-  >
-    <div
-      className="spinner"
-    >
-      <div
-        className="ellipsis"
-      >
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
-      <p
-        className="title"
-      >
-        Loading
-      </p>
-    </div>
-  </div>,
   <div
     className="spinner"
   >

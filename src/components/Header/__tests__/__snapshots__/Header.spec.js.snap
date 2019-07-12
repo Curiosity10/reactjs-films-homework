@@ -8,12 +8,13 @@ exports[`Header component renders correctly Header renders correctly 1`] = `
     className="container"
   >
     <h1>
-      <a
+      <Link
         className="logo"
         href="/"
+        to="/"
       >
         Films
-      </a>
+      </Link>
     </h1>
     <Memo(ConnectFunction) />
   </div>

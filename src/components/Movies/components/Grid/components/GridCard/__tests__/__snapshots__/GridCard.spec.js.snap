@@ -25,7 +25,12 @@ exports[`GridCard component renders correctly GridCard renders and works correct
           className="title"
           title="test"
         >
-          test
+          <a
+            href="/movie/:1"
+            onClick={[Function]}
+          >
+            test
+          </a>
         </h3>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import Table from '..';
@@ -41,6 +42,10 @@ describe('Table component renders correctly', () => {
   const mockStore = configureStore(middlewares);
   const initialState = {
     app: {
+      movie: {
+        backdrop_path: '/123',
+        title: 'Test',
+      },
       movies: [],
       genres: [],
       isLoading: true,
@@ -60,9 +65,11 @@ describe('Table component renders correctly', () => {
 
   it('Table renders correctly', () => {
     const tree = create(
-      <Provider store={store}>
-        <Table movies={movies} />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <Table movies={movies} />
+        </Provider>
+      </StaticRouter>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

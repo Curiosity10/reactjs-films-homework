@@ -1,6 +1,7 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import SearchResultsPage from '../SearchResultsPage';
 
@@ -28,9 +29,11 @@ describe('SearchResultsPage renders correctly', () => {
 
   it('SearchResultsPage render correctly', () => {
     const tree = create(
-      <Provider store={store}>
-        <SearchResultsPage />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <SearchResultsPage />
+        </Provider>
+      </StaticRouter>,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -42,9 +45,11 @@ describe('SearchResultsPage renders correctly', () => {
 
     act(() => {
       tree = create(
-        <Provider store={store}>
-          <SearchResultsPage fetchData={mockFn} />
-        </Provider>,
+        <StaticRouter location="someLocation">
+          <Provider store={store}>
+            <SearchResultsPage fetchData={mockFn} />
+          </Provider>
+        </StaticRouter>,
       );
     });
 

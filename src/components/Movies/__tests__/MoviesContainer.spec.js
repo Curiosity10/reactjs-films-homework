@@ -1,10 +1,10 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
-import { JSDOM } from 'jsdom';
 import MoviesContainer from '..';
 import { handleScroll } from '../MoviesContainer';
 import { genres } from '../../../__mocks__/genres.json';
@@ -13,9 +13,6 @@ global.fetch = require('jest-fetch-mock');
 
 describe('MoviesContainer component renders correctly', () => {
   beforeAll(() => {
-    const dom = new JSDOM();
-    global.document = dom.window.document;
-    global.window = dom.window;
     ReactDOM.createPortal = jest.fn(element => element);
   });
 
@@ -63,10 +60,10 @@ describe('MoviesContainer component renders correctly', () => {
       app: {
         movies,
         genres,
-        isLoading: true,
+        isLoading: false,
         currentPage: 1,
         error: false,
-        filter: 'Trending',
+        filter: 'popular',
         genreId: null,
         searchQuery: '',
         videoKey: '',
@@ -81,9 +78,11 @@ describe('MoviesContainer component renders correctly', () => {
 
     act(() => {
       tree = create(
-        <Provider store={store}>
-          <MoviesContainer />
-        </Provider>,
+        <StaticRouter location="someLocation">
+          <Provider store={store}>
+            <MoviesContainer isModalOpen={false} toggleModal={() => {}} />
+          </Provider>
+        </StaticRouter>,
       );
     });
 
@@ -93,6 +92,7 @@ describe('MoviesContainer component renders correctly', () => {
     });
 
     expect(tree.toJSON()).toMatchSnapshot();
+
     tree.unmount();
   });
 
@@ -104,7 +104,7 @@ describe('MoviesContainer component renders correctly', () => {
         isLoading: true,
         currentPage: 1,
         error: false,
-        filter: 'Trending',
+        filter: 'popular',
         genreId: null,
         searchQuery: '',
         videoKey: '',
@@ -117,9 +117,11 @@ describe('MoviesContainer component renders correctly', () => {
     const store = mockStore(initialState);
 
     const tree = create(
-      <Provider store={store}>
-        <MoviesContainer />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <MoviesContainer isModalOpen={false} toggleModal={() => {}} />
+        </Provider>
+      </StaticRouter>,
     );
 
     const button = tree.root.findAllByProps({ 'aria-label': 'Watch Now' })[0];
@@ -141,7 +143,7 @@ describe('MoviesContainer component renders correctly', () => {
         isLoading: true,
         currentPage: 1,
         error: false,
-        filter: 'Trending',
+        filter: 'popular',
         genreId: null,
         searchQuery: '',
         videoKey: '',
@@ -154,9 +156,11 @@ describe('MoviesContainer component renders correctly', () => {
     const store = mockStore(initialState);
 
     const tree = create(
-      <Provider store={store}>
-        <MoviesContainer />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <MoviesContainer isModalOpen={false} toggleModal={() => {}} />
+        </Provider>
+      </StaticRouter>,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -169,7 +173,7 @@ describe('MoviesContainer component renders correctly', () => {
         isLoading: true,
         currentPage: 1,
         error: false,
-        filter: 'Trending',
+        filter: 'popular',
         genreId: null,
         searchQuery: '',
         videoKey: '',
@@ -184,9 +188,11 @@ describe('MoviesContainer component renders correctly', () => {
     let tree;
     act(() => {
       tree = create(
-        <Provider store={store}>
-          <MoviesContainer />
-        </Provider>,
+        <StaticRouter location="someLocation">
+          <Provider store={store}>
+            <MoviesContainer isModalOpen={false} toggleModal={() => {}} />
+          </Provider>
+        </StaticRouter>,
       );
     });
     expect(tree.toJSON()).toMatchSnapshot();

@@ -10,6 +10,8 @@ describe('Movies component renders correctly', () => {
         page={2}
         movies={[{ title: 'first movie' }, { title: 'second movie' }]}
         layout="grid"
+        isModalOpen={false}
+        toggleModal={() => {}}
       />,
     );
 
@@ -24,6 +26,8 @@ describe('Movies component renders correctly', () => {
         isLoading={false}
         movies={[]}
         layout="grid"
+        isModalOpen={false}
+        toggleModal={() => {}}
       />,
     );
 
@@ -39,6 +43,24 @@ describe('Movies component renders correctly', () => {
         movies={[]}
         layout="grid"
         errorMsg="O-ops"
+        isModalOpen={false}
+        toggleModal={() => {}}
+      />,
+    );
+
+    expect(result).toMatchSnapshot();
+  });
+
+  it('Movies render modal correctly', () => {
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(
+      <Movies
+        page={1}
+        isLoading={false}
+        movies={[]}
+        layout="grid"
+        isModalOpen
+        toggleModal={() => {}}
       />,
     );
 

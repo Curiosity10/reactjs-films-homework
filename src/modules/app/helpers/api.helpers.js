@@ -43,7 +43,7 @@ const getGenres = () => {
   return fetch(fullUrl);
 };
 
-const getMovieDetails = ({ movieId }) => {
+const getMovieDetails = (movieId) => {
   const fullUrl = createMovieDbUrl(`/movie/${movieId}`);
   return fetch(fullUrl);
 };

@@ -4,6 +4,7 @@ const appReducer = (state = {}, action) => {
   switch (action.type) {
     case ACTIONS.FETCH_GENRES_FAILURE:
     case ACTIONS.FETCH_MOVIES_FAILURE:
+    case ACTIONS.FETCH_MOVIE_DETAILS_FAILURE:
 
       return {
         ...state,
@@ -24,6 +25,7 @@ const appReducer = (state = {}, action) => {
     case ACTIONS.FETCH_GENRES_REQUEST:
     case ACTIONS.FETCH_MOVIES_REQUEST:
     case ACTIONS.FETCH_VIDEO_KEY_REQUEST:
+    case ACTIONS.FETCH_MOVIE_DETAILS_REQUEST:
 
       return {
         ...state,
@@ -72,6 +74,13 @@ const appReducer = (state = {}, action) => {
         videoKey: action.payload.videoKey,
       };
 
+    case ACTIONS.FETCH_MOVIE_DETAILS_SUCCESS:
+
+      return {
+        ...state,
+        isLoading: false,
+        movie: action.payload.movie,
+      };
     case ACTIONS.CHANGE_FILTER:
 
       return {

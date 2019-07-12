@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import GridCard from '../GridCard';
 
 describe('GridCard component renders correctly', () => {
@@ -19,16 +20,22 @@ describe('GridCard component renders correctly', () => {
     overview: 'desc',
   };
   const activeCard = 1;
-  const mockFunction = jest.fn();
+  const mockChangeActiveCard = jest.fn();
+  const mockFetchVideoKey = jest.fn();
+  const mockToggleModal = jest.fn();
 
   it('GridCard renders and works correctly', () => {
     const tree = create(
-      <GridCard
-        movie={movie}
-        activeCard={activeCard}
-        changeActiveCard={mockFunction}
-        isActive={false}
-      />,
+      <StaticRouter location="someLocation">
+        <GridCard
+          movie={movie}
+          activeCard={activeCard}
+          changeActiveCard={mockChangeActiveCard}
+          isActive={false}
+          fetchVideoKey={mockFetchVideoKey}
+          toggleModal={mockToggleModal}
+        />
+      </StaticRouter>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -52,13 +59,15 @@ describe('GridCard component renders correctly', () => {
       };
       const [currentCard, setCurrentCard] = useState(1);
       return (
-        <>
+        <StaticRouter location="someLocation">
           <GridCard
             movie={film}
             changeActiveCard={id => setCurrentCard(id)}
             isActive={film.id !== currentCard}
+            fetchVideoKey={mockFetchVideoKey}
+            toggleModal={mockToggleModal}
           />
-        </>
+        </StaticRouter>
       );
     };
     const tree = create(
@@ -98,13 +107,15 @@ describe('GridCard component renders correctly', () => {
       };
       const [currentCard, setCurrentCard] = useState(2);
       return (
-        <>
+        <StaticRouter location="someLocation">
           <GridCard
             movie={film}
             changeActiveCard={id => setCurrentCard(id)}
             isActive={film.id !== currentCard}
+            fetchVideoKey={mockFetchVideoKey}
+            toggleModal={mockToggleModal}
           />
-        </>
+        </StaticRouter>
       );
     };
 

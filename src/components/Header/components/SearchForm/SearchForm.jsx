@@ -7,6 +7,7 @@ const SearchForm = ({ fetchSearchMovies, changeFilter }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     changeFilter('Search');
+    /* istanbul ignore next */
     window.scrollTo(0, 0);
 
     if (searchQuery.trim()) {

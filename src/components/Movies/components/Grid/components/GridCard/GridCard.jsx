@@ -57,13 +57,8 @@ GridCard.propTypes = {
   }).isRequired,
   isActive: PropTypes.bool.isRequired,
   changeActiveCard: PropTypes.func.isRequired,
-  toggleModal: PropTypes.func,
-  fetchVideoKey: PropTypes.func,
-};
-
-GridCard.defaultProps = {
-  toggleModal: () => {},
-  fetchVideoKey: () => {},
+  toggleModal: PropTypes.func.isRequired,
+  fetchVideoKey: PropTypes.func.isRequired,
 };
 
 export default GridCard;

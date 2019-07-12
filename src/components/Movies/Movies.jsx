@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames/bind';
 import styles from './Movies.scss';
@@ -10,9 +10,8 @@ import TrailerModal from './components/TrailerModal';
 const cx = cn.bind(styles);
 
 const Movies = ({
-  isLoading, movies, layout, videoSrc, page, errorMsg,
+  isLoading, movies, layout, videoSrc, page, errorMsg, isModalOpen, toggleModal,
 }) => {
-  const [isModalOpen, setModalOpen] = useState(false);
   const isMoviesExist = movies.length !== 0;
   let moviesList;
 
@@ -26,9 +25,9 @@ const Movies = ({
   } else if (!isMoviesExist && !isLoading) {
     moviesList = <p className={styles.notFound}>Sorry, no movies found.</p>;
   } else if (layout === 'grid') {
-    moviesList = <Grid toggleModal={setModalOpen} movies={movies} />;
+    moviesList = <Grid toggleModal={toggleModal} movies={movies} />;
   } else if (layout === 'table') {
-    moviesList = <Table toggleModal={setModalOpen} movies={movies} />;
+    moviesList = <Table toggleModal={toggleModal} movies={movies} />;
   }
 
   return (
@@ -42,13 +41,23 @@ const Movies = ({
           })}
         >
           { moviesList }
-          {page > 1 && <a className={styles.toTopBtn} type="button" href="#top">&#x2191;</a>}
+          {
+            page > 1 && (
+              <button
+                onClick={/* istanbul ignore next */ () => window.scrollTo(0, 0)}
+                className={styles.toTopBtn}
+                type="button"
+              >
+                  &#x2191;
+              </button>
+            )
+          }
         </main>
       }
       {isModalOpen && (
         <TrailerModal
           isLoading={isLoading}
-          toggleModal={setModalOpen}
+          toggleModal={toggleModal}
           videoSrc={videoSrc}
         />
       )}
@@ -59,6 +68,8 @@ const Movies = ({
 
 Movies.propTypes = {
   isLoading: PropTypes.bool,
+  isModalOpen: PropTypes.bool.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object),
   layout: PropTypes.string,
   videoSrc: PropTypes.string,

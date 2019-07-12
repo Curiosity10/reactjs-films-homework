@@ -5,6 +5,8 @@ import SearchForm from '../SearchForm';
 describe('SearchForm component renders correctly', () => {
   const tree = create(<SearchForm />);
 
+  global.window.scrollTo = jest.fn();
+
   it('SearchForm renders correctly', () => {
     expect(tree.toJSON()).toMatchSnapshot();
   });

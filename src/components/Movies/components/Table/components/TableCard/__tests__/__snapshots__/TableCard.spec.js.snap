@@ -13,7 +13,12 @@ exports[`TableCard component renders correctly TableCard renders correctly 1`] =
     <h2
       className="title"
     >
-      test
+      <a
+        href="/movie/:1"
+        onClick={[Function]}
+      >
+        test
+      </a>
     </h2>
     <p
       className="overview"

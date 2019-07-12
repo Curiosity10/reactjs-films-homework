@@ -39,7 +39,12 @@ Array [
           className="title"
           title="test"
         >
-          test
+          <a
+            href="/movie/:1"
+            onClick={[Function]}
+          >
+            test
+          </a>
         </h3>
         <p />
       </div>
@@ -82,7 +87,12 @@ Array [
           className="title"
           title="test2"
         >
-          test2
+          <a
+            href="/movie/:2"
+            onClick={[Function]}
+          >
+            test2
+          </a>
         </h3>
         <p />
       </div>

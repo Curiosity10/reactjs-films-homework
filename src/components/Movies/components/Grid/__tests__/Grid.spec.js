@@ -1,5 +1,6 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import Grid from '..';
@@ -41,6 +42,10 @@ describe('Grid component renders correctly', () => {
   const mockStore = configureStore(middlewares);
   const initialState = {
     app: {
+      movie: {
+        backdrop_path: '/123',
+        title: 'Test',
+      },
       movies: [],
       genres: [],
       isLoading: true,
@@ -60,18 +65,22 @@ describe('Grid component renders correctly', () => {
 
   it('Grid renders correctly', () => {
     const tree = create(
-      <Provider store={store}>
-        <Grid movies={movies} />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <Grid movies={movies} toggleModal={() => {}} />
+        </Provider>
+      </StaticRouter>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Change active card called correctly', () => {
     const tree = create(
-      <Provider store={store}>
-        <Grid movies={movies} />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <Grid movies={movies} toggleModal={() => {}} />
+        </Provider>
+      </StaticRouter>,
     );
     const mockFunction = jest.fn(tree.toTree().rendered.props.changeActiveCard);
 
@@ -84,13 +93,14 @@ describe('Grid component renders correctly', () => {
 
   it('Change active card works correctly', () => {
     const tree = create(
-      <Provider store={store}>
-        <Grid movies={movies} />
-      </Provider>,
+      <StaticRouter location="someLocation">
+        <Provider store={store}>
+          <Grid movies={movies} toggleModal={() => {}} />
+        </Provider>
+      </StaticRouter>,
     );
-
     const mockFunction = jest.fn(
-      id => tree.toTree().rendered.rendered[0].props.changeActiveCard(id),
+      id => tree.toTree().rendered.rendered.rendered.rendered[0].props.changeActiveCard(id),
     );
 
     act(() => {

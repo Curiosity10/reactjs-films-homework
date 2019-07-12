@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../GridCard.scss';
 import Genres from '../../../../../../Genres';
@@ -8,12 +9,20 @@ import truncate from '../../../../../utils/truncate';
 import { MAX_OVERLAY_CARD_DESC_LENGTH } from '../../../../../utils/constants';
 
 const OverlayCard = ({
-  changeActiveCard, id, title, genres, rating, overview, toggleModal, fetchVideoKey,
+  changeActiveCard,
+  id,
+  title,
+  genres,
+  rating,
+  overview,
+  toggleModal,
+  fetchVideoKey,
 }) => {
   const handleClick = useCallback(() => {
     fetchVideoKey(id);
     toggleModal(true);
   }, [toggleModal, id, fetchVideoKey]);
+
   return (
     <div className={styles.overlay}>
       <button
@@ -24,7 +33,11 @@ const OverlayCard = ({
       />
       <div className={styles.wrapper}>
         <div>
-          <h3 title={title} className={styles.title}>{title}</h3>
+          <h3 title={title} className={styles.title}>
+            <Link to={`/movie/:${id}`}>
+              {title}
+            </Link>
+          </h3>
           <Genres genres={genres} />
         </div>
         <NumRating rating={rating} />

@@ -7,6 +7,7 @@ import {
   getGenres,
   getMoviesByGenre,
   getMoviesByFilter,
+  getMovieDetails,
   searchMovies,
   getMovieVideo,
 } from './helpers/api.helpers';
@@ -29,6 +30,13 @@ const receiveVideoKey = data => ({
   type: ACTIONS.FETCH_VIDEO_KEY_SUCCESS,
   payload: {
     videoKey: data.results[0].key,
+  },
+});
+
+const receiveMovieDetails = data => ({
+  type: ACTIONS.FETCH_MOVIE_DETAILS_SUCCESS,
+  payload: {
+    movie: data,
   },
 });
 
@@ -57,7 +65,15 @@ const fetchVideoKey = movieId => (dispatch) => {
     .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_VIDEO_KEY_FAILURE, error)));
 };
 
-const changeFilter = filter => ({
+const fetchMovieDetails = movieId => (dispatch) => {
+  dispatch(createRequestAction(ACTIONS.FETCH_MOVIE_DETAILS_REQUEST));
+  return getMovieDetails(movieId)
+    .then(res => res.json())
+    .then(data => dispatch(receiveMovieDetails(data)))
+    .catch(error => dispatch(createFailureAction(ACTIONS.FETCH_MOVIE_DETAILS_FAILURE, error)));
+};
+
+const changeFilter = (filter = 'popular') => ({
   type: ACTIONS.CHANGE_FILTER,
   payload: { filter },
 });
@@ -66,6 +82,7 @@ export {
   fetchGenres,
   fetchMoviesByFilter,
   fetchMoviesByGenre,
+  fetchMovieDetails,
   fetchSearchMovies,
   changeFilter,
   fetchVideoKey,
