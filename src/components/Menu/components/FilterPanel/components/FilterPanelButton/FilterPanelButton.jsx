@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from '../../FilterPanel.scss';
 
-const FilterPanelButton = ({
-  name, checkActiveItem, setActive, fetchMovies, activeItem, url,
+const FilterPanelButton = withRouter(({
+  name, checkActiveItem, setActive, fetchMovies, activeItem, url, history,
 }) => (
   <li className={styles.navItem}>
     <button
@@ -13,14 +14,15 @@ const FilterPanelButton = ({
       type="button"
       className={cn(styles.btn, checkActiveItem(url))}
       onClick={useCallback(() => {
+        history.push(`/${url}`);
         setActive(url);
         fetchMovies();
-      }, [fetchMovies, setActive, url])}
+      }, [fetchMovies, setActive, url, history])}
     >
       {name}
     </button>
   </li>
-);
+));
 
 FilterPanelButton.propTypes = {
   name: PropTypes.string.isRequired,
@@ -33,7 +35,7 @@ FilterPanelButton.propTypes = {
 
 FilterPanelButton.defaultProps = {
   fetchMovies: () => {},
-  activeItem: 'Trending',
+  activeItem: 'popular',
 };
 
 export default FilterPanelButton;

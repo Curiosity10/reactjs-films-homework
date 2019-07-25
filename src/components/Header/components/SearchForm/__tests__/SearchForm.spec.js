@@ -1,9 +1,14 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import SearchForm from '../SearchForm';
 
 describe('SearchForm component renders correctly', () => {
-  const tree = create(<SearchForm />);
+  const tree = create(
+    <StaticRouter>
+      <SearchForm />
+    </StaticRouter>,
+  );
 
   global.window.scrollTo = jest.fn();
 

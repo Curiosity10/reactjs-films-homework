@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../../Header.scss';
 
-const SearchForm = ({ fetchSearchMovies, changeFilter }) => {
+const SearchForm = withRouter(({ fetchSearchMovies, changeFilter, history }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     changeFilter('Search');
+    history.push({
+      pathname: '/Search',
+      search: `?query=${searchQuery}`,
+    });
     /* istanbul ignore next */
     window.scrollTo(0, 0);
 
@@ -31,7 +36,7 @@ const SearchForm = ({ fetchSearchMovies, changeFilter }) => {
       <button aria-label="Search Button" type="submit" className={styles.searchBtn} />
     </form>
   );
-};
+});
 
 SearchForm.propTypes = {
   fetchSearchMovies: PropTypes.func,

@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames/bind';
 import styles from './Hero.scss';
@@ -7,6 +7,8 @@ import NumRating from '../NumRating';
 import Genres from '../Genres';
 import Button from '../Button';
 import Spinner from '../Spinner';
+import truncate from '../utils/truncate';
+import { MAX_OVERVIEW_LENGTH, DEFAULT_MOVIE_RUNTIME } from './utils/constants';
 
 const cx = cn.bind(styles);
 
@@ -36,7 +38,10 @@ const Hero = ({
             <h2 className={styles.title}>{ title }</h2>
             <div className={styles.wrapper}>
               <Genres genres={genres} />
-              {runtime !== '0h 0m' && <span className={styles.duration}>{runtime}</span>}
+              {
+                runtime !== DEFAULT_MOVIE_RUNTIME
+                && <span className={styles.duration}>{runtime}</span>
+              }
             </div>
             { rating ? (
               <div className={styles.rating}>
@@ -50,7 +55,7 @@ const Hero = ({
           </div>
           <div className={styles.movieDescription}>
             <p className={cx({ description: showInfo, hiddenDesc: !showInfo })}>
-              {`${overview.slice(0, 221)} ...`}
+              {truncate(overview, MAX_OVERVIEW_LENGTH)}
             </p>
             <div className={styles.buttons}>
               <Button
@@ -72,11 +77,6 @@ const Hero = ({
   );
 };
 
-/* istanbul ignore next */
-function areEqual(prevProps, nextProps) {
-  return prevProps.movie.image === nextProps.movie.image;
-}
-
 Hero.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string,
@@ -91,4 +91,4 @@ Hero.propTypes = {
   isLoading: PropTypes.bool.isRequired,
 };
 
-export default memo(Hero, areEqual);
+export default Hero;

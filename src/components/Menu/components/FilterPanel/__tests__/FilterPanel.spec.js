@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
@@ -37,13 +38,15 @@ describe('FilterPanel component', () => {
     const MockComponent = () => {
       const [activeItem, setActiveItem] = useState('Top Rated');
       return (
-        <FilterPanel
-          activeItem={activeItem}
-          checkActiveItem={setActiveItem}
-          setActive={mockSetActive}
-          fetchMoviesByFilter={mockFetchMoviesByFilter}
-          changeFilter={mockchangeFilter}
-        />
+        <StaticRouter>
+          <FilterPanel
+            activeItem={activeItem}
+            checkActiveItem={setActiveItem}
+            setActive={mockSetActive}
+            fetchMoviesByFilter={mockFetchMoviesByFilter}
+            changeFilter={mockchangeFilter}
+          />
+        </StaticRouter>
       );
     };
 
@@ -61,11 +64,13 @@ describe('FilterPanel component', () => {
       const changeFilter = jest.fn();
 
       return (
-        <FilterPanel
-          fetchMoviesByFilter={fetchMoviesByFilter}
-          changeFilter={changeFilter}
-          filter="top_rated"
-        />
+        <StaticRouter>
+          <FilterPanel
+            fetchMoviesByFilter={fetchMoviesByFilter}
+            changeFilter={changeFilter}
+            filter="top_rated"
+          />
+        </StaticRouter>
       );
     };
 

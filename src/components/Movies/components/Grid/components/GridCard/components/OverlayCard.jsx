@@ -5,7 +5,7 @@ import styles from '../GridCard.scss';
 import Genres from '../../../../../../Genres';
 import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
-import truncate from '../../../../../utils/truncate';
+import truncate from '../../../../../../utils/truncate';
 import { MAX_OVERLAY_CARD_DESC_LENGTH } from '../../../../../utils/constants';
 
 const OverlayCard = ({

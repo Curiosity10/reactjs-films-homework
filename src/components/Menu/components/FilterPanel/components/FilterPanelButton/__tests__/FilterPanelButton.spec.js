@@ -1,5 +1,7 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
+
 import FilterPanelButton from '..';
 
 describe('FilterPanel component', () => {
@@ -8,12 +10,32 @@ describe('FilterPanel component', () => {
   const setActive = jest.fn();
 
   it('FilterPanel component renders correctly', () => {
-    const tree = create(<FilterPanelButton activeItem={activeItem} checkActiveItem={checkActiveItem} url="popular" name="Trending" setActive={setActive} />);
+    const tree = create(
+      <StaticRouter>
+        <FilterPanelButton
+          activeItem={activeItem}
+          checkActiveItem={checkActiveItem}
+          url="popular"
+          name="Trending"
+          setActive={setActive}
+        />
+      </StaticRouter>,
+    );
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
   it('Set active called 1 time', () => {
-    const tree = create(<FilterPanelButton activeItem={activeItem} checkActiveItem={checkActiveItem} url="top_rated" name="Top Rated" setActive={setActive} />);
+    const tree = create(
+      <StaticRouter>
+        <FilterPanelButton
+          activeItem={activeItem}
+          checkActiveItem={checkActiveItem}
+          url="top_rated"
+          name="Top Rated"
+          setActive={setActive}
+        />
+      </StaticRouter>,
+    );
     const button = tree.root.findByProps({ 'aria-label': 'Top Rated' });
 
     act(() => {
@@ -24,7 +46,17 @@ describe('FilterPanel component', () => {
   });
 
   it('Set active item called 3 times', () => {
-    const tree = create(<FilterPanelButton activeItem={activeItem} checkActiveItem={checkActiveItem} url="upcoming" name="Coming Soon" setActive={setActive} />);
+    const tree = create(
+      <StaticRouter>
+        <FilterPanelButton
+          activeItem={activeItem}
+          checkActiveItem={checkActiveItem}
+          url="upcoming"
+          name="Coming Soon"
+          setActive={setActive}
+        />
+      </StaticRouter>,
+    );
     const button = tree.root.findByProps({ 'aria-label': 'Coming Soon' });
 
     act(() => {

@@ -28,32 +28,122 @@ describe('SearchResultsPage renders correctly', () => {
   const store = mockStore(initialState);
 
   it('SearchResultsPage render correctly', () => {
+    const mockFetchGenres = jest.fn();
+    const mockChangeFilter = jest.fn();
+    const mockFetchMoviesByFilter = jest.fn();
+    const mockFetchMoviesByGenre = jest.fn();
+    const mockFetchSearchMovies = jest.fn();
+
     const tree = create(
-      <StaticRouter location="someLocation">
+      <StaticRouter location={{}}>
         <Provider store={store}>
-          <SearchResultsPage />
+          <SearchResultsPage
+            fetchGenres={mockFetchGenres}
+            changeFilter={mockChangeFilter}
+            fetchMoviesByFilter={mockFetchMoviesByFilter}
+            fetchMoviesByGenre={mockFetchMoviesByGenre}
+            fetchSearchMovies={mockFetchSearchMovies}
+            location={{ pathname: '/123', search: '?id=1' }}
+          />
         </Provider>
       </StaticRouter>,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
 
-  it('Fetch data calls correctly', () => {
-    const mockFn = jest.fn();
+  it('Fetch movies by filter calls correctly', () => {
+    const mockFetchGenres = jest.fn();
+    const mockChangeFilter = jest.fn();
+    const mockFetchMoviesByFilter = jest.fn();
+    const mockFetchMoviesByGenre = jest.fn();
+    const mockFetchSearchMovies = jest.fn();
 
     let tree;
 
     act(() => {
       tree = create(
-        <StaticRouter location="someLocation">
+        <StaticRouter location={{ pathname: '/', search: '?id=1' }}>
           <Provider store={store}>
-            <SearchResultsPage fetchData={mockFn} />
+            <SearchResultsPage
+              fetchGenres={mockFetchGenres}
+              changeFilter={mockChangeFilter}
+              fetchMoviesByFilter={mockFetchMoviesByFilter}
+              fetchMoviesByGenre={mockFetchMoviesByGenre}
+              fetchSearchMovies={mockFetchSearchMovies}
+              location={{ pathname: '/', search: '?id=1' }}
+            />
           </Provider>
         </StaticRouter>,
       );
     });
 
-    expect(mockFn).toHaveBeenCalled();
+    expect(mockFetchGenres).toHaveBeenCalled();
+    expect(mockChangeFilter).toHaveBeenCalled();
+    expect(mockFetchMoviesByFilter).toHaveBeenCalled();
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('Fetch movies by genre calls correctly', () => {
+    const mockFetchGenres = jest.fn();
+    const mockChangeFilter = jest.fn();
+    const mockFetchMoviesByFilter = jest.fn();
+    const mockFetchMoviesByGenre = jest.fn();
+    const mockFetchSearchMovies = jest.fn();
+
+    let tree;
+
+    act(() => {
+      tree = create(
+        <StaticRouter location={{ pathname: '/Genres', search: '?id=1' }}>
+          <Provider store={store}>
+            <SearchResultsPage
+              fetchGenres={mockFetchGenres}
+              changeFilter={mockChangeFilter}
+              fetchMoviesByFilter={mockFetchMoviesByFilter}
+              fetchMoviesByGenre={mockFetchMoviesByGenre}
+              fetchSearchMovies={mockFetchSearchMovies}
+              location={{ pathname: '/Genres', search: '?id=1' }}
+            />
+          </Provider>
+        </StaticRouter>,
+      );
+    });
+
+    expect(mockFetchGenres).toHaveBeenCalled();
+    expect(mockChangeFilter).toHaveBeenCalled();
+    expect(mockFetchMoviesByGenre).toHaveBeenCalled();
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('Fetch movies by search query calls correctly', () => {
+    const mockFetchGenres = jest.fn();
+    const mockChangeFilter = jest.fn();
+    const mockFetchMoviesByFilter = jest.fn();
+    const mockFetchMoviesByGenre = jest.fn();
+    const mockFetchSearchMovies = jest.fn();
+
+    let tree;
+
+    act(() => {
+      tree = create(
+        <StaticRouter location={{ pathname: '/Search', search: '?id=1' }}>
+          <Provider store={store}>
+            <SearchResultsPage
+              fetchGenres={mockFetchGenres}
+              changeFilter={mockChangeFilter}
+              fetchMoviesByFilter={mockFetchMoviesByFilter}
+              fetchMoviesByGenre={mockFetchMoviesByGenre}
+              fetchSearchMovies={mockFetchSearchMovies}
+              location={{ pathname: '/Search', search: '?id=1' }}
+            />
+          </Provider>
+        </StaticRouter>,
+      );
+    });
+
+    expect(mockFetchGenres).toHaveBeenCalled();
+    expect(mockChangeFilter).toHaveBeenCalled();
+    expect(mockFetchSearchMovies).toHaveBeenCalled();
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders correctly App renders correctly with main page 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ErrorBoundary>
+    <BrowserRouter>
+      <Switch>
+        <Route
+          path="/movie/:id"
+          render={[Function]}
+        />
+        <Route
+          render={[Function]}
+        />
+      </Switch>
+    </BrowserRouter>
+  </ErrorBoundary>
+</Provider>
+`;
+
+exports[`App component renders correctly App renders correctly with movie details page 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "canGo": [Function],
+      "createHref": [Function],
+      "entries": Array [
+        Object {
+          "hash": "",
+          "key": "y46ah7",
+          "pathname": "/movie/123",
+          "search": "",
+          "state": undefined,
+        },
+      ],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "index": 0,
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "key": "y46ah7",
+        "pathname": "/movie/123",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <App />
+</Router>
+`;

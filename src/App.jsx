@@ -12,13 +12,15 @@ const App = () => (
     <ErrorBoundary>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={SearchResultsPageContainer} />
           <Route
             path="/movie/:id"
             render={({ match }) => {
               const id = match.params.id.slice(1);
               return <MovieDetailsPageContainer id={id} />;
             }}
+          />
+          <Route
+            render={({ location }) => <SearchResultsPageContainer location={location} />}
           />
         </Switch>
       </BrowserRouter>

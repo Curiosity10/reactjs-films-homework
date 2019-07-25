@@ -6,7 +6,7 @@ import NumRating from '../../../../../NumRating';
 import Genres from '../../../../../Genres';
 import Button from '../../../../../Button';
 import StarRating from '../../../../../StarRating';
-import truncate from '../../../../utils/truncate';
+import truncate from '../../../../../utils/truncate';
 import { MAX_TABLE_CARD_DESC_LENGTH } from '../../../../utils/constants';
 
 const TableCard = ({ movie, fetchVideoKey, toggleModal }) => {

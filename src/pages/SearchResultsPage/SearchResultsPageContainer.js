@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import SearchResultsPage from './SearchResultsPage';
-import { fetchGenres, fetchMoviesByFilter, changeFilter } from '../../modules/app/appActions';
-import uiActions from '../../modules/ui/uiActions';
+import {
+  fetchGenres,
+  fetchMoviesByFilter,
+  changeFilter,
+  fetchSearchMovies,
+  fetchMoviesByGenre,
+} from '../../modules/app/appActions';
 
-export const mapDispatchToProps = dispatch => ({
-  fetchData: () => {
-    dispatch(fetchGenres());
-    dispatch(fetchMoviesByFilter());
-  },
-  changeFilter: () => dispatch(changeFilter('popular')),
-  changeLayout: () => dispatch(uiActions.changeLayout()),
-});
+const actions = {
+  fetchGenres,
+  fetchMoviesByFilter,
+  changeFilter,
+  fetchSearchMovies,
+  fetchMoviesByGenre,
+};
 
-export default connect(null, mapDispatchToProps)(SearchResultsPage);
+export default connect(null, actions)(SearchResultsPage);

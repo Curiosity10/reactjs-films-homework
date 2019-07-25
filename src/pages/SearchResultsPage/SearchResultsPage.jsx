@@ -6,17 +6,43 @@ import MoviesContainer from '../../components/Movies';
 import styles from './SearchResultsPage.scss';
 import Footer from '../../components/Footer';
 
-const SearchResultsPage = ({ fetchData, changeFilter, changeLayout }) => {
+const SearchResultsPage = ({
+  fetchGenres,
+  fetchMoviesByFilter,
+  changeFilter,
+  fetchSearchMovies,
+  fetchMoviesByGenre,
+  location,
+}) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  useEffect(() => {
-    changeLayout();
-    changeFilter();
-  }, [changeFilter, changeLayout]);
+  const filter = location.pathname.slice(1) || 'popular';
+
+  const queryRegExp = new RegExp(/[^=]*$/g);
+  const query = location.search.match(queryRegExp)[0];
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    fetchGenres();
+    changeFilter(filter);
+    switch (filter) {
+      case 'popular':
+      case 'top_rated':
+      case 'upcoming':
+        fetchMoviesByFilter();
+        break;
+      case 'Genres':
+        fetchMoviesByGenre(query);
+        break;
+      case 'Search':
+        fetchSearchMovies(query);
+        break;
+      default:
+        break;
+    }
+  }, [
+    changeFilter, fetchGenres, fetchMoviesByFilter,
+    fetchMoviesByGenre, fetchSearchMovies, filter, query,
+  ]);
 
   return (
     <div className={styles.container}>
@@ -31,15 +57,16 @@ const SearchResultsPage = ({ fetchData, changeFilter, changeLayout }) => {
 };
 
 SearchResultsPage.propTypes = {
-  fetchData: PropTypes.func,
-  changeFilter: PropTypes.func,
-  changeLayout: PropTypes.func,
+  changeFilter: PropTypes.func.isRequired,
+  fetchGenres: PropTypes.func.isRequired,
+  fetchMoviesByFilter: PropTypes.func.isRequired,
+  fetchSearchMovies: PropTypes.func.isRequired,
+  fetchMoviesByGenre: PropTypes.func.isRequired,
+  location: PropTypes.objectOf(PropTypes.string),
 };
 
 SearchResultsPage.defaultProps = {
-  fetchData: () => { },
-  changeFilter: () => { },
-  changeLayout: () => { },
+  location: { },
 };
 
 export default SearchResultsPage;
