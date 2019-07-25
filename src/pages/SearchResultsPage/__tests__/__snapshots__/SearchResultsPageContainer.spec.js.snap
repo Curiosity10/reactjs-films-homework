@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResultsPage renders correctly SearchResultsPageContainer render correctly 1`] = `
+<div
+  className="container"
+>
+  <header
+    className="header"
+  >
+    <div
+      className="container"
+    >
+      <h1>
+        <a
+          className="logo"
+          href="/"
+          onClick={[Function]}
+        >
+          Films
+        </a>
+      </h1>
+      <form
+        className="searchForm"
+        onSubmit={[Function]}
+      >
+        <input
+          aria-label="Search Input"
+          className="input"
+          onChange={[Function]}
+          placeholder="Search..."
+          type="search"
+          value=""
+        />
+        <button
+          aria-label="Search Button"
+          className="searchBtn"
+          type="submit"
+        />
+      </form>
+    </div>
+  </header>
+  <div
+    className="backdrop"
+  >
+    <section
+      className="menu"
+    >
+      <nav>
+        <ul>
+          <li
+            className="navItem"
+          >
+            <button
+              aria-label="Trending"
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              type="button"
+            >
+              Trending
+            </button>
+          </li>
+          <li
+            className="navItem"
+          >
+            <button
+              aria-label="Top Rated"
+              className="btn"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Top Rated
+            </button>
+          </li>
+          <li
+            className="navItem"
+          >
+            <button
+              aria-label="Coming Soon"
+              className="btn"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Coming Soon
+            </button>
+          </li>
+          <li
+            className="navItem"
+          >
+            <select
+              aria-label="Genres"
+              className="selectGenre"
+              name="selectGenre"
+              onChange={[Function]}
+              value=""
+            >
+              <option
+                disabled={true}
+                hidden={true}
+                value=""
+              >
+                Genre
+              </option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <button
+          aria-label="Grid"
+          className="btn btn__active"
+          onClick={[Function]}
+          type="button"
+        />
+        <button
+          aria-label="Table"
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        />
+      </div>
+    </section>
+    <main
+      className="container"
+    />
+    <div
+      className="spinner"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+      <p
+        className="title"
+      >
+        Loading
+      </p>
+    </div>
+  </div>
+  <footer
+    className="footer"
+  >
+    <h2
+      className="logo"
+    >
+      Films
+    </h2>
+    <p
+      className="copyright"
+    >
+      Copyright © 2019 FILMS. DZMITRY
+    </p>
+  </footer>
+</div>
+`;
