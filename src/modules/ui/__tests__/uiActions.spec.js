@@ -12,4 +12,14 @@ describe('Change layout works correctly', () => {
     };
     expect(actions.changeLayout(layout)).toEqual(expectedAction);
   });
+
+  it('Change layout without param equal grid', () => {
+    const expectedAction = {
+      type: types.CHANGE_LAYOUT,
+      payload: {
+        layout: 'grid',
+      },
+    };
+    expect(actions.changeLayout()).toEqual(expectedAction);
+  });
 });

@@ -97,6 +97,15 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: darken(#242b2d, 50%);
+    }
+  }
 }
 
 .overlay {
@@ -113,6 +122,15 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+
+    & a {
+      text-decoration: none;
+      color: #fff;
+
+      &:hover {
+        color: darken(#fff, 20%);
+      }
+    }
   }
 }
 

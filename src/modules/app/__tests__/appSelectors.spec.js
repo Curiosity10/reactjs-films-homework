@@ -1,8 +1,26 @@
 import * as selectors from '../appSelectors';
 import genres from '../../../__mocks__/genres.json';
+import noAvailableImage from '../../../assets/images/noAvailableImage.png';
 
 const state = {
   app: {
+    movie: {
+      id: 505954,
+      vote_average: 4.5,
+      title: 'Test',
+      genres: [
+        {
+          id: 12,
+          name: 'Adventure',
+        },
+        {
+          id: 18,
+          name: 'Drama',
+        },
+      ],
+      overview: 'Test desc',
+      backdrop_path: 'https://image.tmdb.org/t/p/w300/123',
+    },
     movies: [
       {
         id: 505954,
@@ -63,26 +81,73 @@ describe('Selectors work correctly', () => {
   });
 
   it('Should return movies', () => {
-    const movie = [
-      {
-        id: 505954,
-        rating: 4.5,
-        title: 'Test',
-        genres: [
-          {
-            id: 12,
-            name: 'Adventure',
-          },
-          {
-            id: 18,
-            name: 'Drama',
-          },
-        ],
-        overview: 'Test desc',
-        image: 'https://image.tmdb.org/t/p/w300/123',
-      },
-    ];
+    const movie = [{
+      id: 505954,
+      rating: 4.5,
+      title: 'Test',
+      genres: [
+        {
+          id: 12,
+          name: 'Adventure',
+        },
+        {
+          id: 18,
+          name: 'Drama',
+        },
+      ],
+      overview: 'Test desc',
+      image: 'https://image.tmdb.org/t/p/w300/123',
+    }];
     expect(selectors.moviesSelector(state)).toEqual(movie);
+  });
+
+  it('Should return movie', () => {
+    const movie = {
+      genres: [{ id: 12, name: 'Adventure' }, { id: 18, name: 'Drama' }],
+      id: 505954,
+      image: 'https://image.tmdb.org/t/p/originalhttps://image.tmdb.org/t/p/w300/123',
+      overview: 'Test desc',
+      rating: 4.5,
+      runtime: '0h 0m',
+      title: 'Test',
+    };
+
+    expect(selectors.movieDetailsSelector(state)).toEqual(movie);
+  });
+
+  it('Should return movie without image', () => {
+    const stateWithMovie = {
+      app: {
+        movie: {
+          id: 505954,
+          vote_average: 4.5,
+          title: 'Test',
+          genres: [
+            {
+              id: 12,
+              name: 'Adventure',
+            },
+            {
+              id: 18,
+              name: 'Drama',
+            },
+          ],
+          overview: 'Test desc',
+          backdrop_path: '',
+        },
+      },
+    };
+    const movie = {
+      genres: [{ id: 12, name: 'Adventure' }, { id: 18, name: 'Drama' }],
+      id: 505954,
+      image: noAvailableImage,
+      overview: 'Test desc',
+      rating: 4.5,
+      runtime: '0h 0m',
+      title: 'Test',
+    };
+
+    expect(selectors.movieDetailsSelector(stateWithMovie)).toEqual(movie);
   });
 
   it('Should return error', () => {

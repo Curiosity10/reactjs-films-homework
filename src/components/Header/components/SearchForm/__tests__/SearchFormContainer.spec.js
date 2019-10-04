@@ -1,6 +1,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import SearchFormContainer from '..';
 
@@ -13,7 +14,9 @@ describe('SearchFormContainer component renders correctly', () => {
   it('SearchFormContainer renders correctly', () => {
     const tree = create(
       <Provider store={store}>
-        <SearchFormContainer />
+        <StaticRouter>
+          <SearchFormContainer />
+        </StaticRouter>
       </Provider>,
     )
       .toJSON();

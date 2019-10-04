@@ -1,92 +1,187 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Hero component renders correctly Hero renders correctly 1`] = `
-<section
-  className="hero"
-  style={
-    Object {
-      "backgroundImage": "url(/123)",
-    }
-  }
+<div
+  className="container"
 >
-  <div
-    className="movieInfo"
+  <section
+    className="hero"
+    style={
+      Object {
+        "backgroundImage": "url(undefined)",
+      }
+    }
   >
-    <h2
-      className="title"
-    >
-      Test title
-    </h2>
     <div
-      className="wrapper"
+      className="movieInfo"
     >
-      <span
-        className="genre"
-      >
-        Adventure
-      </span>
-      <span
-        className="genre"
-      >
-        Action
-      </span>
-      <span
-        className="duration"
+      <h2
+        className="title"
       />
+      <div
+        className="wrapper"
+      >
+        <Genres
+          genres={Array []}
+        />
+        <span
+          className="duration"
+        />
+      </div>
     </div>
     <div
-      className="rating"
+      className="movieDescription"
     >
-      <div
-        className="star"
-      />
-      <div
-        className="star"
-      />
-      <div
-        className="star"
-      />
-      <div
-        className="star"
-      />
-      <div
-        className="star"
-      />
-      <span
-        className="numRating"
+      <p
+        className="description"
       >
-        5
-      </span>
+        
+      </p>
+      <div
+        className="buttons"
+      >
+        <Button
+          handleClick={[Function]}
+          type="primary"
+        >
+          Watch Now
+        </Button>
+        <Button
+          handleClick={[Function]}
+          type="ghost"
+        >
+          View Info
+        </Button>
+      </div>
     </div>
-  </div>
-  <div
-    className="movieDescription"
+  </section>
+</div>
+`;
+
+exports[`Hero component renders correctly Hero renders correctly with loading 1`] = `
+<div
+  className="container"
+>
+  <section
+    className="hero"
+    style={
+      Object {
+        "backgroundImage": "url(undefined)",
+      }
+    }
   >
-    <p
-      className="description"
-    >
-      Test description ...
-    </p>
     <div
-      className="buttons"
+      className="movieInfo"
     >
-      <button
-        aria-label="Watch Now"
-        className="btn primary"
-        onClick={[Function]}
-        type="button"
+      <h2
+        className="title"
+      />
+      <div
+        className="wrapper"
       >
-        Watch Now
-      </button>
-      <button
-        aria-label="View Info"
-        className="btn ghost"
-        onClick={[Function]}
-        type="button"
-      >
-        View Info
-      </button>
+        <Genres
+          genres={Array []}
+        />
+        <span
+          className="duration"
+        />
+      </div>
     </div>
-  </div>
-</section>
+    <div
+      className="movieDescription"
+    >
+      <p
+        className="description"
+      >
+        
+      </p>
+      <div
+        className="buttons"
+      >
+        <Button
+          handleClick={[Function]}
+          type="primary"
+        >
+          Watch Now
+        </Button>
+        <Button
+          handleClick={[Function]}
+          type="ghost"
+        >
+          View Info
+        </Button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Hero component renders correctly Hero renders correctly with rating 1`] = `
+<div
+  className="container"
+>
+  <section
+    className="hero"
+    style={
+      Object {
+        "backgroundImage": "url(undefined)",
+      }
+    }
+  >
+    <div
+      className="movieInfo"
+    >
+      <h2
+        className="title"
+      >
+        Test
+      </h2>
+      <div
+        className="wrapper"
+      >
+        <Genres
+          genres={Array []}
+        />
+        <span
+          className="duration"
+        />
+      </div>
+      <div
+        className="rating"
+      >
+        <StarRating
+          starsSelected={4}
+        />
+        <NumRating
+          rating={4}
+        />
+      </div>
+    </div>
+    <div
+      className="movieDescription"
+    >
+      <p
+        className="description"
+      >
+        
+      </p>
+      <div
+        className="buttons"
+      >
+        <Button
+          handleClick={[Function]}
+          type="primary"
+        >
+          Watch Now
+        </Button>
+        <Button
+          handleClick={[Function]}
+          type="ghost"
+        >
+          View Info
+        </Button>
+      </div>
+    </div>
+  </section>
+</div>
 `;

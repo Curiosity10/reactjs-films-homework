@@ -1,40 +1,56 @@
 import React from 'react';
-import { create, act } from 'react-test-renderer';
-import Hero from '..';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import Hero from '../Hero';
 
 describe('Hero component renders correctly', () => {
-  const movie = {
-    id: 123,
-    rating: 5,
-    title: 'Test title',
-    genres: [
-      {
-        id: 12,
-        name: 'Adventure',
-      },
-      {
-        id: 16,
-        name: 'Action',
-      },
-    ],
-    overview: 'Test description',
-    image: '/123',
-  };
-
   it('Hero renders correctly', () => {
-    const tree = create(<Hero movie={movie} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(
+      <Hero
+        movie={{}}
+        fetchVideoKey={() => {}}
+        toggleModal={() => {}}
+        isLoading={false}
+      />,
+    );
+    const buttons = result.props.children.props.children[1].props.children[1];
+
+    const mockWatchNow = jest.fn(buttons.props.children[0].props.handleClick);
+    const mockShowInfo = jest.fn(buttons.props.children[1].props.handleClick);
+
+    mockWatchNow();
+    mockShowInfo();
+
+    expect(result).toMatchSnapshot();
+    expect(mockWatchNow).toHaveBeenCalled();
+    expect(mockShowInfo).toHaveBeenCalled();
   });
 
-  it('Hide description works correctly', () => {
-    const tree = create(<Hero movie={movie} />);
-    const button = tree.root.findByProps({ 'aria-label': 'View Info' });
+  it('Hero renders correctly with rating', () => {
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(
+      <Hero
+        movie={{ title: 'Test', id: '123', rating: 4 }}
+        fetchVideoKey={() => {}}
+        toggleModal={() => {}}
+        isLoading={false}
+      />,
+    );
 
-    act(() => {
-      button.props.onClick();
-    });
+    expect(result).toMatchSnapshot();
+  });
 
-    const description = tree.toJSON().children[1].children[0];
-    expect(description.props.className).toEqual('hiddenDesc');
+  it('Hero renders correctly with loading', () => {
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(
+      <Hero
+        movie={{}}
+        fetchVideoKey={() => {}}
+        toggleModal={() => {}}
+        isLoading={false}
+      />,
+    );
+
+    expect(result).toMatchSnapshot();
   });
 });

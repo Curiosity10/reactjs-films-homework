@@ -208,4 +208,14 @@ describe('App reducer works correctly', () => {
       currentPage: 2,
     });
   });
+
+  it('should add new movie', () => {
+    expect(reducer({}, {
+      type: types.FETCH_MOVIE_DETAILS_SUCCESS,
+      payload: { movie: { title: 'Test' } },
+    })).toEqual({
+      movie: { title: 'Test' },
+      isLoading: false,
+    });
+  });
 });

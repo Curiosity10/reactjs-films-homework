@@ -9,5 +9,35 @@
         "distDir": "build"
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "/movie/(.*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/popular",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/upcoming",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/top_rated",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/Genres",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/Search",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
   ]
 }

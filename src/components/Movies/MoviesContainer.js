@@ -63,7 +63,7 @@ const MovieContainer = ({
   isLoading, filter, currentPage, genreId,
   searchQuery, movies, layout, getMoviesByFilter,
   getSearchMovies, getMoviesByGenre, videoSrc,
-  hasMorePages, errorMsg,
+  hasMorePages, errorMsg, isModalOpen, toggleModal,
 }) => {
   useLayoutEffect(() => {
     const callback = () => handleScroll({
@@ -97,6 +97,8 @@ const MovieContainer = ({
       isLoading={isLoading}
       movies={movies}
       layout={layout}
+      isModalOpen={isModalOpen}
+      toggleModal={toggleModal}
     />
   );
 };
@@ -122,6 +124,7 @@ const actions = {
 
 MovieContainer.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  isModalOpen: PropTypes.bool.isRequired,
   layout: PropTypes.string.isRequired,
   currentPage: PropTypes.number.isRequired,
   filter: PropTypes.string.isRequired,
@@ -134,6 +137,7 @@ MovieContainer.propTypes = {
   getMoviesByFilter: PropTypes.func.isRequired,
   getSearchMovies: PropTypes.func.isRequired,
   getMoviesByGenre: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
 
 MovieContainer.defaultProps = {

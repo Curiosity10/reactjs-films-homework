@@ -1,5 +1,13 @@
 @import "../../styles/variables.scss";
 
+.container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 .hero {
   box-sizing: border-box;
   display: flex;
@@ -7,6 +15,7 @@
   align-items: flex-end;
   padding-bottom: 20px;
   height: 80vh;
+  width: 100vw;
   position: relative;
   background: no-repeat center;
   background-size: cover;
@@ -29,7 +38,7 @@
   margin-bottom: 2%;
 }
 
-.duration {
+span + .duration {
   border-left: 1px solid white;
   padding-left: 3%;
 }
@@ -41,7 +50,7 @@
 }
 
 .movieInfo {
-  width: 300px;
+  width: 800px;
   color: white;
   margin-left: 5%;
   margin-bottom: 5px;
@@ -108,15 +117,31 @@
 }
 
 @media (max-width: $tablet-screen-size) {
+  .container {
+    height: auto;
+  }
+
   .hero {
+    padding-top: 30px;
     flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
   }
 
   .movieInfo {
-    width: 150px;
+    margin-left: 0;
+    margin-top: 17vh;
     display: flex;
+    width: 100vw;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 0;
+    border-radius: 3px;
+
+    & .title {
+      font-size: 1.5rem;
+    }
 
     & span:not(:last-child) {
       margin-bottom: 5px;
@@ -129,12 +154,13 @@
 
   .wrapper {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   .description {
+    width: 90vw;
+
     &::after {
       display: none;
     }
@@ -146,30 +172,16 @@
 }
 
 @media (max-width: $mobile-screen-size) {
-  .hero {
-    justify-content: center;
-    align-items: center;
-  }
-
   .movieInfo {
-    margin-left: 0;
-    margin-top: 17vh;
-    width: 90vw;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 5px 0;
-
-    & span:not(:last-child) {
-      margin-bottom: 5px;
-    }
   }
 
   .description {
     box-sizing: border-box;
-    width: 90vw;
+    width: 100vw;
     height: auto;
   }
 
@@ -181,7 +193,8 @@
 
   .wrapper {
     display: block;
-    width: 70vw;
+    width: 100%;
     margin-bottom: 10px;
+    padding-left: 10px;
   }
 }

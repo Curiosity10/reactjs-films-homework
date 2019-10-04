@@ -1,11 +1,40 @@
-import { mapDispatchToProps } from '../SearchResultsPageContainer';
+import React from 'react';
+import { create } from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
+import { StaticRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import SearchResultsPageContainer from '../SearchResultsPageContainer';
 
-describe('mapDispatchToProps works correctly', () => {
-  it('Fetch data works correctly', () => {
-    const dispatch = jest.fn();
-    const mockFn = jest.fn(mapDispatchToProps(dispatch).fetchData);
+describe('SearchResultsPage renders correctly', () => {
+  const middlewares = [];
+  const mockStore = configureStore(middlewares);
+  const initialState = {
+    app: {
+      movies: [],
+      genres: [],
+      isLoading: true,
+      currentPage: 1,
+      error: false,
+      filter: 'Trending',
+      genreId: null,
+      searchQuery: '',
+      videoKey: '',
+      pagesCount: 1,
+    },
+    ui: {
+      layout: 'grid',
+    },
+  };
+  const store = mockStore(initialState);
 
-    mockFn();
-    expect(mockFn).toHaveBeenCalled();
+  it('SearchResultsPageContainer render correctly', () => {
+    const tree = create(
+      <StaticRouter location={{ pathname: '/123', search: '?id=1' }}>
+        <Provider store={store}>
+          <SearchResultsPageContainer location={{ pathname: '/123', search: '?id=1' }} />
+        </Provider>
+      </StaticRouter>,
+    );
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 });

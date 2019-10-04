@@ -33,13 +33,13 @@ exports[`Movies component renders correctly Movies grid renders correctly 1`] = 
       }
       toggleModal={[Function]}
     />
-    <a
+    <button
       className="toTopBtn"
-      href="#top"
+      onClick={[Function]}
       type="button"
     >
       ↑
-    </a>
+    </button>
   </main>
 </React.Fragment>
 `;
@@ -55,5 +55,24 @@ exports[`Movies component renders correctly Movies not found message renders cor
       Sorry, no movies found.
     </p>
   </main>
+</React.Fragment>
+`;
+
+exports[`Movies component renders correctly Movies render modal correctly 1`] = `
+<React.Fragment>
+  <main
+    className="container"
+  >
+    <p
+      className="notFound"
+    >
+      Sorry, no movies found.
+    </p>
+  </main>
+  <TrailerModal
+    isLoading={false}
+    toggleModal={[Function]}
+    videoSrc=""
+  />
 </React.Fragment>
 `;

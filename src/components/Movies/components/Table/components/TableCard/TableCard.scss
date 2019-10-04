@@ -39,6 +39,15 @@
   padding-top: 10px;
   margin-bottom: 20px;
 
+  & a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: darken(#242b2d, 50%);
+    }
+  }
+
   & ~ span {
     display: inline-block;
     font-size: 1rem;

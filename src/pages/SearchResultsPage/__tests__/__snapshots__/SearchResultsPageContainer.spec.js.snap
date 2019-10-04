@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorBoundary component renders correctly ErrorBoundary catch error correctly 1`] = `
-Array [
+exports[`SearchResultsPage renders correctly SearchResultsPageContainer render correctly 1`] = `
+<div
+  className="container"
+>
   <header
     className="header"
   >
@@ -36,9 +38,9 @@ Array [
         />
       </form>
     </div>
-  </header>,
+  </header>
   <div
-    className="container"
+    className="backdrop"
   >
     <section
       className="menu"
@@ -120,10 +122,27 @@ Array [
         />
       </div>
     </section>
-    <p>
-      Sorry, something went wrong.
-    </p>
-  </div>,
+    <main
+      className="container"
+    />
+    <div
+      className="spinner"
+    >
+      <div
+        className="ellipsis"
+      >
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+      <p
+        className="title"
+      >
+        Loading
+      </p>
+    </div>
+  </div>
   <footer
     className="footer"
   >
@@ -137,8 +156,6 @@ Array [
     >
       Copyright © 2019 FILMS. DZMITRY
     </p>
-  </footer>,
-]
+  </footer>
+</div>
 `;
-
-exports[`ErrorBoundary component renders correctly ErrorBoundary renders correctly 1`] = `""`;

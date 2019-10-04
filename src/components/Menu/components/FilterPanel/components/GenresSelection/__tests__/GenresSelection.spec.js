@@ -1,5 +1,6 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import GenresSelection from '../GenresSelection';
 import { genres } from '../../../../../../../__mocks__/genres.json';
 
@@ -10,13 +11,15 @@ describe('GenresSelection component', () => {
 
   it('GenresSelection component renders correctly', () => {
     const tree = create(
-      <GenresSelection
-        activeItem="Trending"
-        setActiveItem={setActiveItem}
-        fetchedGenres={genres}
-        setActive={setActive}
-        fetchMoviesByGenre={fetchMoviesByGenre}
-      />,
+      <StaticRouter>
+        <GenresSelection
+          activeItem="Trending"
+          setActiveItem={setActiveItem}
+          fetchedGenres={genres}
+          setActive={setActive}
+          fetchMoviesByGenre={fetchMoviesByGenre}
+        />
+      </StaticRouter>,
     );
     expect(tree.toJSON()).toMatchSnapshot();
   });
@@ -25,7 +28,9 @@ describe('GenresSelection component', () => {
 
     act(() => {
       tree = create(
-        <GenresSelection filter="Genres" />,
+        <StaticRouter>
+          <GenresSelection filter="Genres" />
+        </StaticRouter>,
       );
     });
 
@@ -33,7 +38,9 @@ describe('GenresSelection component', () => {
   });
   it('GenresSelection component without props works correctly', () => {
     const tree = create(
-      <GenresSelection />,
+      <StaticRouter>
+        <GenresSelection />
+      </StaticRouter>,
     );
     const select = tree.root.findByProps({ 'aria-label': 'Genres' });
     const mockOnChange = jest.fn(select.props.onChange);

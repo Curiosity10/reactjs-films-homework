@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './TableCard.scss';
 import NumRating from '../../../../../NumRating';
 import Genres from '../../../../../Genres';
 import Button from '../../../../../Button';
 import StarRating from '../../../../../StarRating';
-import truncate from '../../../../utils/truncate';
+import truncate from '../../../../../utils/truncate';
 import { MAX_TABLE_CARD_DESC_LENGTH } from '../../../../utils/constants';
 
 const TableCard = ({ movie, fetchVideoKey, toggleModal }) => {
@@ -25,7 +26,11 @@ const TableCard = ({ movie, fetchVideoKey, toggleModal }) => {
     <article className={styles.card}>
       <img src={image} alt="Poster" />
       <div className={styles.info}>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title}>
+          <Link to={`/movie/:${id}`}>
+            {title}
+          </Link>
+        </h2>
         <Genres genres={genres} />
         <p className={styles.overview}>{truncate(overview, MAX_TABLE_CARD_DESC_LENGTH)}</p>
         <div className={styles.rating}>

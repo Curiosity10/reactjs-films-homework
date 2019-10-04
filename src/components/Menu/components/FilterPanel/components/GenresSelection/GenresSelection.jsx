@@ -1,10 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback, useEffect, useState,
+} from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from '../../FilterPanel.scss';
 
-const GenresSelection = ({
-  setActive, checkActiveItem, fetchedGenres, fetchMoviesByGenre, filter,
+const GenresSelection = withRouter(({
+  setActive,
+  checkActiveItem,
+  fetchedGenres,
+  fetchMoviesByGenre,
+  filter,
+  history,
 }) => {
   const [selectValue, setSelectValue] = useState('');
   const genres = fetchedGenres;
@@ -20,9 +28,13 @@ const GenresSelection = ({
       <select
         onChange={useCallback((e) => {
           setSelectValue(e.target.value);
+          history.push({
+            pathname: '/Genres',
+            search: `?id=${e.target.value}`,
+          });
           setActive('Genres');
           fetchMoviesByGenre(e.target.value);
-        }, [setActive, fetchMoviesByGenre, setSelectValue])}
+        }, [setActive, fetchMoviesByGenre, setSelectValue, history])}
         aria-label="Genres"
         value={selectValue}
         className={cn(styles.selectGenre, checkActiveItem('Genres'))}
@@ -36,7 +48,7 @@ const GenresSelection = ({
       </select>
     </li>
   );
-};
+});
 
 GenresSelection.propTypes = {
   setActive: PropTypes.func,

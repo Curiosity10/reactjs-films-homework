@@ -1,5 +1,6 @@
 import React from 'react';
 import { create, act } from 'react-test-renderer';
+import { StaticRouter } from 'react-router-dom';
 import TableCard from '../TableCard';
 
 describe('TableCard component renders correctly', () => {
@@ -21,18 +22,22 @@ describe('TableCard component renders correctly', () => {
 
   it('TableCard renders correctly', () => {
     const tree = create(
-      <TableCard
-        movie={movie}
-      />,
+      <StaticRouter location="someLocation">
+        <TableCard
+          movie={movie}
+        />
+      </StaticRouter>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TableCard watchBtnClick works correctly', () => {
     const tree = create(
-      <TableCard
-        movie={movie}
-      />,
+      <StaticRouter location="someLocation">
+        <TableCard
+          movie={movie}
+        />
+      </StaticRouter>,
     );
 
     const watchBtn = tree.root.findByProps({ 'aria-label': 'Watch Now' });

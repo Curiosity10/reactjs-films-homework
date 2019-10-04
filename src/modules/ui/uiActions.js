@@ -1,6 +1,6 @@
 import types from './uiConstants';
 
-const changeLayout = layout => ({
+const changeLayout = (layout = 'grid') => ({
   type: types.CHANGE_LAYOUT,
   payload: {
     layout,

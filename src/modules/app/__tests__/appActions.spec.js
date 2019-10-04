@@ -219,11 +219,58 @@ describe('Fetch src works correctly', () => {
 
 describe('Change filter works correctly', () => {
   it('Change filter to Trending', () => {
-    const filter = 'Trending';
+    const filter = 'popular';
     const expectedAction = {
       type: types.CHANGE_FILTER,
       payload: { filter },
     };
     expect(actions.changeFilter(filter)).toEqual(expectedAction);
+  });
+
+  it('Change filter without param', () => {
+    const expectedAction = {
+      type: types.CHANGE_FILTER,
+      payload: { filter: 'popular' },
+    };
+    expect(actions.changeFilter()).toEqual(expectedAction);
+  });
+});
+
+describe('Fetch movie details works correctly', () => {
+  it('creates FETCH_MOVIE_DETAILS_SUCCESS when fetching movie details has been done', () => {
+    fetch.mockResponse(JSON.stringify({ title: 'Test' }));
+
+    const expectedActions = [
+      { type: types.FETCH_MOVIE_DETAILS_REQUEST },
+      {
+        type: types.FETCH_MOVIE_DETAILS_SUCCESS,
+        payload: {
+          movie: { title: 'Test' },
+        },
+      },
+    ];
+
+    const store = mockStore({ movie: {} });
+
+    return store.dispatch(actions.fetchMovieDetails('123')).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('creates FETCH_MOVIE_DETAILS_FAILURE when error in fetch', () => {
+    fetch.mockReject(new Error('fake error message'));
+
+    const expectedActions = [
+      { type: types.FETCH_MOVIE_DETAILS_REQUEST },
+      {
+        type: types.FETCH_MOVIE_DETAILS_FAILURE,
+        payload: { error: 'fake error message' },
+      },
+    ];
+
+    const store = mockStore({ });
+    return store.dispatch(actions.fetchMovieDetails('123')).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });

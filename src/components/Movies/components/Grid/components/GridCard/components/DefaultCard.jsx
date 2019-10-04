@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../GridCard.scss';
 import Genres from '../../../../../../Genres';
@@ -6,7 +7,13 @@ import NumRating from '../../../../../../NumRating';
 import Button from '../../../../../../Button';
 
 const DefaultCard = ({
-  changeActiveCard, title, genres, rating, id, toggleModal, fetchVideoKey,
+  changeActiveCard,
+  title,
+  genres,
+  rating,
+  id,
+  toggleModal,
+  fetchVideoKey,
 }) => (
   <>
     <div className={styles.onHover}>
@@ -26,7 +33,9 @@ const DefaultCard = ({
     <div className={styles.info}>
       <div>
         <h3 title={title} className={styles.title}>
-          {title}
+          <Link to={`/movie/:${id}`}>
+            {title}
+          </Link>
         </h3>
         <p>
           <Genres genres={genres} />

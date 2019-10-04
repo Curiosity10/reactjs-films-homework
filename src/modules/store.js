@@ -7,6 +7,7 @@ import appReducer from './app/appReducer';
 
 const initialState = {
   app: {
+    movie: {},
     movies: [],
     genres: [],
     isLoading: true,
